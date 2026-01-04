@@ -8,6 +8,7 @@ project:
 website:
   title: "Study & Beyond"
   search: true
+  site-url: https://kmakdh3692.github.io
   navbar:
     background: primary
     left:

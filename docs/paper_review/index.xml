@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Study &amp; Beyond</title>
+<link>https://kmakdh3692.github.io/paper_review/</link>
+<atom:link href="https://kmakdh3692.github.io/paper_review/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Sun, 04 Jan 2026 04:40:31 GMT</lastBuildDate>
+<item>
+  <title>Layer-wise anomaly detection and classification for powder bed Additive Manufacturing</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/paper_review/posts/review_1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="paper-overview" class="level2">
+<h2 class="anchored" data-anchor-id="paper-overview">Paper Overview</h2>
+<p><strong>Title:</strong> Layer-wise anomaly detection and classification for powder bed additive manufacturing<br>
+<strong>Authors:</strong> Luke Scime et al.&nbsp;(Oak Ridge National Laboratory, ORNL)</p>
+<p>This paper addresses the challenge of real-time quality monitoring in powder-bed additive manufacturing (AM) by proposing a deep-learning–based framework for layer-wise anomaly detection and classification. The work is motivated by the limitations of traditional open-loop process control and ex-situ inspection, which cannot detect or correct defects during the build and often result in significant material and time waste. The authors focus on surface-visible anomalies that persist across layers and are detectable in powder-bed images, making them suitable for in-situ monitoring.</p>
+</section>
+<section id="core-contributions-and-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="core-contributions-and-methodology">Core Contributions and Methodology</h2>
+<p>The paper introduces the <strong>Dynamic Segmentation Convolutional Neural Network (DSCNN)</strong>, a pixel-wise semantic segmentation model designed specifically for high-resolution powder-bed imaging data. Unlike earlier patch-based approaches (e.g., MsCNN), DSCNN performs classification at the native image resolution and explicitly captures multi-scale contextual information through a three-leg architecture: (i) a global CNN branch for large-scale bed-level conditions, (ii) a regional U-Net branch for medium-scale morphological features, and (iii) a localization branch operating on native-resolution tiles to preserve fine-grained details. In addition, normalized pixel-coordinate channels are incorporated to encode spatial priors, reflecting the fact that certain defects are more likely to occur in specific regions of the build plate.</p>
+</section>
+<section id="data-training-strategy-and-practical-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="data-training-strategy-and-practical-considerations">Data, Training Strategy, and Practical Considerations</h2>
+<p>DSCNN is validated across six different powder-bed AM machines spanning three technologies (laser PBF, electron-beam PBF, and binder jetting), demonstrating strong cross-machine generalization. The authors carefully address key challenges in AM data, including extreme class imbalance and noisy manual annotations. To mitigate these issues, the training pipeline employs median-frequency class balancing and a skeptical (hard-bootstrapping) loss, which allows the model to partially rely on its own confident predictions when human labels are inconsistent. A tile-based training strategy is used to manage GPU memory while preserving multi-scale context, enabling efficient training on very large images.</p>
+</section>
+<section id="results-and-insights" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-insights">Results and Insights</h2>
+<p>Experimental results show that DSCNN significantly outperforms previous patch-based CNN approaches in terms of spatial localization accuracy and false-positive rates, particularly for rare but critical defect classes such as incomplete spreading, recoater streaking, and debris. Transfer learning experiments further demonstrate that models trained on data-rich machines can be effectively adapted to machines with limited labeled data, improving convergence speed and overall performance. Qualitative visualizations confirm that DSCNN produces more precise and interpretable anomaly maps, supporting its suitability for real-time, in-situ monitoring.</p>
+</section>
+<section id="reviewers-takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="reviewers-takeaway">Reviewer’s Takeaway</h2>
+<p>This paper represents a strong example of <strong>domain-aware deep learning</strong>, where network architecture, input representation, and loss design are tightly aligned with the physical and operational characteristics of powder-bed AM processes. Its emphasis on pixel-wise segmentation, multi-scale context, and transferability across machines makes DSCNN a foundational reference for researchers working on real-time quality assurance and closed-loop control in additive manufacturing.</p>
+<p><strong>Slide deck:</strong> <a href="../files/review1.pdf">Download PDF</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Additive Manufacturing</category>
+  <category>Deep Learning</category>
+  <category>CNN</category>
+  <guid>https://kmakdh3692.github.io/paper_review/posts/review_1.html</guid>
+  <pubDate>Sun, 04 Jan 2026 04:40:31 GMT</pubDate>
+</item>
+</channel>
+</rss>

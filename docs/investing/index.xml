@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Study &amp; Beyond</title>
+<link>https://kmakdh3692.github.io/investing/</link>
+<atom:link href="https://kmakdh3692.github.io/investing/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Sun, 03 Aug 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>ETF 기초</title>
+  <link>https://kmakdh3692.github.io/investing/posts/investing_1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="etf-기초" class="level1">
+<h1>ETF 기초</h1>
+<p>여기에 내용을 작성합니다.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>ETF</category>
+  <category>Investing 101</category>
+  <guid>https://kmakdh3692.github.io/investing/posts/investing_1.html</guid>
+  <pubDate>Sun, 03 Aug 2025 04:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

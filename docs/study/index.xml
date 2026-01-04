@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Study &amp; Beyond</title>
+<link>https://kmakdh3692.github.io/study/</link>
+<atom:link href="https://kmakdh3692.github.io/study/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Sun, 04 Jan 2026 03:29:56 GMT</lastBuildDate>
+<item>
+  <title>Generative AI_2</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_18.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This tutorial provides a structured and practical explanation of conditional diffusion models, building directly on the fundamentals of DDPMs and extending them to controlled and time-series generation. It begins with a concise recap of DDPM, reviewing the forward noising process, the reverse denoising process, and the ELBO formulation, and explains why the training objective simplifies to predicting Gaussian noise with a mean squared error loss. The tutorial then introduces three core paradigms for conditional diffusion: classifier guidance, direct conditioning, and classifier-free guidance (CFG). Classifier guidance is derived from a Bayesian score decomposition and shows how gradients from a separately trained classifier modify the reverse diffusion trajectory, while also highlighting its computational cost and stability issues. Direct conditioning is presented as an end-to-end approach that injects conditional information directly into the denoising network via mechanisms such as concatenation, conditional normalization, or cross-attention, resulting in strong condition fidelity but limited inference-time flexibility. CFG is explained as a unifying strategy that trains a single model with condition dropout and combines conditional and unconditional predictions at inference time using a guidance scale, enabling controllable trade-offs between fidelity and diversity without external classifiers. Finally, the tutorial extends conditional diffusion to time-series data by treating observed historical sequences as clean conditioning inputs and diffusing only the future target segment, showing how direct conditioning (and optionally CFG) can be adapted to preserve temporal structure. The tutorial concludes by positioning conditional diffusion as a flexible and principled framework for image, multimodal, and time-series generation, and by clarifying the design trade-offs that guide practical model selection.</p>
+<p><strong>Full notes:</strong> <a href="../files/Conditional_Diffusion_Model_and_Expansion_to_Time_series.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Generative AI</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_18.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:29:56 GMT</pubDate>
+</item>
+<item>
+  <title>Generative AI_1</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_17.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains the fundamentals of Denoising Diffusion Probabilistic Models (DDPMs) as a modern generative modeling framework. It begins with the forward diffusion process, where Gaussian noise is incrementally added to clean data through a Markov chain until the data becomes pure noise, and shows that this process admits a closed-form expression for sampling at any time step. The notes then explain why directly reversing this process is intractable and how it can instead be approximated by a neural network trained to remove noise step by step. Using variational inference, the lecture derives the evidence lower bound (ELBO) and decomposes it into tractable terms, clarifying how the original objective simplifies into a practical mean squared error loss on the predicted noise. It is shown that predicting noise is mathematically equivalent to learning the reverse diffusion dynamics. The lecture further discusses the role of variance schedules, such as linear and cosine beta schedules, and explains how they affect training stability and sample quality. Finally, the complete training and sampling procedures are summarized, providing a clear roadmap for implementing diffusion models in practice.</p>
+<p><strong>Full notes:</strong> <a href="../files/Fundamentals_of_Diffusion_Model.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Generative AI</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_17.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:27:46 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 16</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_16.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note introduces Gaussian Processes (GPs) as probabilistic models for regression that provide both predictions and calibrated uncertainty. It begins with a careful review of Gaussian random variables and multivariate Gaussians, emphasizing the role of the mean vector, covariance matrix, Mahalanobis distance, and the closed-form marginal and conditional distributions that make Gaussian models analytically tractable. The notes then extend these ideas to random processes and define a Gaussian process as a collection of random variables for which every finite subset follows a multivariate Gaussian distribution, fully specified by a mean function and a covariance (kernel) function. Using this foundation, GP regression is presented through Kriging, where observations are modeled as a deterministic trend plus a correlated Gaussian residual, leading to the best linear unbiased predictor (BLUP). The predictive mean and variance are derived explicitly using conditional Gaussian formulas, showing why GP regression interpolates exactly at noiseless training points and how uncertainty increases away from observed data. The lecture then introduces kernels as covariance functions, explains their geometric and smoothness properties using examples such as squared-exponential, Matérn, periodic, and linear kernels, and interprets length-scales as measures of input relevance via ARD. Hyperparameters are estimated by maximizing the marginal likelihood using Cholesky-based computations, and practical diagnostics such as leave-one-out residuals and predictive coverage are used to assess model adequacy. The lecture concludes by discussing noisy observations through the nugget effect, computational scaling limits, and approximation strategies, positioning Gaussian processes as a principled framework for data-efficient learning with explicit uncertainty quantification.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_16_Gaussian_Process.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_16.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:21:29 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 15</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_15.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains Principal Component Analysis (PCA) as a linear dimensionality reduction method that removes redundancy and noise by rotating the coordinate system of the data. Starting from centered data <img src="https://latex.codecogs.com/png.latex?X%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bm%20%5Ctimes%20n%7D">, PCA seeks an orthonormal transformation <img src="https://latex.codecogs.com/png.latex?Y%20=%20PX"> such that the covariance of <img src="https://latex.codecogs.com/png.latex?Y"> is diagonal and its variances are ordered from largest to smallest. Geometrically, PCA rotates the axes to align with the directions of maximum data spread, so that the first principal component captures the largest variance, the second captures the next largest while remaining orthogonal, and so on. The lecture derives PCA in two equivalent ways: by eigen-decomposition of the covariance matrix <img src="https://latex.codecogs.com/png.latex?C_X%20=%20%5Cfrac%7B1%7D%7Bn%7DXX%5E%5Ctop">, where principal components are eigenvectors and variances are eigenvalues, and by singular value decomposition (SVD) of the data matrix, which yields the same components more efficiently in practice. It clearly defines scores as the coordinates of samples in the principal component basis and loadings as the directions that describe how original variables contribute to each component. Dimensionality reduction is achieved by truncating low-variance components, with the discarded variance corresponding exactly to reconstruction error. The lecture also explains how to choose the number of components using cumulative explained variance (e.g., 95%) and discusses practical variants such as Kernel PCA, Functional PCA, Probabilistic PCA, Robust PCA, and Sparse PCA, clarifying when each extension is appropriate.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_15_PCA.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_15.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:19:58 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 14</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_14.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains Support Vector Machines (SVMs) as maximum-margin classifiers that select the separating hyperplane which maximizes the distance to the nearest training points. It begins with the geometric intuition of margins and support vectors, showing that only a small subset of boundary points determines the decision boundary while all other samples have no influence. The model is then formulated mathematically as a convex optimization problem that minimizes <img src="https://latex.codecogs.com/png.latex?%5Ctfrac%7B1%7D%7B2%7D%5C%7Cw%5C%7C%5E2"> subject to classification constraints <img src="https://latex.codecogs.com/png.latex?y_i(w%5E%5Ctop%20x_i%20+%20b)%20%5Cge%201">, directly linking margin maximization to norm minimization. Using Lagrangian duality and KKT conditions, the lecture derives the dual problem and shows that the solution depends only on inner products between samples, leading to a sparse representation in terms of support vectors. This observation enables the kernel trick, where dot products are replaced by kernel functions to implicitly map data into high- or infinite-dimensional feature spaces, yielding nonlinear decision boundaries in the original input space. Linear, polynomial, RBF, and sigmoid kernels are presented with clear interpretations of the types of similarity and flexibility they encode. To handle non-separable data, the lecture introduces soft-margin SVMs with slack variables and a regularization parameter <img src="https://latex.codecogs.com/png.latex?C"> that controls the tradeoff between margin width and classification errors. The lecture concludes by discussing practical advantages, limitations, and tuning considerations, positioning SVMs as robust, high-dimensional classifiers that combine geometry, convex optimization, and kernel methods.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_14_Support_Vector_Machine_SVM.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_14.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:17:28 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 13</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_13.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains ensemble learning as a systematic way to improve prediction accuracy by combining multiple base models, starting from the bias–variance decomposition of prediction error. It first shows mathematically why averaging multiple predictors reduces variance, especially when the individual models are weakly correlated, and motivates ensemble methods from this perspective. Bagging is introduced as a parallel approach that trains many models on bootstrap-resampled datasets and combines their predictions by averaging or voting, with out-of-bag (OOB) samples providing an internal estimate of test error. Random Forest is then presented as an extension of bagging for decision trees, where additional randomness is injected by selecting a random subset of features at each split, thereby reducing correlation between trees and further lowering variance. The lecture then shifts to boosting, which takes a fundamentally different approach by training models sequentially to reduce bias rather than variance. Boosting is formulated as an additive model <img src="https://latex.codecogs.com/png.latex?F_M(x)%20=%20%5Csum_%7Bm=1%7D%5EM%20%5Calpha_m%20h_m(x)">, where each new weak learner is trained to correct the residuals or gradients of the previous ensemble. AdaBoost is derived using exponential loss and sample reweighting to focus on misclassified points, while Gradient Boosting is explained as gradient descent in function space that can optimize any differentiable loss. Finally, XGBoost is introduced as a regularized, second-order extension of gradient boosting that uses both gradients and curvature, explicit complexity penalties, and system-level optimizations for speed and scalability. The lecture concludes by contrasting bagging and boosting as complementary strategies and explaining why Random Forest and XGBoost dominate real-world machine learning tasks.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_13_Ensemble_Methods.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_13.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:15:12 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 12</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_12.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains decision trees as intuitive, non-parametric models that make predictions through a sequence of simple if–then rules learned directly from data. It begins by connecting trees to logical gates and human decision processes, then formally defines classification and regression trees as models that recursively split the data at each node based on a feature and threshold. For classification, splits are chosen by minimizing node impurity using metrics such as Gini index or entropy, while regression trees minimize within-node variance or sum of squared errors, producing piecewise-constant predictions. The lecture walks step by step through the full training process: selecting the best split via weighted impurity reduction, recursively growing child nodes, applying stopping rules such as maximum depth or minimum impurity decrease, and assigning predictions at leaf nodes. It then introduces CART as a unified framework for classification and regression trees, emphasizing its greedy top-down splitting strategy and binary partitions. To control overfitting, both pre-pruning (early stopping) and post-pruning are explained in detail, including cost–complexity pruning and the weakest-link algorithm. The lecture also compares attribute-selection metrics such as information gain, gain ratio, variance reduction, and chi-square statistics, clarifying when each is appropriate. Finally, it discusses the strengths and weaknesses of trees and shows how ensemble methods such as Random Forest and boosting overcome instability and overfitting, positioning decision trees as both interpretable standalone models and foundational building blocks for powerful ensemble learners.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_12_Decision_Trees.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_12.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:12:52 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 11</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_11.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note introduces the Naïve Bayes classifier as a probabilistic, parametric classification model derived directly from Bayes’ theorem. It begins by defining prior, likelihood, and posterior probabilities, and explains the key simplifying assumption of Naïve Bayes: all features are conditionally independent given the class label. Under this assumption, the joint likelihood factorizes into a product of one-dimensional feature likelihoods, leading to a simple maximum a posteriori (MAP) decision rule that selects the class maximizing <img src="https://latex.codecogs.com/png.latex?P(y_k)%5Cprod_i%20P(X_i%20%5Cmid%20y_k)">. The lecture then presents the three main Naïve Bayes variants based on the assumed feature distributions: Gaussian Naïve Bayes for continuous features, Multinomial Naïve Bayes for count or frequency data (such as word counts in documents), and Bernoulli Naïve Bayes for binary presence–absence features. For each variant, the likelihood model and parameter estimation are derived explicitly, highlighting that training requires only simple counting or moment estimation rather than iterative optimization. Practical issues such as Laplace (Lidstone) smoothing are introduced to prevent zero probabilities in the multinomial model. The lecture concludes by explaining why Naïve Bayes often performs well despite its strong independence assumption, and by discussing its strengths (simplicity, speed, scalability) and limitations (independence violations and poor probability calibration), with typical applications including spam filtering, sentiment analysis, and document classification.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_11_Naive_Bayes_Classifier.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_11.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:11:07 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 10</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_10.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note introduces K-Nearest Neighbors (KNN) as a simple, non-parametric, and instance-based learning algorithm in which the training data itself serves as the model. For a new input, KNN computes distances to all training points, selects the K closest neighbors, and predicts by majority vote for classification or by averaging (or median) for regression. The lecture explains how the choice of K controls the bias–variance tradeoff, why small K is sensitive to noise while large K oversmooths decision boundaries, and how tie handling and distance-based weighting affect predictions. It then presents common distance metrics—Euclidean, Manhattan, Minkowski, cosine, Hamming, Jaccard, and Mahalanobis—and explains when each is appropriate based on data type, sparsity, and feature correlation. The notes emphasize that KNN performance is dominated by distance computations, making feature scaling essential, and they explain why unscaled features can distort neighborhoods. A detailed comparison of scaling methods is provided, including min–max normalization, z-score standardization, robust scaling using median and IQR, max–abs scaling for sparse data, and unit-length normalization. The lecture also discusses practical issues such as missing data handling, dimensionality reduction to mitigate the curse of dimensionality, and the computational and memory costs that arise because KNN evaluates the entire training set at prediction time.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_10_K_Nearest_Neighbor_and_Feature_Scaling.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_10.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:03:37 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 09</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_9.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains logistic regression as a probabilistic classification model and clarifies why plain linear regression fails for classification tasks. It begins by showing that linear regression produces unbounded outputs, unstable decision thresholds, and artificial class ordering, making it unsuitable for predicting class probabilities. Logistic regression fixes these issues by passing a linear score <img src="https://latex.codecogs.com/png.latex?z%20=%20%5Cbeta_0%20+%20%5Cbeta%5E%5Ctop%20x"> through the sigmoid function, producing valid probabilities <img src="https://latex.codecogs.com/png.latex?p(x)%20%5Cin%20(0,1)"> and a stable decision boundary given by <img src="https://latex.codecogs.com/png.latex?z%20=%200"> when using a 0.5 threshold. The lecture explains why logistic regression is called a “regression” model by showing that it is linear in the log-odds, and it demonstrates how coefficients should be interpreted through odds ratios <img src="https://latex.codecogs.com/png.latex?%5Cexp(%5Cbeta_j)"> rather than direct probability changes. Training is derived from first principles using maximum likelihood estimation, which leads exactly to the binary cross-entropy loss and the clean gradient <img src="https://latex.codecogs.com/png.latex?%5Cnabla%20C%20=%20%5Cfrac%7B1%7D%7Bm%7D%20X%5E%5Ctop%20(p%20-%20y)">. The notes discuss numerical optimization via gradient descent and briefly connect the method to second-order optimization through IRLS. The lecture then extends logistic regression to multi-class problems using softmax and negative log-likelihood. Finally, it addresses practical issues such as threshold selection, class imbalance, complete separation, regularization, and probability calibration, emphasizing that logistic regression provides not just class labels but reliable, interpretable probabilities.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_9_Logistic_Regression.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_9.html</guid>
+  <pubDate>Sun, 04 Jan 2026 03:03:09 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 08</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_8.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note builds linear regression from first principles and explains why it remains a core foundation for modern machine learning. It starts with simple and multiple linear regression, defining the model <img src="https://latex.codecogs.com/png.latex?y%20=%20X%5Cbeta%20+%20e">, deriving the ordinary least squares (OLS) solution by minimizing the residual sum of squares, and interpreting the solution geometrically as an orthogonal projection of the response onto the column space of the design matrix. The Gauss–Markov theorem is then used to show when OLS is the Best Linear Unbiased Estimator (BLUE), and the analysis is extended to heteroscedastic or correlated errors through generalized least squares (GLS), including the whitening (Cholesky) transformation and its geometric meaning. The lecture next explains the bias–variance tradeoff and motivates reducing variance through subset selection and shrinkage. Four subset selection methods—best subset, forward stepwise, backward stepwise, and forward stagewise regression—are described with their computational costs and practical tradeoffs. The notes then introduce regularization methods, deriving ridge regression <img src="https://latex.codecogs.com/png.latex?%5Cell_2">, lasso <img src="https://latex.codecogs.com/png.latex?%5Cell_1">, bridge regression <img src="https://latex.codecogs.com/png.latex?%5Cell_q">, and elastic net, and showing how each penalty alters coefficient estimates, sparsity, and stability. Throughout, the lecture emphasizes when to use each method in practice and how these linear techniques form the conceptual bridge to more advanced models in statistics and deep learning.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_8_Generalized_Linear_Regression.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Machine Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_8.html</guid>
+  <pubDate>Sun, 04 Jan 2026 02:53:18 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 04</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_4.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains why the common pairing of a sigmoid activation with a quadratic (MSE) loss often leads to very slow learning, and how better loss–activation combinations fix this problem. It starts by showing that, with a sigmoid output and MSE loss, the output-layer gradient is multiplied by the sigmoid derivative, which becomes extremely small when the neuron saturates near 0 or 1, causing parameter updates to nearly vanish. To address this, the lecture introduces the cross-entropy loss paired with a sigmoid output and shows analytically that the problematic sigmoid derivative cancels out, leaving a clean gradient proportional to the prediction error (a - y). The notes then extend this idea to multi-class classification by introducing the softmax activation, which converts logits into a valid probability distribution over classes. The negative log-likelihood (NLL) loss is defined as the negative log-probability assigned to the true class, and it is shown to be equivalent to cross-entropy with one-hot labels. By explicitly deriving the gradients, the lecture demonstrates that the softmax + NLL combination also yields an output-layer gradient of the simple form (a - y), avoiding saturation-induced slowdown. The lecture concludes with clear guidelines: use sigmoid with cross-entropy for binary or multi-label problems, and softmax with NLL for standard multi-class classification.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_4_Cross_Entropy_Softmax_and_Negative_Log_Likelihood.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Deep Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_4.html</guid>
+  <pubDate>Sun, 04 Jan 2026 02:48:01 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 03</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_3.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains backpropagation as the core algorithm that enables neural networks to compute gradients efficiently and learn from data. It begins by introducing clear layer-wise notation for weights, biases, pre-activations, and activations, and shows how a forward pass computes <img src="https://latex.codecogs.com/png.latex?z%5E%5Cell%20=%20W%5E%5Cell%20a%5E%7B%5Cell-1%7D%20+%20b%5E%5Cell"> and <img src="https://latex.codecogs.com/png.latex?a%5E%5Cell%20=%20%5Csigma(z%5E%5Cell)">. The notes then state two key assumptions on the cost function: that the total cost is an average of per-sample costs, and that each per-sample cost depends only on the network outputs. Under these assumptions, the lecture derives the four fundamental backpropagation equations, explaining how to compute the error at the output layer, propagate that error backward through hidden layers using transposed weight matrices, and obtain gradients with respect to biases and weights. Each gradient is given a concrete interpretation, such as a weight gradient being the product of the destination neuron’s error and the source neuron’s activation. Finally, the full backpropagation algorithm is summarized step by step, combining a forward pass, a backward pass, and parameter updates, and the notes explain why this procedure is computationally efficient and how it integrates naturally with stochastic gradient descent.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_3_Backpropagation.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Deep Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_3.html</guid>
+  <pubDate>Sun, 04 Jan 2026 02:46:00 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 02</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/article_2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note explains how the basic neural network concepts from the previous chapter are used to build and train a real classifier, using handwritten digit recognition as a concrete example. It formulates the task of mapping a 28×28 grayscale image to one of ten digits by flattening each image into a 784-dimensional vector and feeding it into a simple two-layer neural network. The notes clearly justify why digit labels should be encoded using one-hot vectors instead of ordinal numbers, showing how one-hot encoding gives cleaner learning signals for multi-class classification. The MNIST dataset is introduced with a clear separation between training and test data, emphasizing proper evaluation. The lecture then defines the quadratic (MSE) cost function and explains why accuracy alone cannot be used as a training objective. It derives gradient descent step by step, showing how gradients determine parameter updates and why moving opposite to the gradient reduces error. Finally, it introduces stochastic gradient descent and mini-batching, carefully defining practical terms such as batch size, iteration, and epoch, and explaining how repeated updates over multiple epochs enable neural networks to learn effectively from data.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_2_Classifying_Handwritten_Digits_Gradient_Descent.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Deep Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/article_2.html</guid>
+  <pubDate>Sun, 04 Jan 2026 02:39:32 GMT</pubDate>
+</item>
+<item>
+  <title>Scientific Machine Learning 01</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/2025-08-01-ml-intro.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note introduces the most fundamental building blocks required to study deep learning: perceptrons, sigmoid neurons, and artificial neural networks. It begins with the perceptron, a linear binary classifier that computes a weighted sum of inputs plus a bias and applies a step function to make yes-or-no decisions, which geometrically corresponds to separating data with a line or hyperplane. The notes show how such perceptrons can implement logic gates like AND, OR, and NAND, and how NAND gates can be combined to build simple digital circuits such as a half-adder. However, because the step activation changes output abruptly and has no usable gradient, perceptrons are difficult to train from data. To address this limitation, the lecture introduces the sigmoid neuron, which replaces the step function with a smooth, differentiable activation and explicitly derives its derivative, enabling learning through gradient descent. The notes then relate artificial neurons to their biological counterparts and explain how neurons are organized into input, hidden, and output layers to form feedforward artificial neural networks. Finally, the lecture presents the mathematical structure of ANNs and explains why even shallow networks, when properly constructed, can approximate complex functions—laying the essential groundwork for deeper neural network models.</p>
+<p><strong>Full notes:</strong> <a href="../files/SciML_1_Perceptrons_Sigmoid_and_ANN.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Deep Learning</category>
+  <guid>https://kmakdh3692.github.io/study/posts/2025-08-01-ml-intro.html</guid>
+  <pubDate>Sun, 04 Jan 2026 02:29:14 GMT</pubDate>
+</item>
+</channel>
+</rss>

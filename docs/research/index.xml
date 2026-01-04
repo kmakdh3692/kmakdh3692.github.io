@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Study &amp; Beyond</title>
+<link>https://kmakdh3692.github.io/research/</link>
+<atom:link href="https://kmakdh3692.github.io/research/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Sun, 04 Jan 2026 04:34:53 GMT</lastBuildDate>
+<item>
+  <title>Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/research/posts/talk1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes and was presented at the 6th Annual AI4SE &amp; SE4AI Research and Application Workshop held in Washington, DC on September 17–18, 2025, hosted by the George Washington University Trustworthy AI Initiative and organized by the Systems Engineering Research Center (SERC) in collaboration with the U.S. Army DEVCOM Armaments Center. The presentation begins by explaining how degradation signals are constructed from sensor data and why conventional prognostic pipelines—such as Bayesian updating with parametric degradation models and PCA-based lognormal regression—often fail when signals exhibit nonlinear, nonstationary, heteroscedastic, or multimodal behaviors. To address these limitations, the proposed approach reframes RUL/TTF prediction as a conditional generative modeling problem, in which a diffusion model learns the full conditional distribution of future degradation trajectories given partial observations and produces probabilistic TTF predictions via threshold-crossing times. The talk introduces a time-series–specific conditional diffusion architecture that combines Gaussian-process-based forward noising, GRU-based condition encoding, and a Transformer-based reverse denoising process. Performance is systematically evaluated using synthetic degradation datasets with controlled increases in structural complexity, including Brownian-motion noise, localized perturbations, and regime-switching dynamics. Benchmark results using RMSE and MAPE demonstrate that conditional diffusion models consistently outperform Bayesian updating and PCA-based lognormal regression in complex and noise-dominated settings, particularly near failure thresholds, positioning diffusion models as a flexible, nonparametric, and uncertainty-aware alternative for prognostics in realistic engineering systems.</p>
+<p><strong>Slide deck:</strong> <a href="../files/talk_1.pdf">Download PDF</a> <strong>Abstract:</strong> <a href="../files/talk_1_1.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>RUL/TTF Prediction</category>
+  <category>Generative AI</category>
+  <category>Diffusion model</category>
+  <guid>https://kmakdh3692.github.io/research/posts/talk1.html</guid>
+  <pubDate>Sun, 04 Jan 2026 04:34:53 GMT</pubDate>
+</item>
+<item>
+  <title>A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/research/posts/research2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains such as aerospace, manufacturing, and energy. Existing approaches largely fall into two categories: model-based methods that explicitly model degradation trajectories under para metric assumptions, and data-driven methods that directly map observed signals to failure time via dimensionality reduction and regression. Representative examples of these ap proaches considered in this paper include Bayesian updating and PCA-based lognormal re gression. While effective for smooth and monotonic degradation patterns, both paradigms often degrade when applied to irregular, nonstationary, or multimodal degradation pro cesses commonly encountered in real-world environments. To address these limitations, we propose a conditional diffusion–based generative framework that learns the full con ditional distribution of future degradation trajectories given partial observations, enabling flexible and probabilistic TTF prediction. By modeling the data distribution directly, diffu sion models can approximate nonlinear, heavy-tailed, and multimodal degradation behav iors. To rigorously evaluate performance, we construct synthetic degradation datasets with controlled increases in structural complexity, incorporating Brownian-motion noise, local ized perturbations, and multi-regime dynamics. Extensive benchmarks against Bayesian updating and PCA-based lognormal regression demonstrate that the proposed diffusion model consistently achieves lower error under complex settings, particularly near failure thresholds and under complex, heteroscedastic conditions. These results position diffusion model as a robust and scalable alternative for predictive analytics in realistic prognostic.</p>
+<p><strong>Full paper:</strong> <a href="../files/research_2.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>RUL/TTF Prediction</category>
+  <category>Generative AI</category>
+  <category>Diffusion model</category>
+  <guid>https://kmakdh3692.github.io/research/posts/research2.html</guid>
+  <pubDate>Sun, 04 Jan 2026 04:27:28 GMT</pubDate>
+</item>
+<item>
+  <title>Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/research/posts/research1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the industrial engineering, and to suggest the final optimized design of a paper drone so that it can fly as long as possible. By applying a variety of design methods, we can build an optimized model to make the best product or system, and this helps us reduce the cost of changing the process conditions so that we can minimize the number of experiment runs to reduce the total cost. We designed the experiment with standard papers given by NASA spaceship center. We set a total 6 factors and investigate the response surface of a paper drone flight time. With this research, we showed that RSM is not an independent way of designing an experiment in isolation, but the perfect way of combinations for those to find the optimal design, and the RSM process will help us to understand the practical way of design any experiment.</p>
+<p><strong>Full paper:</strong> <a href="../files/research_2.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Optimization</category>
+  <category>Response Surface Method</category>
+  <guid>https://kmakdh3692.github.io/research/posts/research1.html</guid>
+  <pubDate>Sun, 04 Jan 2026 04:26:58 GMT</pubDate>
+</item>
+</channel>
+</rss>
