@@ -1,0 +1,48 @@
+project:
+  type: website
+  resources:
+    - images/**
+    - files/**
+
+website:
+  title: "Study & Beyond"
+  search: true
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Study Note"
+        href: study/index.qmd
+      - text: "Paper Review"
+        href: paper_review/index.qmd
+      - text: "Research"
+        href: research/index.qmd
+      - text: "Investing"
+        href: investing/index.qmd
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/donghyun-ko-07b268196
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/kmakdh3692
+        aria-label: GitHub
+      - text: ORCID
+        href: https://orcid.org/0000-0003-2182-5733
+        aria-label: ORCID
+  page-footer:
+    center: "©2025 Donghyun Ko"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    page-navigation: true
+    code-fold: false
+    css: styles.css
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+execute:
+  freeze: false

@@ -1,0 +1,13 @@
+---
+title: "Generative AI_1"
+subtitle: "Fundamentals of Diffusion Model: Denoising Diffusion Probabilistic Models (DDPM)"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Generative AI"]
+format:
+  html: default
+---
+
+This lecture note explains the fundamentals of Denoising Diffusion Probabilistic Models (DDPMs) as a modern generative modeling framework. It begins with the forward diffusion process, where Gaussian noise is incrementally added to clean data through a Markov chain until the data becomes pure noise, and shows that this process admits a closed-form expression for sampling at any time step. The notes then explain why directly reversing this process is intractable and how it can instead be approximated by a neural network trained to remove noise step by step. Using variational inference, the lecture derives the evidence lower bound (ELBO) and decomposes it into tractable terms, clarifying how the original objective simplifies into a practical mean squared error loss on the predicted noise. It is shown that predicting noise is mathematically equivalent to learning the reverse diffusion dynamics. The lecture further discusses the role of variance schedules, such as linear and cosine beta schedules, and explains how they affect training stability and sample quality. Finally, the complete training and sampling procedures are summarized, providing a clear roadmap for implementing diffusion models in practice.
+
+**Full notes:** [Download PDF](../files/Fundamentals_of_Diffusion_Model.pdf)

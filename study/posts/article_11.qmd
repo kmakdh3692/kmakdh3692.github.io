@@ -1,0 +1,15 @@
+---
+title: "Scientific Machine Learning 11"
+subtitle: "Naïve Bayes Classifier"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note introduces the Naïve Bayes classifier as a probabilistic, parametric classification model derived directly from Bayes’ theorem. It begins by defining prior, likelihood, and posterior probabilities, and explains the key simplifying assumption of Naïve Bayes: all features are conditionally independent given the class label. Under this assumption, the joint likelihood factorizes into a product of one-dimensional feature likelihoods, leading to a simple maximum a posteriori (MAP) decision rule that selects the class maximizing $P(y_k)\prod_i P(X_i \mid y_k)$. The lecture then presents the three main Naïve Bayes variants based on the assumed feature distributions: Gaussian Naïve Bayes for continuous features, Multinomial Naïve Bayes for count or frequency data (such as word counts in documents), and Bernoulli Naïve Bayes for binary presence–absence features. For each variant, the likelihood model and parameter estimation are derived explicitly, highlighting that training requires only simple counting or moment estimation rather than iterative optimization. Practical issues such as Laplace (Lidstone) smoothing are introduced to prevent zero probabilities in the multinomial model. The lecture concludes by explaining why Naïve Bayes often performs well despite its strong independence assumption, and by discussing its strengths (simplicity, speed, scalability) and limitations (independence violations and poor probability calibration), with typical applications including spam filtering, sentiment analysis, and document classification.
+
+
+
+**Full notes:** [Download PDF](../files/SciML_11_Naive_Bayes_Classifier.pdf)

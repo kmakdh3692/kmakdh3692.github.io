@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 13"
+subtitle: "Ensemble Learning: Bagging and Boosting"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note explains ensemble learning as a systematic way to improve prediction accuracy by combining multiple base models, starting from the bias–variance decomposition of prediction error. It first shows mathematically why averaging multiple predictors reduces variance, especially when the individual models are weakly correlated, and motivates ensemble methods from this perspective. Bagging is introduced as a parallel approach that trains many models on bootstrap-resampled datasets and combines their predictions by averaging or voting, with out-of-bag (OOB) samples providing an internal estimate of test error. Random Forest is then presented as an extension of bagging for decision trees, where additional randomness is injected by selecting a random subset of features at each split, thereby reducing correlation between trees and further lowering variance. The lecture then shifts to boosting, which takes a fundamentally different approach by training models sequentially to reduce bias rather than variance. Boosting is formulated as an additive model $F_M(x) = \sum_{m=1}^M \alpha_m h_m(x)$, where each new weak learner is trained to correct the residuals or gradients of the previous ensemble. AdaBoost is derived using exponential loss and sample reweighting to focus on misclassified points, while Gradient Boosting is explained as gradient descent in function space that can optimize any differentiable loss. Finally, XGBoost is introduced as a regularized, second-order extension of gradient boosting that uses both gradients and curvature, explicit complexity penalties, and system-level optimizations for speed and scalability. The lecture concludes by contrasting bagging and boosting as complementary strategies and explaining why Random Forest and XGBoost dominate real-world machine learning tasks.
+
+
+**Full notes:** [Download PDF](../files/SciML_13_Ensemble_Methods.pdf)

@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 10"
+subtitle: "K-Nearest Neighbor and Feature Scaling"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note introduces K-Nearest Neighbors (KNN) as a simple, non-parametric, and instance-based learning algorithm in which the training data itself serves as the model. For a new input, KNN computes distances to all training points, selects the K closest neighbors, and predicts by majority vote for classification or by averaging (or median) for regression. The lecture explains how the choice of K controls the bias–variance tradeoff, why small K is sensitive to noise while large K oversmooths decision boundaries, and how tie handling and distance-based weighting affect predictions. It then presents common distance metrics—Euclidean, Manhattan, Minkowski, cosine, Hamming, Jaccard, and Mahalanobis—and explains when each is appropriate based on data type, sparsity, and feature correlation. The notes emphasize that KNN performance is dominated by distance computations, making feature scaling essential, and they explain why unscaled features can distort neighborhoods. A detailed comparison of scaling methods is provided, including min–max normalization, z-score standardization, robust scaling using median and IQR, max–abs scaling for sparse data, and unit-length normalization. The lecture also discusses practical issues such as missing data handling, dimensionality reduction to mitigate the curse of dimensionality, and the computational and memory costs that arise because KNN evaluates the entire training set at prediction time.
+
+
+**Full notes:** [Download PDF](../files/SciML_10_K_Nearest_Neighbor_and_Feature_Scaling.pdf)

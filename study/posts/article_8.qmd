@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 08"
+subtitle: "Generalized Linear Regression, Subset Selection, and Shrinkage"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note builds linear regression from first principles and explains why it remains a core foundation for modern machine learning. It starts with simple and multiple linear regression, defining the model $y = X\beta + e$, deriving the ordinary least squares (OLS) solution by minimizing the residual sum of squares, and interpreting the solution geometrically as an orthogonal projection of the response onto the column space of the design matrix. The Gauss–Markov theorem is then used to show when OLS is the Best Linear Unbiased Estimator (BLUE), and the analysis is extended to heteroscedastic or correlated errors through generalized least squares (GLS), including the whitening (Cholesky) transformation and its geometric meaning. The lecture next explains the bias–variance tradeoff and motivates reducing variance through subset selection and shrinkage. Four subset selection methods—best subset, forward stepwise, backward stepwise, and forward stagewise regression—are described with their computational costs and practical tradeoffs. The notes then introduce regularization methods, deriving ridge regression $\ell_2$, lasso $\ell_1$, bridge regression $\ell_q$, and elastic net, and showing how each penalty alters coefficient estimates, sparsity, and stability. Throughout, the lecture emphasizes when to use each method in practice and how these linear techniques form the conceptual bridge to more advanced models in statistics and deep learning.
+
+
+**Full notes:** [Download PDF](../files/SciML_8_Generalized_Linear_Regression.pdf)

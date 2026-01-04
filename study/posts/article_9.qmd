@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 09"
+subtitle: "Logistic Regression"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note explains logistic regression as a probabilistic classification model and clarifies why plain linear regression fails for classification tasks. It begins by showing that linear regression produces unbounded outputs, unstable decision thresholds, and artificial class ordering, making it unsuitable for predicting class probabilities. Logistic regression fixes these issues by passing a linear score $z = \beta_0 + \beta^\top x$ through the sigmoid function, producing valid probabilities $p(x) \in (0,1)$ and a stable decision boundary given by $z = 0$ when using a 0.5 threshold. The lecture explains why logistic regression is called a “regression” model by showing that it is linear in the log-odds, and it demonstrates how coefficients should be interpreted through odds ratios $\exp(\beta_j)$ rather than direct probability changes. Training is derived from first principles using maximum likelihood estimation, which leads exactly to the binary cross-entropy loss and the clean gradient $\nabla C = \frac{1}{m} X^\top (p - y)$. The notes discuss numerical optimization via gradient descent and briefly connect the method to second-order optimization through IRLS. The lecture then extends logistic regression to multi-class problems using softmax and negative log-likelihood. Finally, it addresses practical issues such as threshold selection, class imbalance, complete separation, regularization, and probability calibration, emphasizing that logistic regression provides not just class labels but reliable, interpretable probabilities.
+
+
+**Full notes:** [Download PDF](../files/SciML_9_Logistic_Regression.pdf)

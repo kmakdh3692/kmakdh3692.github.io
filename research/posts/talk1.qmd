@@ -1,0 +1,14 @@
+---
+title: "Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["RUL/TTF Prediction", "Generative AI", "Diffusion model"]
+format:
+  html: default
+---
+
+This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes and was presented at the 6th Annual AI4SE & SE4AI Research and Application Workshop held in Washington, DC on September 17–18, 2025, hosted by the George Washington University Trustworthy AI Initiative and organized by the Systems Engineering Research Center (SERC) in collaboration with the U.S. Army DEVCOM Armaments Center. The presentation begins by explaining how degradation signals are constructed from sensor data and why conventional prognostic pipelines—such as Bayesian updating with parametric degradation models and PCA-based lognormal regression—often fail when signals exhibit nonlinear, nonstationary, heteroscedastic, or multimodal behaviors. To address these limitations, the proposed approach reframes RUL/TTF prediction as a conditional generative modeling problem, in which a diffusion model learns the full conditional distribution of future degradation trajectories given partial observations and produces probabilistic TTF predictions via threshold-crossing times. The talk introduces a time-series–specific conditional diffusion architecture that combines Gaussian-process-based forward noising, GRU-based condition encoding, and a Transformer-based reverse denoising process. Performance is systematically evaluated using synthetic degradation datasets with controlled increases in structural complexity, including Brownian-motion noise, localized perturbations, and regime-switching dynamics. Benchmark results using RMSE and MAPE demonstrate that conditional diffusion models consistently outperform Bayesian updating and PCA-based lognormal regression in complex and noise-dominated settings, particularly near failure thresholds, positioning diffusion models as a flexible, nonparametric, and uncertainty-aware alternative for prognostics in realistic engineering systems.
+
+
+**Slide deck:** [Download PDF](../files/talk_1.pdf)
+**Abstract:** [Download PDF](../files/talk_1_1.pdf)

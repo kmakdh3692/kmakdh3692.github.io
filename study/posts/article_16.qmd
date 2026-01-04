@@ -1,0 +1,15 @@
+---
+title: "Scientific Machine Learning 16"
+subtitle: "Gaussian Process"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note introduces Gaussian Processes (GPs) as probabilistic models for regression that provide both predictions and calibrated uncertainty. It begins with a careful review of Gaussian random variables and multivariate Gaussians, emphasizing the role of the mean vector, covariance matrix, Mahalanobis distance, and the closed-form marginal and conditional distributions that make Gaussian models analytically tractable. The notes then extend these ideas to random processes and define a Gaussian process as a collection of random variables for which every finite subset follows a multivariate Gaussian distribution, fully specified by a mean function and a covariance (kernel) function. Using this foundation, GP regression is presented through Kriging, where observations are modeled as a deterministic trend plus a correlated Gaussian residual, leading to the best linear unbiased predictor (BLUP). The predictive mean and variance are derived explicitly using conditional Gaussian formulas, showing why GP regression interpolates exactly at noiseless training points and how uncertainty increases away from observed data. The lecture then introduces kernels as covariance functions, explains their geometric and smoothness properties using examples such as squared-exponential, Matérn, periodic, and linear kernels, and interprets length-scales as measures of input relevance via ARD. Hyperparameters are estimated by maximizing the marginal likelihood using Cholesky-based computations, and practical diagnostics such as leave-one-out residuals and predictive coverage are used to assess model adequacy. The lecture concludes by discussing noisy observations through the nugget effect, computational scaling limits, and approximation strategies, positioning Gaussian processes as a principled framework for data-efficient learning with explicit uncertainty quantification.
+
+
+
+**Full notes:** [Download PDF](../files/SciML_16_Gaussian_Process.pdf)

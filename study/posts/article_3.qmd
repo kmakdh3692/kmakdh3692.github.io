@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 03"
+subtitle: "All about Backpropagation in DL"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Deep Learning"]
+format:
+  html: default
+---
+
+This lecture note explains backpropagation as the core algorithm that enables neural networks to compute gradients efficiently and learn from data. It begins by introducing clear layer-wise notation for weights, biases, pre-activations, and activations, and shows how a forward pass computes $z^\ell = W^\ell a^{\ell-1} + b^\ell$ and $a^\ell = \sigma(z^\ell)$. The notes then state two key assumptions on the cost function: that the total cost is an average of per-sample costs, and that each per-sample cost depends only on the network outputs. Under these assumptions, the lecture derives the four fundamental backpropagation equations, explaining how to compute the error at the output layer, propagate that error backward through hidden layers using transposed weight matrices, and obtain gradients with respect to biases and weights. Each gradient is given a concrete interpretation, such as a weight gradient being the product of the destination neuron’s error and the source neuron’s activation. Finally, the full backpropagation algorithm is summarized step by step, combining a forward pass, a backward pass, and parameter updates, and the notes explain why this procedure is computationally efficient and how it integrates naturally with stochastic gradient descent.
+
+
+**Full notes:** [Download PDF](../files/SciML_3_Backpropagation.pdf)

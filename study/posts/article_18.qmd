@@ -1,0 +1,14 @@
+---
+title: "Generative AI_2"
+subtitle: "Conditional Diffusion Model with expansion to the Time-series data application"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Generative AI"]
+format:
+  html: default
+---
+
+This tutorial provides a structured and practical explanation of conditional diffusion models, building directly on the fundamentals of DDPMs and extending them to controlled and time-series generation. It begins with a concise recap of DDPM, reviewing the forward noising process, the reverse denoising process, and the ELBO formulation, and explains why the training objective simplifies to predicting Gaussian noise with a mean squared error loss. The tutorial then introduces three core paradigms for conditional diffusion: classifier guidance, direct conditioning, and classifier-free guidance (CFG). Classifier guidance is derived from a Bayesian score decomposition and shows how gradients from a separately trained classifier modify the reverse diffusion trajectory, while also highlighting its computational cost and stability issues. Direct conditioning is presented as an end-to-end approach that injects conditional information directly into the denoising network via mechanisms such as concatenation, conditional normalization, or cross-attention, resulting in strong condition fidelity but limited inference-time flexibility. CFG is explained as a unifying strategy that trains a single model with condition dropout and combines conditional and unconditional predictions at inference time using a guidance scale, enabling controllable trade-offs between fidelity and diversity without external classifiers. Finally, the tutorial extends conditional diffusion to time-series data by treating observed historical sequences as clean conditioning inputs and diffusing only the future target segment, showing how direct conditioning (and optionally CFG) can be adapted to preserve temporal structure. The tutorial concludes by positioning conditional diffusion as a flexible and principled framework for image, multimodal, and time-series generation, and by clarifying the design trade-offs that guide practical model selection.
+
+
+**Full notes:** [Download PDF](../files/Conditional_Diffusion_Model_and_Expansion_to_Time_series.pdf)

@@ -1,0 +1,13 @@
+---
+title: "A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["RUL/TTF Prediction", "Generative AI", "Diffusion model"]
+format:
+  html: default
+---
+
+Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains such as aerospace, manufacturing, and energy. Existing approaches largely fall into two categories: model-based methods that explicitly model degradation trajectories under para metric assumptions, and data-driven methods that directly map observed signals to failure time via dimensionality reduction and regression. Representative examples of these ap proaches considered in this paper include Bayesian updating and PCA-based lognormal re gression. While effective for smooth and monotonic degradation patterns, both paradigms often degrade when applied to irregular, nonstationary, or multimodal degradation pro cesses commonly encountered in real-world environments. To address these limitations, we propose a conditional diffusion–based generative framework that learns the full con ditional distribution of future degradation trajectories given partial observations, enabling flexible and probabilistic TTF prediction. By modeling the data distribution directly, diffu sion models can approximate nonlinear, heavy-tailed, and multimodal degradation behav iors. To rigorously evaluate performance, we construct synthetic degradation datasets with controlled increases in structural complexity, incorporating Brownian-motion noise, local ized perturbations, and multi-regime dynamics. Extensive benchmarks against Bayesian updating and PCA-based lognormal regression demonstrate that the proposed diffusion model consistently achieves lower error under complex settings, particularly near failure thresholds and under complex, heteroscedastic conditions. These results position diffusion model as a robust and scalable alternative for predictive analytics in realistic prognostic.
+
+
+**Full paper:** [Download PDF](../files/research_2.pdf)

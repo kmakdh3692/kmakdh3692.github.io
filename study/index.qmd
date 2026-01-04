@@ -1,0 +1,13 @@
+---
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default          
+  categories: true       
+  feed: true
+  fields: [title, date, categories, description]
+---
+
+# Study Note
+
+This page is my archive of study notes across Generative AI, Machine Learning / Deep Learning, Optimization, Statistics, and Others (useful fundamentals that support my research). To view articles for a specific area only, use the Categories filter on the right.

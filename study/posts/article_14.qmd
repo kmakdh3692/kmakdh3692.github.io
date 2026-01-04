@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 14"
+subtitle: "All about Support Vector Machines"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note explains Support Vector Machines (SVMs) as maximum-margin classifiers that select the separating hyperplane which maximizes the distance to the nearest training points. It begins with the geometric intuition of margins and support vectors, showing that only a small subset of boundary points determines the decision boundary while all other samples have no influence. The model is then formulated mathematically as a convex optimization problem that minimizes $\tfrac{1}{2}\|w\|^2$ subject to classification constraints $y_i(w^\top x_i + b) \ge 1$, directly linking margin maximization to norm minimization. Using Lagrangian duality and KKT conditions, the lecture derives the dual problem and shows that the solution depends only on inner products between samples, leading to a sparse representation in terms of support vectors. This observation enables the kernel trick, where dot products are replaced by kernel functions to implicitly map data into high- or infinite-dimensional feature spaces, yielding nonlinear decision boundaries in the original input space. Linear, polynomial, RBF, and sigmoid kernels are presented with clear interpretations of the types of similarity and flexibility they encode. To handle non-separable data, the lecture introduces soft-margin SVMs with slack variables and a regularization parameter $C$ that controls the tradeoff between margin width and classification errors. The lecture concludes by discussing practical advantages, limitations, and tuning considerations, positioning SVMs as robust, high-dimensional classifiers that combine geometry, convex optimization, and kernel methods.
+
+
+**Full notes:** [Download PDF](../files/SciML_14_Support_Vector_Machine_SVM.pdf)

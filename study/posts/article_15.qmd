@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 15"
+subtitle: "Dimensionality Reduction with Principal Component Analysis (PCA)"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note explains Principal Component Analysis (PCA) as a linear dimensionality reduction method that removes redundancy and noise by rotating the coordinate system of the data. Starting from centered data $X \in \mathbb{R}^{m \times n}$, PCA seeks an orthonormal transformation $Y = PX$ such that the covariance of $Y$ is diagonal and its variances are ordered from largest to smallest. Geometrically, PCA rotates the axes to align with the directions of maximum data spread, so that the first principal component captures the largest variance, the second captures the next largest while remaining orthogonal, and so on. The lecture derives PCA in two equivalent ways: by eigen-decomposition of the covariance matrix $C_X = \frac{1}{n}XX^\top$, where principal components are eigenvectors and variances are eigenvalues, and by singular value decomposition (SVD) of the data matrix, which yields the same components more efficiently in practice. It clearly defines scores as the coordinates of samples in the principal component basis and loadings as the directions that describe how original variables contribute to each component. Dimensionality reduction is achieved by truncating low-variance components, with the discarded variance corresponding exactly to reconstruction error. The lecture also explains how to choose the number of components using cumulative explained variance (e.g., 95%) and discusses practical variants such as Kernel PCA, Functional PCA, Probabilistic PCA, Robust PCA, and Sparse PCA, clarifying when each extension is appropriate.
+
+
+**Full notes:** [Download PDF](../files/SciML_15_PCA.pdf)

@@ -1,0 +1,13 @@
+---
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
+  fields: [title, date, categories, description]
+---
+
+# Paper Review
+
+읽은 논문들의 핵심 요약을 기록합니다.

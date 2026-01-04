@@ -1,0 +1,13 @@
+---
+title: "Scientific Machine Learning 02"
+subtitle: "Classifying Handwritten Digits & All about Gradient Descent"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Deep Learning"]
+format:
+  html: default
+---
+
+This lecture note explains how the basic neural network concepts from the previous chapter are used to build and train a real classifier, using handwritten digit recognition as a concrete example. It formulates the task of mapping a 28×28 grayscale image to one of ten digits by flattening each image into a 784-dimensional vector and feeding it into a simple two-layer neural network. The notes clearly justify why digit labels should be encoded using one-hot vectors instead of ordinal numbers, showing how one-hot encoding gives cleaner learning signals for multi-class classification. The MNIST dataset is introduced with a clear separation between training and test data, emphasizing proper evaluation. The lecture then defines the quadratic (MSE) cost function and explains why accuracy alone cannot be used as a training objective. It derives gradient descent step by step, showing how gradients determine parameter updates and why moving opposite to the gradient reduces error. Finally, it introduces stochastic gradient descent and mini-batching, carefully defining practical terms such as batch size, iteration, and epoch, and explaining how repeated updates over multiple epochs enable neural networks to learn effectively from data.
+
+**Full notes:** [Download PDF](../files/SciML_2_Classifying_Handwritten_Digits_Gradient_Descent.pdf)

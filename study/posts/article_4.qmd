@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 04"
+subtitle: "Cross-Entropy, Softmax, and Negative Log-Likelihood"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Deep Learning"]
+format:
+  html: default
+---
+
+This lecture note explains why the common pairing of a sigmoid activation with a quadratic (MSE) loss often leads to very slow learning, and how better loss–activation combinations fix this problem. It starts by showing that, with a sigmoid output and MSE loss, the output-layer gradient is multiplied by the sigmoid derivative, which becomes extremely small when the neuron saturates near 0 or 1, causing parameter updates to nearly vanish. To address this, the lecture introduces the cross-entropy loss paired with a sigmoid output and shows analytically that the problematic sigmoid derivative cancels out, leaving a clean gradient proportional to the prediction error \(a - y\). The notes then extend this idea to multi-class classification by introducing the softmax activation, which converts logits into a valid probability distribution over classes. The negative log-likelihood (NLL) loss is defined as the negative log-probability assigned to the true class, and it is shown to be equivalent to cross-entropy with one-hot labels. By explicitly deriving the gradients, the lecture demonstrates that the softmax + NLL combination also yields an output-layer gradient of the simple form \(a - y\), avoiding saturation-induced slowdown. The lecture concludes with clear guidelines: use sigmoid with cross-entropy for binary or multi-label problems, and softmax with NLL for standard multi-class classification.
+
+
+**Full notes:** [Download PDF](../files/SciML_4_Cross_Entropy_Softmax_and_Negative_Log_Likelihood.pdf)

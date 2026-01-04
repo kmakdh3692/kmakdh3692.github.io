@@ -1,0 +1,13 @@
+---
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
+  fields: [title, date, categories, description]
+---
+
+# Research
+
+This page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.

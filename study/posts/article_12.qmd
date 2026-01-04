@@ -1,0 +1,14 @@
+---
+title: "Scientific Machine Learning 12"
+subtitle: "Decision Trees"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Machine Learning"]
+format:
+  html: default
+---
+
+This lecture note explains decision trees as intuitive, non-parametric models that make predictions through a sequence of simple if–then rules learned directly from data. It begins by connecting trees to logical gates and human decision processes, then formally defines classification and regression trees as models that recursively split the data at each node based on a feature and threshold. For classification, splits are chosen by minimizing node impurity using metrics such as Gini index or entropy, while regression trees minimize within-node variance or sum of squared errors, producing piecewise-constant predictions. The lecture walks step by step through the full training process: selecting the best split via weighted impurity reduction, recursively growing child nodes, applying stopping rules such as maximum depth or minimum impurity decrease, and assigning predictions at leaf nodes. It then introduces CART as a unified framework for classification and regression trees, emphasizing its greedy top-down splitting strategy and binary partitions. To control overfitting, both pre-pruning (early stopping) and post-pruning are explained in detail, including cost–complexity pruning and the weakest-link algorithm. The lecture also compares attribute-selection metrics such as information gain, gain ratio, variance reduction, and chi-square statistics, clarifying when each is appropriate. Finally, it discusses the strengths and weaknesses of trees and shows how ensemble methods such as Random Forest and boosting overcome instability and overfitting, positioning decision trees as both interpretable standalone models and foundational building blocks for powerful ensemble learners.
+
+
+**Full notes:** [Download PDF](../files/SciML_12_Decision_Trees.pdf)

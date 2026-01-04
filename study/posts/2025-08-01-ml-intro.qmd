@@ -1,0 +1,13 @@
+---
+title: "Scientific Machine Learning 01"
+subtitle: "Perceptrons, Sigmoid Neurons, and Artificial Neural Networks"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Deep Learning"]
+format:
+  html: default
+---
+
+This lecture note introduces the most fundamental building blocks required to study deep learning: perceptrons, sigmoid neurons, and artificial neural networks. It begins with the perceptron, a linear binary classifier that computes a weighted sum of inputs plus a bias and applies a step function to make yes-or-no decisions, which geometrically corresponds to separating data with a line or hyperplane. The notes show how such perceptrons can implement logic gates like AND, OR, and NAND, and how NAND gates can be combined to build simple digital circuits such as a half-adder. However, because the step activation changes output abruptly and has no usable gradient, perceptrons are difficult to train from data. To address this limitation, the lecture introduces the sigmoid neuron, which replaces the step function with a smooth, differentiable activation and explicitly derives its derivative, enabling learning through gradient descent. The notes then relate artificial neurons to their biological counterparts and explain how neurons are organized into input, hidden, and output layers to form feedforward artificial neural networks. Finally, the lecture presents the mathematical structure of ANNs and explains why even shallow networks, when properly constructed, can approximate complex functions—laying the essential groundwork for deeper neural network models.
+
+**Full notes:** [Download PDF](../files/SciML_1_Perceptrons_Sigmoid_and_ANN.pdf)
