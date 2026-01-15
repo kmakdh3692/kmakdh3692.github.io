@@ -8,6 +8,6 @@ listing:
   fields: [title, date, categories, description]
 ---
 
-# Investing
+# Others
 
-This page is a personal archive of notes on investment basics and strategies, documenting how I study markets, evaluate opportunities, and refine long-term investment ideas. This is not for financial advising.
+To be updated...

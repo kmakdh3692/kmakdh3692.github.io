@@ -36,9 +36,9 @@ North Carolina State University
 ### <i class="bi bi-person-lines-fill"></i> Contact
 :::
 
-- 919-454-2479
-- dko3@ncsu.edu
-- kmakdh3692@gmail.com
+- **Phone**: 919-454-2479
+- **Email**: dko3@ncsu.edu
+- **Office**: 4331 Fitts-Woolard Hall
 
 :::
 :::
@@ -103,9 +103,9 @@ Summaries and reflections on research papers in my field, focusing on core ideas
 :::
 
 
-#### [<i class="bi bi-pie-chart"></i> Investing](investing/index.qmd)
+#### [<i class="bi bi-pie-chart"></i> Others](investing/index.qmd)
 ::: {.smalltext}
-Notes on company analysis and investment strategies, maintained as a personal learning archive.  
+This is an extra archive to stack other funny things!
 :::
 
 :::

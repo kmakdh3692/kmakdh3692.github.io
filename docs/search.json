@@ -114,23 +114,79 @@
   {
     "objectID": "investing/posts/investing_1.html",
     "href": "investing/posts/investing_1.html",
-    "title": "ETF 기초",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
     "section": "",
-    "text": "ETF 기초\n여기에 내용을 작성합니다."
+    "text": "박곰희의 연금부자수업"
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#isa의-본질",
+    "href": "investing/posts/investing_1.html#isa의-본질",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "6.1 1.1 ISA의 본질",
+    "text": "6.1 1.1 ISA의 본질\nISA의 가장 큰 장점은\n계좌 안의 모든 손익을 합쳐서(손익통산) 과세한다는 점이다.\n\n이익과 손실을 합산\n순이익 일부는 비과세\n초과분도 일반 계좌보다 낮은 세율 적용\n\n즉,\n중간에 손실을 봐도 계좌 전체 기준으로 세금을 계산한다."
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#의무가입기간-반드시-기억할-것",
+    "href": "investing/posts/investing_1.html#의무가입기간-반드시-기억할-것",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "6.2 1.2 의무가입기간: 반드시 기억할 것",
+    "text": "6.2 1.2 의무가입기간: 반드시 기억할 것\nISA에는 3년 의무가입기간이 있다.\n\n3년 이전 해지 → 세제혜택 불이익\n3년 이후 → 해지·연장·전략 변경 가능\n\n👉 ISA는 “만들고 잊는 계좌”가 아니라\n“3년 타이머를 의식하는 계좌”다."
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#isa에-어울리는-자금",
+    "href": "investing/posts/investing_1.html#isa에-어울리는-자금",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "6.3 1.3 ISA에 어울리는 자금",
+    "text": "6.3 1.3 ISA에 어울리는 자금\n\n중장기 투자자금\nETF 중심 투자\n잦은 매매 ❌ / 느린 리밸런싱 ⭕\n\n\n\n\n\n\n\nISA에서 가장 흔한 실수\n\n\n\n\n3년 채우기 전에 해지\n\n계좌만 만들어두고 운용 안 함\n\n단타 계좌처럼 사용"
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#왜-연금저축을-먼저-채우는가",
+    "href": "investing/posts/investing_1.html#왜-연금저축을-먼저-채우는가",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "7.1 2.1 왜 연금저축을 먼저 채우는가",
+    "text": "7.1 2.1 왜 연금저축을 먼저 채우는가\n연금저축의 강점은 명확하다.\n\n돈을 넣는 순간, 세금을 돌려받는다.\n\n\n연말정산 세액공제\n수익률과 무관한 “확정 이득”\n소득이 있는 사람에게 특히 유리"
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#연금저축의-성격",
+    "href": "investing/posts/investing_1.html#연금저축의-성격",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "7.2 2.2 연금저축의 성격",
+    "text": "7.2 2.2 연금저축의 성격\n연금저축은 투자 계좌라기보다\n“노후 전용 금고”에 가깝다.\n\n중도 해지 ❌\n장기 운용 ⭕\n연금 수령 전제 ⭕\n\n👉 그래서 절대 생활비를 넣으면 안 된다."
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#연금저축에-어울리는-상품",
+    "href": "investing/posts/investing_1.html#연금저축에-어울리는-상품",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "7.3 2.3 연금저축에 어울리는 상품",
+    "text": "7.3 2.3 연금저축에 어울리는 상품\n\n저비용 주식형 ETF\n장기 분산 포트폴리오\n변동성이 부담되면 채권 비중 추가"
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#irp의-역할",
+    "href": "investing/posts/investing_1.html#irp의-역할",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "8.1 3.1 IRP의 역할",
+    "text": "8.1 3.1 IRP의 역할\nIRP는 연금저축과 성격이 거의 같다.\n차이는 하나다.\n\n세액공제 한도를 더 채울 수 있다.\n\n그래서 실무적으로는: - 연금저축 먼저 - IRP는 그 다음\n이 순서가 가장 많이 쓰인다."
+  },
+  {
+    "objectID": "investing/posts/investing_1.html#irp의-단점",
+    "href": "investing/posts/investing_1.html#irp의-단점",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "8.2 3.2 IRP의 단점",
+    "text": "8.2 3.2 IRP의 단점\n\n중도 인출 제한이 더 강함\n운용 자유도는 ISA보다 낮음\n\n👉 대신 “진짜 노후자금”으로는 가장 안정적인 틀"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Study & Beyond",
     "section": "",
-    "text": "Donghyun Ko\nPh.D. Student\nIndustrial & Systems Engineering\nNorth Carolina State University\n\n CV\n\n\n  ORCID\n\n\n\n\n\n\n\n\n919-454-2479\ndko3@ncsu.edu\nkmakdh3692@gmail.com\n\n\n\n\n\n\n\n\nHi, I am a Ph.D. student in Industrial & Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.\n\n\n\n\n\n\n\n\nGenerative AI\nMachine / Deep Learning\nMathematical Optimization\nIndustrial system Prognostics\nAnomaly etection & Monitoring\nAdditive Manufactuing\n\n\n\n\n\n\nPh.D., Industrial & Systems Engineering — NC State (in progress)\nM.S., Industrial Engineering — Texas A&M University\nB.A., Economics — Korea Military Academy\n\n\n\n\n\n\n\n\n\nThis site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.\n\n\n\n\n\nNotes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.\n\n\n\n\n\nA collection of my published papers and conference talks highlighting my research contributions in the socieity.\n\n\n\n\n\n\nSummaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.\n\n\n\n\n\nNotes on company analysis and investment strategies, maintained as a personal learning archive."
+    "text": "Donghyun Ko\nPh.D. Student\nIndustrial & Systems Engineering\nNorth Carolina State University\n\n CV\n\n\n  ORCID\n\n\n\n\n\n\n\n\nPhone: 919-454-2479\nEmail: dko3@ncsu.edu\nOffice: 4331 Fitts-Woolard Hall\n\n\n\n\n\n\n\n\nHi, I am a Ph.D. student in Industrial & Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.\n\n\n\n\n\n\n\n\nGenerative AI\nMachine / Deep Learning\nMathematical Optimization\nIndustrial system Prognostics\nAnomaly etection & Monitoring\nAdditive Manufactuing\n\n\n\n\n\n\nPh.D., Industrial & Systems Engineering — NC State (in progress)\nM.S., Industrial Engineering — Texas A&M University\nB.A., Economics — Korea Military Academy\n\n\n\n\n\n\n\n\n\nThis site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.\n\n\n\n\n\nNotes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.\n\n\n\n\n\nA collection of my published papers and conference talks highlighting my research contributions in the socieity.\n\n\n\n\n\n\nSummaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.\n\n\n\n\n\nThis is an extra archive to stack other funny things!"
   },
   {
     "objectID": "investing/index.html",
     "href": "investing/index.html",
-    "title": "Investing",
+    "title": "Others",
     "section": "",
-    "text": "Investing\nThis page is a personal archive of notes on investment basics and strategies, documenting how I study markets, evaluate opportunities, and refine long-term investment ideas. This is not for financial advising.\n\n\n\n\n\n\n\n\n\n\nETF 기초\n\n\n\n\n\n\nETF\n\n\nInvesting 101\n\n\n\nETF 구조, 추적오차, 보수, 유동성\n\n\n\n\n\nAug 3, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Others\nTo be updated…\n\n\n\n\n\n\n\n\n\n\n게으른 군인, 눈치보는 군인을 위한 투자지침서\n\n\n이것만 그대로 따라하자! (주식편)\n\n\n\n주식\n\n\nISA\n\n\nIRP\n\n\n연금저축펀드\n\n\n\n주식 투자를 시작하기 위한 세팅! 절세계좌 3종: ISA·IRP·연금저축펀드\n\n\n\n\n\nJan 14, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "paper_review/index.html",
@@ -144,7 +200,7 @@
     "href": "research/index.html",
     "title": "Research",
     "section": "",
-    "text": "Research\nThis page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.\n\n\n\n\n\n\n\n\n\n\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\n\nA Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\n\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment\n\n\n\n\n\n\nOptimization\n\n\nResponse Surface Method\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Research\nThis page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.\n\n\n\n\n\n\n\n\n\n\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment\n\n\n\n\n\n\nOptimization\n\n\nResponse Surface Method\n\n\n\n\n\n\n\n\n\nJan 14, 2026\n\n\n\n\n\n\n\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\n\nA Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "research/posts/research2.html",

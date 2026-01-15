@@ -20,7 +20,7 @@ website:
         href: paper_review/index.qmd
       - text: "Research"
         href: research/index.qmd
-      - text: "Investing"
+      - text: "Others"
         href: investing/index.qmd
     right:
       - icon: linkedin
