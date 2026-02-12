@@ -8,7 +8,9 @@
   },
   {
     "listing": "/investing/index.html",
-    "items": []
+    "items": [
+      "/investing/posts/investing_1.html"
+    ]
   },
   {
     "listing": "/research/index.html",

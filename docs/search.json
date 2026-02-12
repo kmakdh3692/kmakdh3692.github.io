@@ -147,6 +147,13 @@
     "text": "Paper Review\nThis page is an archive of concise reviews of papers I have read. Each post summarizes the paper’s core ideas, methods, and key takeaways, with brief notes on why the work matters and how it connects to my research. Codes to reproduce each paper can be found in my GitHub.\n\n\n\n\n\n\n\n\n\n\nDeep Learning-based Optical Image Super-Resolution via Generative Diffusion Models\n\n\nConditional Latent Diffusion for Layer-wise In-situ LPBF Monitoring\n\n\n\nAdditive Manufacturing\n\n\nDiffusion Model\n\n\nSuper-Resolution\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nLayer-wise anomaly detection and classification for powder bed Additive Manufacturing\n\n\nDynamic Segmentation CNN, Luke Scime, ORNL\n\n\n\nAdditive Manufacturing\n\n\nDeep Learning\n\n\nCNN\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "investing/index.html",
+    "href": "investing/index.html",
+    "title": "Others",
+    "section": "",
+    "text": "Others\nTo be updated…\n\n\n\n\n\n\n\n\n\n\nA\n\n\nA\n\n\n\nA\n\n\n\nA\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Study & Beyond",
@@ -154,11 +161,11 @@
     "text": "Donghyun Ko\nPh.D. Student\nIndustrial & Systems Engineering\nNorth Carolina State University\n\n CV\n\n\n  ORCID\n\n\n\n\n\n\n\n\nPhone: 919-454-2479\nEmail: dko3@ncsu.edu\nOffice: 4331 Fitts-Woolard Hall\n\n\n\n\n\n\n\n\nHi, I am a Ph.D. student in Industrial & Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.\n\n\n\n\n\n\n\n\nGenerative AI\nMachine / Deep Learning\nMathematical Optimization\nIndustrial system Prognostics\nAnomaly etection & Monitoring\nAdditive Manufactuing\n\n\n\n\n\n\nPh.D., Industrial & Systems Engineering — NC State (in progress)\nM.S., Industrial Engineering — Texas A&M University\nB.A., Economics — Korea Military Academy\n\n\n\n\n\n\n\n\n\nThis site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.\n\n\n\n\n\nNotes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.\n\n\n\n\n\nA collection of my published papers and conference talks highlighting my research contributions in the socieity.\n\n\n\n\n\n\nSummaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.\n\n\n\n\n\nThis is an extra archive to stack other funny things!"
   },
   {
-    "objectID": "investing/index.html",
-    "href": "investing/index.html",
-    "title": "Others",
+    "objectID": "investing/posts/investing_1.html",
+    "href": "investing/posts/investing_1.html",
+    "title": "A",
     "section": "",
-    "text": "Others\nTo be updated…\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "A"
   },
   {
     "objectID": "paper_review/posts/review_1.html",
