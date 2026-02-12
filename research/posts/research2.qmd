@@ -11,3 +11,9 @@ Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from
 
 
 **Full paper:** [Download PDF](../files/research_2.pdf)
+
+**Citation:**  
+Ko, Donghyun; Fang, Xiaolei (2025). *A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics.*  
+Under review at *Mechanical Systems and Signal Processing*.
+
+**Preprint (SSRN):** https://doi.org/10.2139/ssrn.6169178

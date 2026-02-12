@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-01-14">
-<meta name="description" content="주식 투자를 시작하기 위한 세팅! 절세계좌 3종: ISA·IRP·연금저축펀드">
+<meta name="author" content="Donghyun Ko">
+<meta name="dcterms.date" content="2026-02-11">
 
-<title>게으른 군인, 눈치보는 군인을 위한 투자지침서 – Study &amp; Beyond</title>
+<title>Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models – Study &amp; Beyond</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -143,30 +172,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#참고자료" id="toc-참고자료" class="nav-link active" data-scroll-target="#참고자료"><span class="header-section-number">1</span> 참고자료:</a></li>
-  <li><a href="#포스팅의-목적" id="toc-포스팅의-목적" class="nav-link" data-scroll-target="#포스팅의-목적"><span class="header-section-number">2</span> 포스팅의 목적</a></li>
-  <li><a href="#용어정리" id="toc-용어정리" class="nav-link" data-scroll-target="#용어정리"><span class="header-section-number">3</span> 용어정리</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">4</span> </a></li>
-  <li><a href="#절세계좌-3종-요약" id="toc-절세계좌-3종-요약" class="nav-link" data-scroll-target="#절세계좌-3종-요약"><span class="header-section-number">5</span> 0. 절세계좌 3종 요약</a></li>
-  <li><a href="#isa-투자자에게-가장-자유로운-절세계좌" id="toc-isa-투자자에게-가장-자유로운-절세계좌" class="nav-link" data-scroll-target="#isa-투자자에게-가장-자유로운-절세계좌"><span class="header-section-number">6</span> 1. ISA — 투자자에게 가장 자유로운 절세계좌</a>
+  <li><a href="#paper-overview" id="toc-paper-overview" class="nav-link active" data-scroll-target="#paper-overview">Paper Overview</a></li>
+  <li><a href="#core-contributions-and-methodology" id="toc-core-contributions-and-methodology" class="nav-link" data-scroll-target="#core-contributions-and-methodology">Core Contributions and Methodology</a>
   <ul class="collapse">
-  <li><a href="#isa의-본질" id="toc-isa의-본질" class="nav-link" data-scroll-target="#isa의-본질"><span class="header-section-number">6.1</span> 1.1 ISA의 본질</a></li>
-  <li><a href="#의무가입기간-반드시-기억할-것" id="toc-의무가입기간-반드시-기억할-것" class="nav-link" data-scroll-target="#의무가입기간-반드시-기억할-것"><span class="header-section-number">6.2</span> 1.2 의무가입기간: 반드시 기억할 것</a></li>
-  <li><a href="#isa에-어울리는-자금" id="toc-isa에-어울리는-자금" class="nav-link" data-scroll-target="#isa에-어울리는-자금"><span class="header-section-number">6.3</span> 1.3 ISA에 어울리는 자금</a></li>
+  <li><a href="#conditional-denoising-diffusion-probabilistic-model-ddpm" id="toc-conditional-denoising-diffusion-probabilistic-model-ddpm" class="nav-link" data-scroll-target="#conditional-denoising-diffusion-probabilistic-model-ddpm">1. Conditional Denoising Diffusion Probabilistic Model (DDPM)</a></li>
+  <li><a href="#latent-diffusion-for-real-time-feasibility" id="toc-latent-diffusion-for-real-time-feasibility" class="nav-link" data-scroll-target="#latent-diffusion-for-real-time-feasibility">2. Latent Diffusion for Real-Time Feasibility</a></li>
   </ul></li>
-  <li><a href="#연금저축펀드-연말정산에서-확정-이익을-만드는-계좌" id="toc-연금저축펀드-연말정산에서-확정-이익을-만드는-계좌" class="nav-link" data-scroll-target="#연금저축펀드-연말정산에서-확정-이익을-만드는-계좌"><span class="header-section-number">7</span> 2. 연금저축펀드 — 연말정산에서 확정 이익을 만드는 계좌</a>
+  <li><a href="#training-strategy" id="toc-training-strategy" class="nav-link" data-scroll-target="#training-strategy">Training Strategy</a></li>
+  <li><a href="#evaluation-metrics" id="toc-evaluation-metrics" class="nav-link" data-scroll-target="#evaluation-metrics">Evaluation Metrics</a>
   <ul class="collapse">
-  <li><a href="#왜-연금저축을-먼저-채우는가" id="toc-왜-연금저축을-먼저-채우는가" class="nav-link" data-scroll-target="#왜-연금저축을-먼저-채우는가"><span class="header-section-number">7.1</span> 2.1 왜 연금저축을 먼저 채우는가</a></li>
-  <li><a href="#연금저축의-성격" id="toc-연금저축의-성격" class="nav-link" data-scroll-target="#연금저축의-성격"><span class="header-section-number">7.2</span> 2.2 연금저축의 성격</a></li>
-  <li><a href="#연금저축에-어울리는-상품" id="toc-연금저축에-어울리는-상품" class="nav-link" data-scroll-target="#연금저축에-어울리는-상품"><span class="header-section-number">7.3</span> 2.3 연금저축에 어울리는 상품</a></li>
+  <li><a href="#image-reconstruction-metrics" id="toc-image-reconstruction-metrics" class="nav-link" data-scroll-target="#image-reconstruction-metrics">Image Reconstruction Metrics</a></li>
+  <li><a href="#texture-level-metric" id="toc-texture-level-metric" class="nav-link" data-scroll-target="#texture-level-metric">Texture-Level Metric</a></li>
   </ul></li>
-  <li><a href="#irp-세액공제-한도를-넓히는-계좌" id="toc-irp-세액공제-한도를-넓히는-계좌" class="nav-link" data-scroll-target="#irp-세액공제-한도를-넓히는-계좌"><span class="header-section-number">8</span> 3. IRP — 세액공제 한도를 넓히는 계좌</a>
-  <ul class="collapse">
-  <li><a href="#irp의-역할" id="toc-irp의-역할" class="nav-link" data-scroll-target="#irp의-역할"><span class="header-section-number">8.1</span> 3.1 IRP의 역할</a></li>
-  <li><a href="#irp의-단점" id="toc-irp의-단점" class="nav-link" data-scroll-target="#irp의-단점"><span class="header-section-number">8.2</span> 3.2 IRP의 단점</a></li>
-  </ul></li>
-  <li><a href="#한눈에-비교-isa-vs-연금저축-vs-irp" id="toc-한눈에-비교-isa-vs-연금저축-vs-irp" class="nav-link" data-scroll-target="#한눈에-비교-isa-vs-연금저축-vs-irp"><span class="header-section-number">9</span> 4. 한눈에 비교: ISA vs 연금저축 vs IRP</a></li>
-  <li><a href="#게으른-군인을-위한-실행-순서" id="toc-게으른-군인을-위한-실행-순서" class="nav-link" data-scroll-target="#게으른-군인을-위한-실행-순서"><span class="header-section-number">10</span> 5. 게으른 군인을 위한 실행 순서</a></li>
+  <li><a href="#d-morphology-reconstruction" id="toc-d-morphology-reconstruction" class="nav-link" data-scroll-target="#d-morphology-reconstruction">3D Morphology Reconstruction</a></li>
+  <li><a href="#surface-roughness-estimation" id="toc-surface-roughness-estimation" class="nav-link" data-scroll-target="#surface-roughness-estimation">Surface Roughness Estimation</a></li>
+  <li><a href="#zero-shot-generalization" id="toc-zero-shot-generalization" class="nav-link" data-scroll-target="#zero-shot-generalization">Zero-Shot Generalization</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#reviewers-takeaway" id="toc-reviewers-takeaway" class="nav-link" data-scroll-target="#reviewers-takeaway">Reviewer’s Takeaway</a></li>
   </ul>
 </nav>
     </div>
@@ -175,30 +197,30 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">게으른 군인, 눈치보는 군인을 위한 투자지침서</h1>
-<p class="subtitle lead">이것만 그대로 따라하자! (주식편)</p>
+<h1 class="title">Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models</h1>
+<p class="subtitle lead">Conditional Latent Diffusion for Layer-wise In-situ LPBF Monitoring</p>
   <div class="quarto-categories">
-    <div class="quarto-category">주식</div>
-    <div class="quarto-category">ISA</div>
-    <div class="quarto-category">IRP</div>
-    <div class="quarto-category">연금저축펀드</div>
+    <div class="quarto-category">Additive Manufacturing</div>
+    <div class="quarto-category">Diffusion Model</div>
+    <div class="quarto-category">Super-Resolution</div>
   </div>
   </div>
 
-<div>
-  <div class="description">
-    주식 투자를 시작하기 위한 세팅! 절세계좌 3종: ISA·IRP·연금저축펀드
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Donghyun Ko </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 14, 2026</p>
+      <p class="date">February 11, 2026</p>
     </div>
   </div>
   
@@ -210,216 +232,157 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="참고자료" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 참고자료:</h1>
+<section id="paper-overview" class="level2">
+<h2 class="anchored" data-anchor-id="paper-overview">Paper Overview</h2>
+<p><strong>Title:</strong> Deep Learning based Optical Image Super-Resolution via Generative Diffusion Models for Layerwise in-situ LPBF Monitoring<br>
+<strong>Authors:</strong> Francis Ogoke et al.&nbsp;(Carnegie Mellon University &amp; Sandia National Laboratories)<br>
+<strong>Preprint:</strong> arXiv:2409.13171</p>
+<p>Laser Powder Bed Fusion (LPBF) presents a fundamental trade-off in in-situ monitoring:<br>
+high-resolution (HR) optical imaging enables accurate defect detection and surface roughness estimation, yet it is computationally expensive and difficult to scale for real-time deployment. Conversely, low-cost webcam imaging is scalable but lacks the spatial fidelity required to resolve fine powder-bed texture and geometric irregularities. This work proposes a <strong>conditional latent diffusion framework</strong> that probabilistically reconstructs high-resolution optical images from low-resolution webcam images, effectively learning the conditional distribution: <span class="math inline">\(p(x_{HR} | x_{LR})\)</span> Rather than producing deterministic upscaled images, the model captures nonlinear, multimodal, and high-frequency structures of powder-bed texture, preserving realism and uncertainty.</p>
+<hr>
+</section>
+<section id="core-contributions-and-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="core-contributions-and-methodology">Core Contributions and Methodology</h2>
+<section id="conditional-denoising-diffusion-probabilistic-model-ddpm" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-denoising-diffusion-probabilistic-model-ddpm">1. Conditional Denoising Diffusion Probabilistic Model (DDPM)</h3>
+<p>The framework implements a <strong>conditional DDPM</strong>, where:</p>
 <ul>
-<li>박곰희의 연금부자수업</li>
-<li></li>
-<li></li>
+<li>HR images are progressively corrupted via a forward diffusion process.</li>
+<li>A U-Net denoising network learns to predict injected noise.</li>
+<li>LR images condition the reverse denoising process.</li>
+<li>The model learns the full conditional distribution <span class="math inline">\(p(x_{HR} | x_{LR})\)</span>.</li>
 </ul>
+<p>This overcomes the inherent ill-posed nature of deterministic super-resolution, which often produces over-smoothed reconstructions.</p>
+<hr>
 </section>
-<section id="포스팅의-목적" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> 포스팅의 목적</h1>
-<p>본 주제와 관련된 서적, Youtube 영상, 블로그 포스팅을 통해 얻은 지식을 갈무리하고, 직접 행동으로 옮겨 실천해야 하는 점들을 스크린캡쳐 사진과 함께 제시함으로써 독자들이 쉽게 따라하며 “실천”할 수 있는 지침을 제공하고자 함이 본 포스팅의 목적이다. 나는 주식투자를 ’도박’인 줄 알고 30년을 살았던 멍청한 사람이다. 그런 주식투자도 내 돈을 직접 투자하면서 투자금을 잃어보기도 하고, 치킨값을 벌어보기도 하면서 점차 관련 지식이 깊어지고, 안목이 넓어지고, 나름의 투자관이라는 지혜가 생기는 나를 발견했다. 주식투자가 그러하듯, 부동산, 연금, 경매 등 모든 투자는 일단 시작해야 한다. 뭐든 시작해야 발전이 있다. 그리고 그 발전을 지속하는 자가 부자가 된다. 부자와 중산층의 한끝차이는 “하는자와 망설이는 자”이다.</p>
-</section>
-<section id="용어정리" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> 용어정리</h1>
+<section id="latent-diffusion-for-real-time-feasibility" class="level3">
+<h3 class="anchored" data-anchor-id="latent-diffusion-for-real-time-feasibility">2. Latent Diffusion for Real-Time Feasibility</h3>
+<p>Pixel-space diffusion is computationally intensive.<br>
+To reduce inference cost, the authors adopt a <strong>latent diffusion model (LDM)</strong>:</p>
 <ul>
-<li>세액공재:</li>
-<li>과세이연:</li>
-<li>저율과세:</li>
+<li>Two autoencoders encode HR and LR images into compact latent spaces.</li>
+<li>Diffusion is performed in a reduced 16×16 latent space.</li>
+<li>Only the HR latent is diffused; LR latent acts as condition.</li>
+<li>The decoded output reconstructs the HR image.</li>
 </ul>
+<p><strong>Result:</strong><br>
+Inference time is reduced from <strong>0.13 s/sample (pixel diffusion)</strong><br>
+to <strong>0.01 s/sample (latent diffusion)</strong> — approximately <strong>13× faster</strong>, enabling practical in-situ deployment.</p>
+<hr>
 </section>
-<section id="section" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> </h1>
-<p>ETF는 “펀드”를 “주식처럼” 사고파는 상품이다.<br>
-하지만 <strong>수익률의 절반은 상품이 아니라 ’어느 계좌에 담았는가’에서 갈린다.</strong></p>
-<p>이 글은 ETF 고르는 법이 아니라,<br>
-<strong>ISA · 연금저축펀드 · IRP라는 ’절세계좌 3종’을 어떻게 쓰는지</strong>에 집중한다.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-이 글의 결론
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>투자는 실력보다 <strong>구조</strong>다.<br>
-ISA·연금저축·IRP의 규칙만 제대로 써도,<br>
-평균적인 사람은 이미 상위권이다.</p>
-</div>
-</div>
 </section>
-<section id="절세계좌-3종-요약" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> 0. 절세계좌 3종 요약</h1>
+<section id="training-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="training-strategy">Training Strategy</h2>
+<p>To handle large build-plate images:</p>
 <ul>
-<li><strong>ISA</strong>: 투자 수익에 대한 세금을 줄여주는 계좌<br>
+<li>Patch size: 64×64<br>
 </li>
-<li><strong>연금저축펀드</strong>: 연말정산에서 세금을 돌려받는 계좌<br>
+<li>115 patches per layer<br>
 </li>
-<li><strong>IRP</strong>: 연금저축의 세액공제 한도를 확장하는 계좌</li>
+<li>80:20 train-test split<br>
+</li>
+<li>Autoencoder training: 100 epochs<br>
+</li>
+<li>Diffusion training: 300 epochs</li>
 </ul>
-<p>핵심은 단순하다.<br>
-&gt; <strong>ISA는 ‘운용 결과’에서 이기고,<br>
-연금저축·IRP는 ‘납입하는 순간’ 이긴다.</strong></p>
+<p>A second experiment performs <strong>part-based training</strong>, ensuring no part-level data leakage.</p>
+<hr>
 </section>
-<section id="isa-투자자에게-가장-자유로운-절세계좌" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> 1. ISA — 투자자에게 가장 자유로운 절세계좌</h1>
-<section id="isa의-본질" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="isa의-본질"><span class="header-section-number">6.1</span> 1.1 ISA의 본질</h2>
-<p>ISA의 가장 큰 장점은<br>
-<strong>계좌 안의 모든 손익을 합쳐서(손익통산) 과세한다는 점</strong>이다.</p>
+<section id="evaluation-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-metrics">Evaluation Metrics</h2>
+<section id="image-reconstruction-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="image-reconstruction-metrics">Image Reconstruction Metrics</h3>
 <ul>
-<li>이익과 손실을 합산</li>
-<li>순이익 일부는 비과세</li>
-<li>초과분도 일반 계좌보다 낮은 세율 적용</li>
+<li><strong>MAE</strong> (Mean Absolute Error)</li>
+<li><strong>PSNR</strong> (Peak Signal-to-Noise Ratio)</li>
+<li><strong>SSIM</strong> (Structural Similarity Index)</li>
 </ul>
-<p>즉,<br>
-<strong>중간에 손실을 봐도 계좌 전체 기준으로 세금을 계산</strong>한다.</p>
 </section>
-<section id="의무가입기간-반드시-기억할-것" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="의무가입기간-반드시-기억할-것"><span class="header-section-number">6.2</span> 1.2 의무가입기간: 반드시 기억할 것</h2>
-<p>ISA에는 <strong>3년 의무가입기간</strong>이 있다.</p>
+<section id="texture-level-metric" class="level3">
+<h3 class="anchored" data-anchor-id="texture-level-metric">Texture-Level Metric</h3>
 <ul>
-<li>3년 이전 해지 → 세제혜택 불이익</li>
-<li>3년 이후 → 해지·연장·전략 변경 가능</li>
+<li><strong>Normalized Covariance Distance (nCVD)</strong><br>
+Based on phase-harmonic wavelet covariance operators<br>
+→ Captures preservation of high-frequency powder-bed texture.</li>
 </ul>
-<p>👉 ISA는 <strong>“만들고 잊는 계좌”가 아니라<br>
-“3년 타이머를 의식하는 계좌”</strong>다.</p>
+<p>Latent diffusion significantly reduces MAE and covariance distance while increasing PSNR and SSIM.</p>
+<hr>
 </section>
-<section id="isa에-어울리는-자금" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="isa에-어울리는-자금"><span class="header-section-number">6.3</span> 1.3 ISA에 어울리는 자금</h2>
-<ul>
-<li>중장기 투자자금</li>
-<li>ETF 중심 투자</li>
-<li>잦은 매매 ❌ / 느린 리밸런싱 ⭕</li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-ISA에서 가장 흔한 실수
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="d-morphology-reconstruction" class="level2">
+<h2 class="anchored" data-anchor-id="d-morphology-reconstruction">3D Morphology Reconstruction</h2>
+<p>To evaluate geometric fidelity beyond 2D metrics:</p>
 <ol type="1">
-<li>3년 채우기 전에 해지<br>
-</li>
-<li>계좌만 만들어두고 운용 안 함<br>
-</li>
-<li>단타 계좌처럼 사용</li>
+<li>Each layer is segmented using <strong>Segment Anything (SAM)</strong>.</li>
+<li>Masks are stacked to reconstruct 3D morphology.</li>
+<li>Three geometry metrics are computed:</li>
 </ol>
-</div>
-</div>
-</section>
-</section>
-<section id="연금저축펀드-연말정산에서-확정-이익을-만드는-계좌" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> 2. 연금저축펀드 — 연말정산에서 확정 이익을 만드는 계좌</h1>
-<section id="왜-연금저축을-먼저-채우는가" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="왜-연금저축을-먼저-채우는가"><span class="header-section-number">7.1</span> 2.1 왜 연금저축을 먼저 채우는가</h2>
-<p>연금저축의 강점은 명확하다.</p>
-<blockquote class="blockquote">
-<p><strong>돈을 넣는 순간, 세금을 돌려받는다.</strong></p>
-</blockquote>
 <ul>
-<li>연말정산 세액공제</li>
-<li>수익률과 무관한 “확정 이득”</li>
-<li>소득이 있는 사람에게 특히 유리</li>
+<li><strong>IoU (Intersection-over-Union)</strong></li>
+<li><strong>Hausdorff Distance</strong></li>
+<li><strong>Voxel mismatch</strong></li>
 </ul>
+<p>Latent diffusion improves IoU and reduces geometric error compared to low-resolution and bicubic interpolation baselines.</p>
+<hr>
 </section>
-<section id="연금저축의-성격" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="연금저축의-성격"><span class="header-section-number">7.2</span> 2.2 연금저축의 성격</h2>
-<p>연금저축은 투자 계좌라기보다<br>
-<strong>“노후 전용 금고”</strong>에 가깝다.</p>
+<section id="surface-roughness-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="surface-roughness-estimation">Surface Roughness Estimation</h2>
+<p>Surface roughness metrics are computed from reconstructed contours:</p>
 <ul>
-<li>중도 해지 ❌</li>
-<li>장기 운용 ⭕</li>
-<li>연금 수령 전제 ⭕</li>
+<li><strong>Ra</strong> (Mean absolute roughness)</li>
+<li><strong>Rq</strong> (Root-mean-square roughness)</li>
+<li><strong>Rz</strong> (Peak-to-valley height)</li>
 </ul>
-<p>👉 그래서 <strong>절대 생활비를 넣으면 안 된다.</strong></p>
-</section>
-<section id="연금저축에-어울리는-상품" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="연금저축에-어울리는-상품"><span class="header-section-number">7.3</span> 2.3 연금저축에 어울리는 상품</h2>
+<p>Example (Dataset A):</p>
 <ul>
-<li>저비용 주식형 ETF</li>
-<li>장기 분산 포트폴리오</li>
-<li>변동성이 부담되면 채권 비중 추가</li>
+<li>HR: Ra = 30.7 µm</li>
+<li>Latent Diffusion: Ra = 32.8 µm</li>
+<li>Bicubic Upsampling: Ra = 57.8 µm</li>
 </ul>
+<p>Latent diffusion closely approximates true surface roughness.</p>
+<hr>
 </section>
-</section>
-<section id="irp-세액공제-한도를-넓히는-계좌" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> 3. IRP — 세액공제 한도를 넓히는 계좌</h1>
-<section id="irp의-역할" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="irp의-역할"><span class="header-section-number">8.1</span> 3.1 IRP의 역할</h2>
-<p>IRP는 연금저축과 성격이 거의 같다.<br>
-차이는 하나다.</p>
-<blockquote class="blockquote">
-<p><strong>세액공제 한도를 더 채울 수 있다.</strong></p>
-</blockquote>
-<p>그래서 실무적으로는: - 연금저축 먼저 - IRP는 그 다음</p>
-<p>이 순서가 가장 많이 쓰인다.</p>
-</section>
-<section id="irp의-단점" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="irp의-단점"><span class="header-section-number">8.2</span> 3.2 IRP의 단점</h2>
+<section id="zero-shot-generalization" class="level2">
+<h2 class="anchored" data-anchor-id="zero-shot-generalization">Zero-Shot Generalization</h2>
+<p>The study evaluates transferability across part geometries:</p>
 <ul>
-<li>중도 인출 제한이 더 강함</li>
-<li>운용 자유도는 ISA보다 낮음</li>
+<li>Synthetic low-resolution images created via Gaussian degradation.</li>
+<li>Entire part builds held out during training.</li>
+<li>Model tested on unseen geometries.</li>
 </ul>
-<p>👉 대신 <strong>“진짜 노후자금”으로는 가장 안정적인 틀</strong></p>
+<p>Result:</p>
+<ul>
+<li>Stable PSNR/SSIM performance</li>
+<li>Covariance distance improves as training diversity increases</li>
+<li>Robust performance under increasing blur kernel size</li>
+</ul>
+<p>This demonstrates strong inter-layer and inter-part generalization.</p>
+<hr>
 </section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<ul>
+<li>Latent diffusion reconstructs fine powder-bed texture.</li>
+<li>Significant reduction in MAE and covariance distance.</li>
+<li>Improved PSNR and SSIM.</li>
+<li>~13× faster inference than pixel diffusion.</li>
+<li>Improved 3D geometric accuracy (IoU ↑, H ↓, V ↓).</li>
+<li>Accurate surface roughness recovery.</li>
+<li>Strong zero-shot generalization.</li>
+</ul>
+<hr>
 </section>
-<section id="한눈에-비교-isa-vs-연금저축-vs-irp" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> 4. 한눈에 비교: ISA vs 연금저축 vs IRP</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>구분</th>
-<th>ISA</th>
-<th>연금저축펀드</th>
-<th>IRP</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>핵심 목적</td>
-<td>투자 수익 절세</td>
-<td>연말정산 환급</td>
-<td>세액공제 한도 확장</td>
-</tr>
-<tr class="even">
-<td>혜택 발생 시점</td>
-<td>투자 종료 시</td>
-<td>납입한 해</td>
-<td>납입한 해</td>
-</tr>
-<tr class="odd">
-<td>중도 인출</td>
-<td>비교적 자유</td>
-<td>불리함</td>
-<td>매우 제한적</td>
-</tr>
-<tr class="even">
-<td>자금 성격</td>
-<td>중·장기 투자</td>
-<td>노후 고정자금</td>
-<td>노후 고정자금</td>
-</tr>
-<tr class="odd">
-<td>자유도</td>
-<td>높음</td>
-<td>중간</td>
-<td>낮음</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="게으른-군인을-위한-실행-순서" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> 5. 게으른 군인을 위한 실행 순서</h1>
-<p>```mermaid flowchart TD A[연금저축 600만원 채우기] –&gt; B[IRP로 추가 납입] B –&gt; C[남는 돈은 ISA] C –&gt; D[ETF 단순 구성] D –&gt; E[연 1~2회 리밸런싱]</p>
+<section id="reviewers-takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="reviewers-takeaway">Reviewer’s Takeaway</h2>
+<p>This work demonstrates how <strong>conditional latent diffusion models enable scalable, high-fidelity, real-time optical monitoring in LPBF</strong>. By integrating probabilistic generative modeling, latent compression, wavelet-based texture evaluation, and 3D geometric reconstruction, the framework advances beyond conventional super-resolution toward physics-aware additive manufacturing monitoring. The combination of distribution modeling and geometric validation makes this study a strong reference for researchers working on:</p>
+<ul>
+<li>In-situ LPBF monitoring</li>
+<li>Generative models in manufacturing</li>
+<li>Diffusion-based super-resolution</li>
+<li>Closed-loop defect detection systems</li>
+</ul>
+<hr>
+<p><strong>Slide deck:</strong> <a href="../files/review2.pdf">Download PDF</a></p>
 
 
 </section>

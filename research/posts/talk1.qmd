@@ -12,3 +12,10 @@ This talk presents a conditional diffusion–based framework for robust Remainin
 
 **Slide deck:** [Download PDF](../files/talk_1.pdf)
 **Abstract:** [Download PDF](../files/talk_1_1.pdf)
+**Citation:**  
+Ko, Donghyun (2025).  
+*Diffusion Models for Robust RUL/TTF Prediction under Complex Degradational Process.*  
+AI4SE & SE4AI Research and Application Workshop,  
+17–18 September 2025, Washington, DC.  
+Included in the official workshop report:  
+[AI4SE & SE4AI Final Report (2025)](https://sercuarc.org/wp-content/uploads/2026/01/2025-AI4SE-SE4AI-Final-Report-v2.1.pdf)

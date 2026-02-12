@@ -60,14 +60,168 @@
     "href": "research/posts/talk1.html",
     "title": "Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process",
     "section": "",
-    "text": "This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes and was presented at the 6th Annual AI4SE & SE4AI Research and Application Workshop held in Washington, DC on September 17–18, 2025, hosted by the George Washington University Trustworthy AI Initiative and organized by the Systems Engineering Research Center (SERC) in collaboration with the U.S. Army DEVCOM Armaments Center. The presentation begins by explaining how degradation signals are constructed from sensor data and why conventional prognostic pipelines—such as Bayesian updating with parametric degradation models and PCA-based lognormal regression—often fail when signals exhibit nonlinear, nonstationary, heteroscedastic, or multimodal behaviors. To address these limitations, the proposed approach reframes RUL/TTF prediction as a conditional generative modeling problem, in which a diffusion model learns the full conditional distribution of future degradation trajectories given partial observations and produces probabilistic TTF predictions via threshold-crossing times. The talk introduces a time-series–specific conditional diffusion architecture that combines Gaussian-process-based forward noising, GRU-based condition encoding, and a Transformer-based reverse denoising process. Performance is systematically evaluated using synthetic degradation datasets with controlled increases in structural complexity, including Brownian-motion noise, localized perturbations, and regime-switching dynamics. Benchmark results using RMSE and MAPE demonstrate that conditional diffusion models consistently outperform Bayesian updating and PCA-based lognormal regression in complex and noise-dominated settings, particularly near failure thresholds, positioning diffusion models as a flexible, nonparametric, and uncertainty-aware alternative for prognostics in realistic engineering systems.\nSlide deck: Download PDF Abstract: Download PDF"
+    "text": "This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes and was presented at the 6th Annual AI4SE & SE4AI Research and Application Workshop held in Washington, DC on September 17–18, 2025, hosted by the George Washington University Trustworthy AI Initiative and organized by the Systems Engineering Research Center (SERC) in collaboration with the U.S. Army DEVCOM Armaments Center. The presentation begins by explaining how degradation signals are constructed from sensor data and why conventional prognostic pipelines—such as Bayesian updating with parametric degradation models and PCA-based lognormal regression—often fail when signals exhibit nonlinear, nonstationary, heteroscedastic, or multimodal behaviors. To address these limitations, the proposed approach reframes RUL/TTF prediction as a conditional generative modeling problem, in which a diffusion model learns the full conditional distribution of future degradation trajectories given partial observations and produces probabilistic TTF predictions via threshold-crossing times. The talk introduces a time-series–specific conditional diffusion architecture that combines Gaussian-process-based forward noising, GRU-based condition encoding, and a Transformer-based reverse denoising process. Performance is systematically evaluated using synthetic degradation datasets with controlled increases in structural complexity, including Brownian-motion noise, localized perturbations, and regime-switching dynamics. Benchmark results using RMSE and MAPE demonstrate that conditional diffusion models consistently outperform Bayesian updating and PCA-based lognormal regression in complex and noise-dominated settings, particularly near failure thresholds, positioning diffusion models as a flexible, nonparametric, and uncertainty-aware alternative for prognostics in realistic engineering systems.\nSlide deck: Download PDF Abstract: Download PDF Citation:\nKo, Donghyun (2025).\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradational Process.\nAI4SE & SE4AI Research and Application Workshop,\n17–18 September 2025, Washington, DC.\nIncluded in the official workshop report:\nAI4SE & SE4AI Final Report (2025)"
   },
   {
     "objectID": "research/posts/research1.html",
     "href": "research/posts/research1.html",
     "title": "Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment",
     "section": "",
-    "text": "The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the industrial engineering, and to suggest the final optimized design of a paper drone so that it can fly as long as possible. By applying a variety of design methods, we can build an optimized model to make the best product or system, and this helps us reduce the cost of changing the process conditions so that we can minimize the number of experiment runs to reduce the total cost. We designed the experiment with standard papers given by NASA spaceship center. We set a total 6 factors and investigate the response surface of a paper drone flight time. With this research, we showed that RSM is not an independent way of designing an experiment in isolation, but the perfect way of combinations for those to find the optimal design, and the RSM process will help us to understand the practical way of design any experiment.\nFull paper: Download PDF"
+    "text": "The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the industrial engineering, and to suggest the final optimized design of a paper drone so that it can fly as long as possible. By applying a variety of design methods, we can build an optimized model to make the best product or system, and this helps us reduce the cost of changing the process conditions so that we can minimize the number of experiment runs to reduce the total cost. We designed the experiment with standard papers given by NASA spaceship center. We set a total 6 factors and investigate the response surface of a paper drone flight time. With this research, we showed that RSM is not an independent way of designing an experiment in isolation, but the perfect way of combinations for those to find the optimal design, and the RSM process will help us to understand the practical way of design any experiment.\nFull paper: Download PDF Citation:\nKo, Donghyun; Bang, Juneyoung (2022).\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment.\nKorean Management Science Review, 39(1), 1–14.\nhttps://doi.org/10.7737/kmsr.2022.39.1.001"
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html",
+    "href": "paper_review/posts/review_2.html",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "",
+    "text": "Title: Deep Learning based Optical Image Super-Resolution via Generative Diffusion Models for Layerwise in-situ LPBF Monitoring\nAuthors: Francis Ogoke et al. (Carnegie Mellon University & Sandia National Laboratories)\nPreprint: arXiv:2409.13171\nLaser Powder Bed Fusion (LPBF) presents a fundamental trade-off in in-situ monitoring:\nhigh-resolution (HR) optical imaging enables accurate defect detection and surface roughness estimation, yet it is computationally expensive and difficult to scale for real-time deployment. Conversely, low-cost webcam imaging is scalable but lacks the spatial fidelity required to resolve fine powder-bed texture and geometric irregularities. This work proposes a conditional latent diffusion framework that probabilistically reconstructs high-resolution optical images from low-resolution webcam images, effectively learning the conditional distribution: \\(p(x_{HR} | x_{LR})\\) Rather than producing deterministic upscaled images, the model captures nonlinear, multimodal, and high-frequency structures of powder-bed texture, preserving realism and uncertainty."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#paper-overview",
+    "href": "paper_review/posts/review_2.html#paper-overview",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "",
+    "text": "Title: Deep Learning based Optical Image Super-Resolution via Generative Diffusion Models for Layerwise in-situ LPBF Monitoring\nAuthors: Francis Ogoke et al. (Carnegie Mellon University & Sandia National Laboratories)\nPreprint: arXiv:2409.13171\nLaser Powder Bed Fusion (LPBF) presents a fundamental trade-off in in-situ monitoring:\nhigh-resolution (HR) optical imaging enables accurate defect detection and surface roughness estimation, yet it is computationally expensive and difficult to scale for real-time deployment. Conversely, low-cost webcam imaging is scalable but lacks the spatial fidelity required to resolve fine powder-bed texture and geometric irregularities. This work proposes a conditional latent diffusion framework that probabilistically reconstructs high-resolution optical images from low-resolution webcam images, effectively learning the conditional distribution: \\(p(x_{HR} | x_{LR})\\) Rather than producing deterministic upscaled images, the model captures nonlinear, multimodal, and high-frequency structures of powder-bed texture, preserving realism and uncertainty."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#core-contributions-and-methodology",
+    "href": "paper_review/posts/review_2.html#core-contributions-and-methodology",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "Core Contributions and Methodology",
+    "text": "Core Contributions and Methodology\n\n1. Conditional Denoising Diffusion Probabilistic Model (DDPM)\nThe framework implements a conditional DDPM, where:\n\nHR images are progressively corrupted via a forward diffusion process.\nA U-Net denoising network learns to predict injected noise.\nLR images condition the reverse denoising process.\nThe model learns the full conditional distribution \\(p(x_{HR} | x_{LR})\\).\n\nThis overcomes the inherent ill-posed nature of deterministic super-resolution, which often produces over-smoothed reconstructions.\n\n\n\n2. Latent Diffusion for Real-Time Feasibility\nPixel-space diffusion is computationally intensive.\nTo reduce inference cost, the authors adopt a latent diffusion model (LDM):\n\nTwo autoencoders encode HR and LR images into compact latent spaces.\nDiffusion is performed in a reduced 16×16 latent space.\nOnly the HR latent is diffused; LR latent acts as condition.\nThe decoded output reconstructs the HR image.\n\nResult:\nInference time is reduced from 0.13 s/sample (pixel diffusion)\nto 0.01 s/sample (latent diffusion) — approximately 13× faster, enabling practical in-situ deployment."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#training-strategy",
+    "href": "paper_review/posts/review_2.html#training-strategy",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "Training Strategy",
+    "text": "Training Strategy\nTo handle large build-plate images:\n\nPatch size: 64×64\n\n115 patches per layer\n\n80:20 train-test split\n\nAutoencoder training: 100 epochs\n\nDiffusion training: 300 epochs\n\nA second experiment performs part-based training, ensuring no part-level data leakage."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#evaluation-metrics",
+    "href": "paper_review/posts/review_2.html#evaluation-metrics",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "Evaluation Metrics",
+    "text": "Evaluation Metrics\n\nImage Reconstruction Metrics\n\nMAE (Mean Absolute Error)\nPSNR (Peak Signal-to-Noise Ratio)\nSSIM (Structural Similarity Index)\n\n\n\nTexture-Level Metric\n\nNormalized Covariance Distance (nCVD)\nBased on phase-harmonic wavelet covariance operators\n→ Captures preservation of high-frequency powder-bed texture.\n\nLatent diffusion significantly reduces MAE and covariance distance while increasing PSNR and SSIM."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#d-morphology-reconstruction",
+    "href": "paper_review/posts/review_2.html#d-morphology-reconstruction",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "3D Morphology Reconstruction",
+    "text": "3D Morphology Reconstruction\nTo evaluate geometric fidelity beyond 2D metrics:\n\nEach layer is segmented using Segment Anything (SAM).\nMasks are stacked to reconstruct 3D morphology.\nThree geometry metrics are computed:\n\n\nIoU (Intersection-over-Union)\nHausdorff Distance\nVoxel mismatch\n\nLatent diffusion improves IoU and reduces geometric error compared to low-resolution and bicubic interpolation baselines."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#surface-roughness-estimation",
+    "href": "paper_review/posts/review_2.html#surface-roughness-estimation",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "Surface Roughness Estimation",
+    "text": "Surface Roughness Estimation\nSurface roughness metrics are computed from reconstructed contours:\n\nRa (Mean absolute roughness)\nRq (Root-mean-square roughness)\nRz (Peak-to-valley height)\n\nExample (Dataset A):\n\nHR: Ra = 30.7 µm\nLatent Diffusion: Ra = 32.8 µm\nBicubic Upsampling: Ra = 57.8 µm\n\nLatent diffusion closely approximates true surface roughness."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#zero-shot-generalization",
+    "href": "paper_review/posts/review_2.html#zero-shot-generalization",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "Zero-Shot Generalization",
+    "text": "Zero-Shot Generalization\nThe study evaluates transferability across part geometries:\n\nSynthetic low-resolution images created via Gaussian degradation.\nEntire part builds held out during training.\nModel tested on unseen geometries.\n\nResult:\n\nStable PSNR/SSIM performance\nCovariance distance improves as training diversity increases\nRobust performance under increasing blur kernel size\n\nThis demonstrates strong inter-layer and inter-part generalization."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#key-findings",
+    "href": "paper_review/posts/review_2.html#key-findings",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nLatent diffusion reconstructs fine powder-bed texture.\nSignificant reduction in MAE and covariance distance.\nImproved PSNR and SSIM.\n~13× faster inference than pixel diffusion.\nImproved 3D geometric accuracy (IoU ↑, H ↓, V ↓).\nAccurate surface roughness recovery.\nStrong zero-shot generalization."
+  },
+  {
+    "objectID": "paper_review/posts/review_2.html#reviewers-takeaway",
+    "href": "paper_review/posts/review_2.html#reviewers-takeaway",
+    "title": "Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models",
+    "section": "Reviewer’s Takeaway",
+    "text": "Reviewer’s Takeaway\nThis work demonstrates how conditional latent diffusion models enable scalable, high-fidelity, real-time optical monitoring in LPBF. By integrating probabilistic generative modeling, latent compression, wavelet-based texture evaluation, and 3D geometric reconstruction, the framework advances beyond conventional super-resolution toward physics-aware additive manufacturing monitoring. The combination of distribution modeling and geometric validation makes this study a strong reference for researchers working on:\n\nIn-situ LPBF monitoring\nGenerative models in manufacturing\nDiffusion-based super-resolution\nClosed-loop defect detection systems\n\n\nSlide deck: Download PDF"
+  },
+  {
+    "objectID": "paper_review/index.html",
+    "href": "paper_review/index.html",
+    "title": "Paper Review",
+    "section": "",
+    "text": "Paper Review\nThis page is an archive of concise reviews of papers I have read. Each post summarizes the paper’s core ideas, methods, and key takeaways, with brief notes on why the work matters and how it connects to my research. Codes to reproduce each paper can be found in my GitHub.\n\n\n\n\n\n\n\n\n\n\nDeep Learning-based Optical Image Super-Resolution via Generative Diffusion Models\n\n\nConditional Latent Diffusion for Layer-wise In-situ LPBF Monitoring\n\n\n\nAdditive Manufacturing\n\n\nDiffusion Model\n\n\nSuper-Resolution\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nLayer-wise anomaly detection and classification for powder bed Additive Manufacturing\n\n\nDynamic Segmentation CNN, Luke Scime, ORNL\n\n\n\nAdditive Manufacturing\n\n\nDeep Learning\n\n\nCNN\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "investing/index.html",
+    "href": "investing/index.html",
+    "title": "Others",
+    "section": "",
+    "text": "Others\nTo be updated…\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Study & Beyond",
+    "section": "",
+    "text": "Donghyun Ko\nPh.D. Student\nIndustrial & Systems Engineering\nNorth Carolina State University\n\n CV\n\n\n  ORCID\n\n\n\n\n\n\n\n\nPhone: 919-454-2479\nEmail: dko3@ncsu.edu\nOffice: 4331 Fitts-Woolard Hall\n\n\n\n\n\n\n\n\nHi, I am a Ph.D. student in Industrial & Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.\n\n\n\n\n\n\n\n\nGenerative AI\nMachine / Deep Learning\nMathematical Optimization\nIndustrial system Prognostics\nAnomaly etection & Monitoring\nAdditive Manufactuing\n\n\n\n\n\n\nPh.D., Industrial & Systems Engineering — NC State (in progress)\nM.S., Industrial Engineering — Texas A&M University\nB.A., Economics — Korea Military Academy\n\n\n\n\n\n\n\n\n\nThis site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.\n\n\n\n\n\nNotes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.\n\n\n\n\n\nA collection of my published papers and conference talks highlighting my research contributions in the socieity.\n\n\n\n\n\n\nSummaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.\n\n\n\n\n\nThis is an extra archive to stack other funny things!"
+  },
+  {
+    "objectID": "investing/investing_1.html",
+    "href": "investing/investing_1.html",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "",
+    "text": "박곰희의 연금부자수업"
+  },
+  {
+    "objectID": "investing/investing_1.html#isa의-본질",
+    "href": "investing/investing_1.html#isa의-본질",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "6.1 1.1 ISA의 본질",
+    "text": "6.1 1.1 ISA의 본질\nISA의 가장 큰 장점은\n계좌 안의 모든 손익을 합쳐서(손익통산) 과세한다는 점이다.\n\n이익과 손실을 합산\n순이익 일부는 비과세\n초과분도 일반 계좌보다 낮은 세율 적용\n\n즉,\n중간에 손실을 봐도 계좌 전체 기준으로 세금을 계산한다."
+  },
+  {
+    "objectID": "investing/investing_1.html#의무가입기간-반드시-기억할-것",
+    "href": "investing/investing_1.html#의무가입기간-반드시-기억할-것",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "6.2 1.2 의무가입기간: 반드시 기억할 것",
+    "text": "6.2 1.2 의무가입기간: 반드시 기억할 것\nISA에는 3년 의무가입기간이 있다.\n\n3년 이전 해지 → 세제혜택 불이익\n3년 이후 → 해지·연장·전략 변경 가능\n\n👉 ISA는 “만들고 잊는 계좌”가 아니라\n“3년 타이머를 의식하는 계좌”다."
+  },
+  {
+    "objectID": "investing/investing_1.html#isa에-어울리는-자금",
+    "href": "investing/investing_1.html#isa에-어울리는-자금",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "6.3 1.3 ISA에 어울리는 자금",
+    "text": "6.3 1.3 ISA에 어울리는 자금\n\n중장기 투자자금\nETF 중심 투자\n잦은 매매 ❌ / 느린 리밸런싱 ⭕\n\n\n\n\n\n\n\nISA에서 가장 흔한 실수\n\n\n\n\n3년 채우기 전에 해지\n\n계좌만 만들어두고 운용 안 함\n\n단타 계좌처럼 사용"
+  },
+  {
+    "objectID": "investing/investing_1.html#왜-연금저축을-먼저-채우는가",
+    "href": "investing/investing_1.html#왜-연금저축을-먼저-채우는가",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "7.1 2.1 왜 연금저축을 먼저 채우는가",
+    "text": "7.1 2.1 왜 연금저축을 먼저 채우는가\n연금저축의 강점은 명확하다.\n\n돈을 넣는 순간, 세금을 돌려받는다.\n\n\n연말정산 세액공제\n수익률과 무관한 “확정 이득”\n소득이 있는 사람에게 특히 유리"
+  },
+  {
+    "objectID": "investing/investing_1.html#연금저축의-성격",
+    "href": "investing/investing_1.html#연금저축의-성격",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "7.2 2.2 연금저축의 성격",
+    "text": "7.2 2.2 연금저축의 성격\n연금저축은 투자 계좌라기보다\n“노후 전용 금고”에 가깝다.\n\n중도 해지 ❌\n장기 운용 ⭕\n연금 수령 전제 ⭕\n\n👉 그래서 절대 생활비를 넣으면 안 된다."
+  },
+  {
+    "objectID": "investing/investing_1.html#연금저축에-어울리는-상품",
+    "href": "investing/investing_1.html#연금저축에-어울리는-상품",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "7.3 2.3 연금저축에 어울리는 상품",
+    "text": "7.3 2.3 연금저축에 어울리는 상품\n\n저비용 주식형 ETF\n장기 분산 포트폴리오\n변동성이 부담되면 채권 비중 추가"
+  },
+  {
+    "objectID": "investing/investing_1.html#irp의-역할",
+    "href": "investing/investing_1.html#irp의-역할",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "8.1 3.1 IRP의 역할",
+    "text": "8.1 3.1 IRP의 역할\nIRP는 연금저축과 성격이 거의 같다.\n차이는 하나다.\n\n세액공제 한도를 더 채울 수 있다.\n\n그래서 실무적으로는: - 연금저축 먼저 - IRP는 그 다음\n이 순서가 가장 많이 쓰인다."
+  },
+  {
+    "objectID": "investing/investing_1.html#irp의-단점",
+    "href": "investing/investing_1.html#irp의-단점",
+    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
+    "section": "8.2 3.2 IRP의 단점",
+    "text": "8.2 3.2 IRP의 단점\n\n중도 인출 제한이 더 강함\n운용 자유도는 ISA보다 낮음\n\n👉 대신 “진짜 노후자금”으로는 가장 안정적인 틀"
   },
   {
     "objectID": "paper_review/posts/review_1.html",
@@ -112,102 +266,18 @@
     "text": "Reviewer’s Takeaway\nThis paper represents a strong example of domain-aware deep learning, where network architecture, input representation, and loss design are tightly aligned with the physical and operational characteristics of powder-bed AM processes. Its emphasis on pixel-wise segmentation, multi-scale context, and transferability across machines makes DSCNN a foundational reference for researchers working on real-time quality assurance and closed-loop control in additive manufacturing.\nSlide deck: Download PDF"
   },
   {
-    "objectID": "investing/posts/investing_1.html",
-    "href": "investing/posts/investing_1.html",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "",
-    "text": "박곰희의 연금부자수업"
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#isa의-본질",
-    "href": "investing/posts/investing_1.html#isa의-본질",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "6.1 1.1 ISA의 본질",
-    "text": "6.1 1.1 ISA의 본질\nISA의 가장 큰 장점은\n계좌 안의 모든 손익을 합쳐서(손익통산) 과세한다는 점이다.\n\n이익과 손실을 합산\n순이익 일부는 비과세\n초과분도 일반 계좌보다 낮은 세율 적용\n\n즉,\n중간에 손실을 봐도 계좌 전체 기준으로 세금을 계산한다."
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#의무가입기간-반드시-기억할-것",
-    "href": "investing/posts/investing_1.html#의무가입기간-반드시-기억할-것",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "6.2 1.2 의무가입기간: 반드시 기억할 것",
-    "text": "6.2 1.2 의무가입기간: 반드시 기억할 것\nISA에는 3년 의무가입기간이 있다.\n\n3년 이전 해지 → 세제혜택 불이익\n3년 이후 → 해지·연장·전략 변경 가능\n\n👉 ISA는 “만들고 잊는 계좌”가 아니라\n“3년 타이머를 의식하는 계좌”다."
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#isa에-어울리는-자금",
-    "href": "investing/posts/investing_1.html#isa에-어울리는-자금",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "6.3 1.3 ISA에 어울리는 자금",
-    "text": "6.3 1.3 ISA에 어울리는 자금\n\n중장기 투자자금\nETF 중심 투자\n잦은 매매 ❌ / 느린 리밸런싱 ⭕\n\n\n\n\n\n\n\nISA에서 가장 흔한 실수\n\n\n\n\n3년 채우기 전에 해지\n\n계좌만 만들어두고 운용 안 함\n\n단타 계좌처럼 사용"
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#왜-연금저축을-먼저-채우는가",
-    "href": "investing/posts/investing_1.html#왜-연금저축을-먼저-채우는가",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "7.1 2.1 왜 연금저축을 먼저 채우는가",
-    "text": "7.1 2.1 왜 연금저축을 먼저 채우는가\n연금저축의 강점은 명확하다.\n\n돈을 넣는 순간, 세금을 돌려받는다.\n\n\n연말정산 세액공제\n수익률과 무관한 “확정 이득”\n소득이 있는 사람에게 특히 유리"
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#연금저축의-성격",
-    "href": "investing/posts/investing_1.html#연금저축의-성격",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "7.2 2.2 연금저축의 성격",
-    "text": "7.2 2.2 연금저축의 성격\n연금저축은 투자 계좌라기보다\n“노후 전용 금고”에 가깝다.\n\n중도 해지 ❌\n장기 운용 ⭕\n연금 수령 전제 ⭕\n\n👉 그래서 절대 생활비를 넣으면 안 된다."
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#연금저축에-어울리는-상품",
-    "href": "investing/posts/investing_1.html#연금저축에-어울리는-상품",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "7.3 2.3 연금저축에 어울리는 상품",
-    "text": "7.3 2.3 연금저축에 어울리는 상품\n\n저비용 주식형 ETF\n장기 분산 포트폴리오\n변동성이 부담되면 채권 비중 추가"
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#irp의-역할",
-    "href": "investing/posts/investing_1.html#irp의-역할",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "8.1 3.1 IRP의 역할",
-    "text": "8.1 3.1 IRP의 역할\nIRP는 연금저축과 성격이 거의 같다.\n차이는 하나다.\n\n세액공제 한도를 더 채울 수 있다.\n\n그래서 실무적으로는: - 연금저축 먼저 - IRP는 그 다음\n이 순서가 가장 많이 쓰인다."
-  },
-  {
-    "objectID": "investing/posts/investing_1.html#irp의-단점",
-    "href": "investing/posts/investing_1.html#irp의-단점",
-    "title": "게으른 군인, 눈치보는 군인을 위한 투자지침서",
-    "section": "8.2 3.2 IRP의 단점",
-    "text": "8.2 3.2 IRP의 단점\n\n중도 인출 제한이 더 강함\n운용 자유도는 ISA보다 낮음\n\n👉 대신 “진짜 노후자금”으로는 가장 안정적인 틀"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Study & Beyond",
-    "section": "",
-    "text": "Donghyun Ko\nPh.D. Student\nIndustrial & Systems Engineering\nNorth Carolina State University\n\n CV\n\n\n  ORCID\n\n\n\n\n\n\n\n\nPhone: 919-454-2479\nEmail: dko3@ncsu.edu\nOffice: 4331 Fitts-Woolard Hall\n\n\n\n\n\n\n\n\nHi, I am a Ph.D. student in Industrial & Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.\n\n\n\n\n\n\n\n\nGenerative AI\nMachine / Deep Learning\nMathematical Optimization\nIndustrial system Prognostics\nAnomaly etection & Monitoring\nAdditive Manufactuing\n\n\n\n\n\n\nPh.D., Industrial & Systems Engineering — NC State (in progress)\nM.S., Industrial Engineering — Texas A&M University\nB.A., Economics — Korea Military Academy\n\n\n\n\n\n\n\n\n\nThis site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.\n\n\n\n\n\nNotes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.\n\n\n\n\n\nA collection of my published papers and conference talks highlighting my research contributions in the socieity.\n\n\n\n\n\n\nSummaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.\n\n\n\n\n\nThis is an extra archive to stack other funny things!"
-  },
-  {
-    "objectID": "investing/index.html",
-    "href": "investing/index.html",
-    "title": "Others",
-    "section": "",
-    "text": "Others\nTo be updated…\n\n\n\n\n\n\n\n\n\n\n게으른 군인, 눈치보는 군인을 위한 투자지침서\n\n\n이것만 그대로 따라하자! (주식편)\n\n\n\n주식\n\n\nISA\n\n\nIRP\n\n\n연금저축펀드\n\n\n\n주식 투자를 시작하기 위한 세팅! 절세계좌 3종: ISA·IRP·연금저축펀드\n\n\n\n\n\nJan 14, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "paper_review/index.html",
-    "href": "paper_review/index.html",
-    "title": "Paper Review",
-    "section": "",
-    "text": "Paper Review\nThis page is an archive of concise reviews of papers I have read. Each post summarizes the paper’s core ideas, methods, and key takeaways, with brief notes on why the work matters and how it connects to my research. Codes to reproduce each paper can be found in my GitHub.\n\n\n\n\n\n\n\n\n\n\nLayer-wise anomaly detection and classification for powder bed Additive Manufacturing\n\n\nDynamic Segmentation CNN, Luke Scime, ORNL\n\n\n\nAdditive Manufacturing\n\n\nDeep Learning\n\n\nCNN\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "research/index.html",
     "href": "research/index.html",
     "title": "Research",
     "section": "",
-    "text": "Research\nThis page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.\n\n\n\n\n\n\n\n\n\n\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment\n\n\n\n\n\n\nOptimization\n\n\nResponse Surface Method\n\n\n\n\n\n\n\n\n\nJan 14, 2026\n\n\n\n\n\n\n\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\n\nA Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Research\nThis page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.\n\n\n\n\n\n\n\n\n\n\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment\n\n\n\n\n\n\nOptimization\n\n\nResponse Surface Method\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nA Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "research/posts/research2.html",
     "href": "research/posts/research2.html",
     "title": "A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics",
     "section": "",
-    "text": "Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains such as aerospace, manufacturing, and energy. Existing approaches largely fall into two categories: model-based methods that explicitly model degradation trajectories under para metric assumptions, and data-driven methods that directly map observed signals to failure time via dimensionality reduction and regression. Representative examples of these ap proaches considered in this paper include Bayesian updating and PCA-based lognormal re gression. While effective for smooth and monotonic degradation patterns, both paradigms often degrade when applied to irregular, nonstationary, or multimodal degradation pro cesses commonly encountered in real-world environments. To address these limitations, we propose a conditional diffusion–based generative framework that learns the full con ditional distribution of future degradation trajectories given partial observations, enabling flexible and probabilistic TTF prediction. By modeling the data distribution directly, diffu sion models can approximate nonlinear, heavy-tailed, and multimodal degradation behav iors. To rigorously evaluate performance, we construct synthetic degradation datasets with controlled increases in structural complexity, incorporating Brownian-motion noise, local ized perturbations, and multi-regime dynamics. Extensive benchmarks against Bayesian updating and PCA-based lognormal regression demonstrate that the proposed diffusion model consistently achieves lower error under complex settings, particularly near failure thresholds and under complex, heteroscedastic conditions. These results position diffusion model as a robust and scalable alternative for predictive analytics in realistic prognostic.\nFull paper: Download PDF"
+    "text": "Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains such as aerospace, manufacturing, and energy. Existing approaches largely fall into two categories: model-based methods that explicitly model degradation trajectories under para metric assumptions, and data-driven methods that directly map observed signals to failure time via dimensionality reduction and regression. Representative examples of these ap proaches considered in this paper include Bayesian updating and PCA-based lognormal re gression. While effective for smooth and monotonic degradation patterns, both paradigms often degrade when applied to irregular, nonstationary, or multimodal degradation pro cesses commonly encountered in real-world environments. To address these limitations, we propose a conditional diffusion–based generative framework that learns the full con ditional distribution of future degradation trajectories given partial observations, enabling flexible and probabilistic TTF prediction. By modeling the data distribution directly, diffu sion models can approximate nonlinear, heavy-tailed, and multimodal degradation behav iors. To rigorously evaluate performance, we construct synthetic degradation datasets with controlled increases in structural complexity, incorporating Brownian-motion noise, local ized perturbations, and multi-regime dynamics. Extensive benchmarks against Bayesian updating and PCA-based lognormal regression demonstrate that the proposed diffusion model consistently achieves lower error under complex settings, particularly near failure thresholds and under complex, heteroscedastic conditions. These results position diffusion model as a robust and scalable alternative for predictive analytics in realistic prognostic.\nFull paper: Download PDF\nCitation:\nKo, Donghyun; Fang, Xiaolei (2025). A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics.\nUnder review at Mechanical Systems and Signal Processing.\nPreprint (SSRN): https://doi.org/10.2139/ssrn.6169178"
   },
   {
     "objectID": "study/index.html",

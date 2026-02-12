@@ -10,7 +10,178 @@
 <atom:link href="https://kmakdh3692.github.io/paper_review/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Sun, 04 Jan 2026 04:40:31 GMT</lastBuildDate>
+<lastBuildDate>Thu, 12 Feb 2026 02:05:35 GMT</lastBuildDate>
+<item>
+  <title>Deep Learning-based Optical Image Super-Resolution via Generative Diffusion Models</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/paper_review/posts/review_2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="paper-overview" class="level2">
+<h2 class="anchored" data-anchor-id="paper-overview">Paper Overview</h2>
+<p><strong>Title:</strong> Deep Learning based Optical Image Super-Resolution via Generative Diffusion Models for Layerwise in-situ LPBF Monitoring<br>
+<strong>Authors:</strong> Francis Ogoke et al.&nbsp;(Carnegie Mellon University &amp; Sandia National Laboratories)<br>
+<strong>Preprint:</strong> arXiv:2409.13171</p>
+<p>Laser Powder Bed Fusion (LPBF) presents a fundamental trade-off in in-situ monitoring:<br>
+high-resolution (HR) optical imaging enables accurate defect detection and surface roughness estimation, yet it is computationally expensive and difficult to scale for real-time deployment. Conversely, low-cost webcam imaging is scalable but lacks the spatial fidelity required to resolve fine powder-bed texture and geometric irregularities. This work proposes a <strong>conditional latent diffusion framework</strong> that probabilistically reconstructs high-resolution optical images from low-resolution webcam images, effectively learning the conditional distribution: <img src="https://latex.codecogs.com/png.latex?p(x_%7BHR%7D%20%7C%20x_%7BLR%7D)"> Rather than producing deterministic upscaled images, the model captures nonlinear, multimodal, and high-frequency structures of powder-bed texture, preserving realism and uncertainty.</p>
+<hr>
+</section>
+<section id="core-contributions-and-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="core-contributions-and-methodology">Core Contributions and Methodology</h2>
+<section id="conditional-denoising-diffusion-probabilistic-model-ddpm" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-denoising-diffusion-probabilistic-model-ddpm">1. Conditional Denoising Diffusion Probabilistic Model (DDPM)</h3>
+<p>The framework implements a <strong>conditional DDPM</strong>, where:</p>
+<ul>
+<li>HR images are progressively corrupted via a forward diffusion process.</li>
+<li>A U-Net denoising network learns to predict injected noise.</li>
+<li>LR images condition the reverse denoising process.</li>
+<li>The model learns the full conditional distribution <img src="https://latex.codecogs.com/png.latex?p(x_%7BHR%7D%20%7C%20x_%7BLR%7D)">.</li>
+</ul>
+<p>This overcomes the inherent ill-posed nature of deterministic super-resolution, which often produces over-smoothed reconstructions.</p>
+<hr>
+</section>
+<section id="latent-diffusion-for-real-time-feasibility" class="level3">
+<h3 class="anchored" data-anchor-id="latent-diffusion-for-real-time-feasibility">2. Latent Diffusion for Real-Time Feasibility</h3>
+<p>Pixel-space diffusion is computationally intensive.<br>
+To reduce inference cost, the authors adopt a <strong>latent diffusion model (LDM)</strong>:</p>
+<ul>
+<li>Two autoencoders encode HR and LR images into compact latent spaces.</li>
+<li>Diffusion is performed in a reduced 16×16 latent space.</li>
+<li>Only the HR latent is diffused; LR latent acts as condition.</li>
+<li>The decoded output reconstructs the HR image.</li>
+</ul>
+<p><strong>Result:</strong><br>
+Inference time is reduced from <strong>0.13 s/sample (pixel diffusion)</strong><br>
+to <strong>0.01 s/sample (latent diffusion)</strong> — approximately <strong>13× faster</strong>, enabling practical in-situ deployment.</p>
+<hr>
+</section>
+</section>
+<section id="training-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="training-strategy">Training Strategy</h2>
+<p>To handle large build-plate images:</p>
+<ul>
+<li>Patch size: 64×64<br>
+</li>
+<li>115 patches per layer<br>
+</li>
+<li>80:20 train-test split<br>
+</li>
+<li>Autoencoder training: 100 epochs<br>
+</li>
+<li>Diffusion training: 300 epochs</li>
+</ul>
+<p>A second experiment performs <strong>part-based training</strong>, ensuring no part-level data leakage.</p>
+<hr>
+</section>
+<section id="evaluation-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-metrics">Evaluation Metrics</h2>
+<section id="image-reconstruction-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="image-reconstruction-metrics">Image Reconstruction Metrics</h3>
+<ul>
+<li><strong>MAE</strong> (Mean Absolute Error)</li>
+<li><strong>PSNR</strong> (Peak Signal-to-Noise Ratio)</li>
+<li><strong>SSIM</strong> (Structural Similarity Index)</li>
+</ul>
+</section>
+<section id="texture-level-metric" class="level3">
+<h3 class="anchored" data-anchor-id="texture-level-metric">Texture-Level Metric</h3>
+<ul>
+<li><strong>Normalized Covariance Distance (nCVD)</strong><br>
+Based on phase-harmonic wavelet covariance operators<br>
+→ Captures preservation of high-frequency powder-bed texture.</li>
+</ul>
+<p>Latent diffusion significantly reduces MAE and covariance distance while increasing PSNR and SSIM.</p>
+<hr>
+</section>
+</section>
+<section id="d-morphology-reconstruction" class="level2">
+<h2 class="anchored" data-anchor-id="d-morphology-reconstruction">3D Morphology Reconstruction</h2>
+<p>To evaluate geometric fidelity beyond 2D metrics:</p>
+<ol type="1">
+<li>Each layer is segmented using <strong>Segment Anything (SAM)</strong>.</li>
+<li>Masks are stacked to reconstruct 3D morphology.</li>
+<li>Three geometry metrics are computed:</li>
+</ol>
+<ul>
+<li><strong>IoU (Intersection-over-Union)</strong></li>
+<li><strong>Hausdorff Distance</strong></li>
+<li><strong>Voxel mismatch</strong></li>
+</ul>
+<p>Latent diffusion improves IoU and reduces geometric error compared to low-resolution and bicubic interpolation baselines.</p>
+<hr>
+</section>
+<section id="surface-roughness-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="surface-roughness-estimation">Surface Roughness Estimation</h2>
+<p>Surface roughness metrics are computed from reconstructed contours:</p>
+<ul>
+<li><strong>Ra</strong> (Mean absolute roughness)</li>
+<li><strong>Rq</strong> (Root-mean-square roughness)</li>
+<li><strong>Rz</strong> (Peak-to-valley height)</li>
+</ul>
+<p>Example (Dataset A):</p>
+<ul>
+<li>HR: Ra = 30.7 µm</li>
+<li>Latent Diffusion: Ra = 32.8 µm</li>
+<li>Bicubic Upsampling: Ra = 57.8 µm</li>
+</ul>
+<p>Latent diffusion closely approximates true surface roughness.</p>
+<hr>
+</section>
+<section id="zero-shot-generalization" class="level2">
+<h2 class="anchored" data-anchor-id="zero-shot-generalization">Zero-Shot Generalization</h2>
+<p>The study evaluates transferability across part geometries:</p>
+<ul>
+<li>Synthetic low-resolution images created via Gaussian degradation.</li>
+<li>Entire part builds held out during training.</li>
+<li>Model tested on unseen geometries.</li>
+</ul>
+<p>Result:</p>
+<ul>
+<li>Stable PSNR/SSIM performance</li>
+<li>Covariance distance improves as training diversity increases</li>
+<li>Robust performance under increasing blur kernel size</li>
+</ul>
+<p>This demonstrates strong inter-layer and inter-part generalization.</p>
+<hr>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<ul>
+<li>Latent diffusion reconstructs fine powder-bed texture.</li>
+<li>Significant reduction in MAE and covariance distance.</li>
+<li>Improved PSNR and SSIM.</li>
+<li>~13× faster inference than pixel diffusion.</li>
+<li>Improved 3D geometric accuracy (IoU ↑, H ↓, V ↓).</li>
+<li>Accurate surface roughness recovery.</li>
+<li>Strong zero-shot generalization.</li>
+</ul>
+<hr>
+</section>
+<section id="reviewers-takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="reviewers-takeaway">Reviewer’s Takeaway</h2>
+<p>This work demonstrates how <strong>conditional latent diffusion models enable scalable, high-fidelity, real-time optical monitoring in LPBF</strong>. By integrating probabilistic generative modeling, latent compression, wavelet-based texture evaluation, and 3D geometric reconstruction, the framework advances beyond conventional super-resolution toward physics-aware additive manufacturing monitoring. The combination of distribution modeling and geometric validation makes this study a strong reference for researchers working on:</p>
+<ul>
+<li>In-situ LPBF monitoring</li>
+<li>Generative models in manufacturing</li>
+<li>Diffusion-based super-resolution</li>
+<li>Closed-loop defect detection systems</li>
+</ul>
+<hr>
+<p><strong>Slide deck:</strong> <a href="../files/review2.pdf">Download PDF</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Additive Manufacturing</category>
+  <category>Diffusion Model</category>
+  <category>Super-Resolution</category>
+  <guid>https://kmakdh3692.github.io/paper_review/posts/review_2.html</guid>
+  <pubDate>Thu, 12 Feb 2026 02:05:35 GMT</pubDate>
+</item>
 <item>
   <title>Layer-wise anomaly detection and classification for powder bed Additive Manufacturing</title>
   <dc:creator>Donghyun Ko</dc:creator>
