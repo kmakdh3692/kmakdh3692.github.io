@@ -11,7 +11,9 @@ This talk presents a conditional diffusion–based framework for robust Remainin
 
 
 **Slide deck:** [Download PDF](../files/talk_1.pdf)
+
 **Abstract:** [Download PDF](../files/talk_1_1.pdf)
+
 **Citation:**  
 Ko, Donghyun (2025).  
 *Diffusion Models for Robust RUL/TTF Prediction under Complex Degradational Process.*  

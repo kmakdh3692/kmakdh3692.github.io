@@ -12,7 +12,7 @@ format:
 ::: {.column width="30%"}
 ::: {.profile-left}
 
-![](images/profile.jpg){width=170 fig-cap=false class="profile-img"}
+![](images/profile.png){width=170 fig-cap=false class="profile-img"}
 
 **Donghyun Ko**  
 Ph.D. Student  

@@ -1,0 +1,51 @@
+---
+title: "Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Additive Manufacturing", "LPBF", "Generative AI", "Diffusion model", "Defect Detection", "Real-time Decision Support"]
+format:
+  html: default
+---
+
+Laser Powder Bed Fusion (LPBF) is a leading technology for producing complex metal components with high performance, but process outcomes are highly sensitive to manufacturing conditions. Key challenges include a high-dimensional process parameter space (e.g., laser power, scan speed, chamber temperature, hatch spacing), stochastic defect formation (e.g., recoater-related defects, incomplete spreading, swelling, debris, porosity), and time- and cost-intensive experimental validation. Existing works mainly rely on generative modeling and defect prediction in isolation, and no generative modeling has previously been applied on the Peregrine dataset.
+
+To address these limitations, we propose a unified **Generator–Evaluator–Decision** framework that integrates generative modeling and defect prediction into a real-time decision-support system capable of (1) replacing costly physical experimentation with probabilistic print forecasting, (2) estimating defect distributions, and (3) supporting risk-aware manufacturing decisions *in situ*.
+
+## Framework Overview
+
+The proposed framework consists of three components:
+
+**CDM-based Generator.** Given a context window of $k$ observed layers up to layer $i$, a Conditional Diffusion Model (CDM) generates the next-layer post-melt image patch by learning $p_\theta(X_{i+1}[x_0,y_0] \mid \text{context}_{i-k+1:i}(x_0,y_0))$. The conditioning context fuses past post-melt and post-recoat image history (encoded via CNN+GAP), temporal layer-wise signals (tokenized by a lightweight Transformer), the target-layer scan heatmap, and process-parameter masks. Two complementary conditioning pathways inject context tokens into the U-Net bottleneck (for global structure) and spatial maps as additional inputs (for local process information). The model generates multiple plausible realizations $X_0^{(1)}, X_0^{(2)}, \ldots, X_0^{(M)}$ through iterative denoising from Gaussian noise.
+
+**CNN-based Defect Evaluator.** The evaluator maps each generated sample to defect-related outcomes: $Y^{(m)} = f_\theta(X^{(m)})$. Taking a 2-channel tensor of [generated post-melt, post-recoat] as input, it outputs defect rates for 12 defect classes per patch. The set of predictions $\{Y^{(1)}, Y^{(2)}, \ldots, Y^{(M)}\}$ is aggregated to form an empirical defect distribution, enabling distribution-level risk estimation rather than single deterministic predictions.
+
+**Rule-based Decision Engine.** The estimated defect distribution is used to support real-time manufacturing decisions via a user-defined risk threshold $D^{\text{threshold}}$:
+
+- **"Keep printing"** if predicted defect risk $\leq D^{\text{threshold}}$
+- **"Stop printing"** if predicted defect risk $> D^{\text{threshold}}$ (early termination to avoid further production cost)
+
+## Dataset
+
+This work uses the **Peregrine digital twin dataset** released by Oak Ridge National Laboratory (DOI: [10.13139/ORNLNCCS/2008021](https://doi.org/10.13139/ORNLNCCS/2008021)), which consists of 5 LPBF builds with all modalities spatially (pixel-wise) and temporally (layer-wise) aligned: post-melt images, post-recoat images, part ID maps, anomaly segmentation masks (12 classes), laser scan paths, temporal in-build signals, and part-level process parameters. The primary training set uses Builds 1, 2, and 5 (aligned geometry and consistent physical meaning), with Builds 3 and 4 reserved for out-of-distribution evaluation.
+
+Raw HDF5 scan paths, part IDs, and process parameters are converted into pixel-aligned masks to create a unified layer-aligned multimodal tensor dataset, enabling efficient training without repeated HDF5 traversal.
+
+## Results
+
+The CDM generates high-quality virtual printings whose structure and texture closely match ground truth. Intensity distributions of the generated samples are well-aligned with ground truth distributions. The defect distribution estimated from the generated samples captures the ground-truth defect rates in the mean-period across 12 defect classes. Real-time GO/NO-GO decisions can be triggered layer-by-layer: for example, if the 100th real printing yields a 2nd-class defect rate of 0.230, printing is halted as this defect will propagate and worsen through subsequent layers.
+
+## Contributions
+
+- A first unified "Generator–Evaluator–Decision" framework for risk-aware LPBF monitoring
+- A first multimodal Conditional Diffusion Model applied to the Peregrine digital twin dataset, fusing image history, temporal signals, scan paths, and process parameters
+- Distribution-aware decision-making and uncertainty quantification via defect distributions rather than point predictions, supporting real-time GO/NO-GO decisions under uncertainty
+
+**Conference:** [Download Slides (PDF)](../files/slide_3.pdf)  
+**Poster:** [Download Poster (PDF)](../files/poster_3.pdf)  
+
+**Video:** [Download Poster (PDF)](../files/vidieo_3.mp4)  
+
+**abstract:** [Download Poster (PDF)](../files/abstract.pdf)  
+
+**Citation:**  
+Ko, Donghyun; Peloquin, Jacob (2026). *Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models.* Presented at *IISE Annual Conference & Expo 2026*.

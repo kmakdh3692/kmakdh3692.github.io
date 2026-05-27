@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Donghyun Ko">
-<meta name="dcterms.date" content="2026-02-11">
+<meta name="dcterms.date" content="2026-05-22">
 
 <title>Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process – Study &amp; Beyond</title>
 <style>
@@ -168,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 11, 2026</p>
+      <p class="date">May 22, 2026</p>
     </div>
   </div>
   
@@ -181,7 +181,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes and was presented at the 6th Annual AI4SE &amp; SE4AI Research and Application Workshop held in Washington, DC on September 17–18, 2025, hosted by the George Washington University Trustworthy AI Initiative and organized by the Systems Engineering Research Center (SERC) in collaboration with the U.S. Army DEVCOM Armaments Center. The presentation begins by explaining how degradation signals are constructed from sensor data and why conventional prognostic pipelines—such as Bayesian updating with parametric degradation models and PCA-based lognormal regression—often fail when signals exhibit nonlinear, nonstationary, heteroscedastic, or multimodal behaviors. To address these limitations, the proposed approach reframes RUL/TTF prediction as a conditional generative modeling problem, in which a diffusion model learns the full conditional distribution of future degradation trajectories given partial observations and produces probabilistic TTF predictions via threshold-crossing times. The talk introduces a time-series–specific conditional diffusion architecture that combines Gaussian-process-based forward noising, GRU-based condition encoding, and a Transformer-based reverse denoising process. Performance is systematically evaluated using synthetic degradation datasets with controlled increases in structural complexity, including Brownian-motion noise, localized perturbations, and regime-switching dynamics. Benchmark results using RMSE and MAPE demonstrate that conditional diffusion models consistently outperform Bayesian updating and PCA-based lognormal regression in complex and noise-dominated settings, particularly near failure thresholds, positioning diffusion models as a flexible, nonparametric, and uncertainty-aware alternative for prognostics in realistic engineering systems.</p>
-<p><strong>Slide deck:</strong> <a href="../files/talk_1.pdf">Download PDF</a> <strong>Abstract:</strong> <a href="../files/talk_1_1.pdf">Download PDF</a> <strong>Citation:</strong><br>
+<p><strong>Slide deck:</strong> <a href="../files/talk_1.pdf">Download PDF</a></p>
+<p><strong>Abstract:</strong> <a href="../files/talk_1_1.pdf">Download PDF</a></p>
+<p><strong>Citation:</strong><br>
 Ko, Donghyun (2025).<br>
 <em>Diffusion Models for Robust RUL/TTF Prediction under Complex Degradational Process.</em><br>
 AI4SE &amp; SE4AI Research and Application Workshop,<br>

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Donghyun Ko">
+<meta name="dcterms.date" content="2026-05-26">
 
-<title>Study &amp; Beyond</title>
+<title>Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models – Study &amp; Beyond</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-15ff0319c23051388d21e7eddba4225b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fad5ab29a14bbe0a7a7d29177f3f13bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,8 +70,37 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -79,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Study &amp; Beyond</span>
     </a>
   </div>
@@ -90,23 +121,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./study/index.html"> 
+    <a class="nav-link" href="../../study/index.html"> 
 <span class="menu-text">Study Note</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./paper_review/index.html"> 
+    <a class="nav-link" href="../../paper_review/index.html"> 
 <span class="menu-text">Paper Review</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research/index.html"> 
+    <a class="nav-link" href="../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./investing/index.html"> 
+    <a class="nav-link" href="../../investing/index.html"> 
 <span class="menu-text">Others</span></a>
   </li>  
 </ul>
@@ -133,118 +164,101 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#framework-overview" id="toc-framework-overview" class="nav-link active" data-scroll-target="#framework-overview">Framework Overview</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#contributions" id="toc-contributions" class="nav-link" data-scroll-target="#contributions">Contributions</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Additive Manufacturing</div>
+    <div class="quarto-category">LPBF</div>
+    <div class="quarto-category">Generative AI</div>
+    <div class="quarto-category">Diffusion model</div>
+    <div class="quarto-category">Defect Detection</div>
+    <div class="quarto-category">Real-time Decision Support</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<div class="landing-wrap">
-<div class="columns">
-<div class="column" style="width:30%;">
-<div class="profile-left">
-<p><img src="images/profile.png" class="profile-img img-fluid" data-fig-cap="false" width="170"></p>
-<p><strong>Donghyun Ko</strong><br>
-Ph.D.&nbsp;Student<br>
-Industrial &amp; Systems Engineering<br>
-North Carolina State University</p>
-<div class="btn-row">
-<p><a href="files/Resume.pdf" class="btn btn-outline-primary btn-sm" download="true"><i class="bi bi-file-earmark-pdf"></i> CV</a></p>
-</div>
-<div class="social">
-<p><a href="https://linkedin.com/in/donghyun-ko-07b268196" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a> <a href="https://github.com/kmakdh3692" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a> <a href="https://orcid.org/0000-0003-2182-5733" target="_blank" aria-label="ORCID">ORCID</a></p>
-</div>
-<div class="hr">
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Donghyun Ko </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 26, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-</div>
-<section id="contact" class="level3 anchor">
-<h3 class="anchored" data-anchor-id="contact"><i class="bi bi-person-lines-fill"></i> Contact</h3>
-</section>
+
+</header>
+
+
+<p>Laser Powder Bed Fusion (LPBF) is a leading technology for producing complex metal components with high performance, but process outcomes are highly sensitive to manufacturing conditions. Key challenges include a high-dimensional process parameter space (e.g., laser power, scan speed, chamber temperature, hatch spacing), stochastic defect formation (e.g., recoater-related defects, incomplete spreading, swelling, debris, porosity), and time- and cost-intensive experimental validation. Existing works mainly rely on generative modeling and defect prediction in isolation, and no generative modeling has previously been applied on the Peregrine dataset.</p>
+<p>To address these limitations, we propose a unified <strong>Generator–Evaluator–Decision</strong> framework that integrates generative modeling and defect prediction into a real-time decision-support system capable of (1) replacing costly physical experimentation with probabilistic print forecasting, (2) estimating defect distributions, and (3) supporting risk-aware manufacturing decisions <em>in situ</em>.</p>
+<section id="framework-overview" class="level2">
+<h2 class="anchored" data-anchor-id="framework-overview">Framework Overview</h2>
+<p>The proposed framework consists of three components:</p>
+<p><strong>CDM-based Generator.</strong> Given a context window of <span class="math inline">\(k\)</span> observed layers up to layer <span class="math inline">\(i\)</span>, a Conditional Diffusion Model (CDM) generates the next-layer post-melt image patch by learning <span class="math inline">\(p_\theta(X_{i+1}[x_0,y_0] \mid \text{context}_{i-k+1:i}(x_0,y_0))\)</span>. The conditioning context fuses past post-melt and post-recoat image history (encoded via CNN+GAP), temporal layer-wise signals (tokenized by a lightweight Transformer), the target-layer scan heatmap, and process-parameter masks. Two complementary conditioning pathways inject context tokens into the U-Net bottleneck (for global structure) and spatial maps as additional inputs (for local process information). The model generates multiple plausible realizations <span class="math inline">\(X_0^{(1)}, X_0^{(2)}, \ldots, X_0^{(M)}\)</span> through iterative denoising from Gaussian noise.</p>
+<p><strong>CNN-based Defect Evaluator.</strong> The evaluator maps each generated sample to defect-related outcomes: <span class="math inline">\(Y^{(m)} = f_\theta(X^{(m)})\)</span>. Taking a 2-channel tensor of [generated post-melt, post-recoat] as input, it outputs defect rates for 12 defect classes per patch. The set of predictions <span class="math inline">\(\{Y^{(1)}, Y^{(2)}, \ldots, Y^{(M)}\}\)</span> is aggregated to form an empirical defect distribution, enabling distribution-level risk estimation rather than single deterministic predictions.</p>
+<p><strong>Rule-based Decision Engine.</strong> The estimated defect distribution is used to support real-time manufacturing decisions via a user-defined risk threshold <span class="math inline">\(D^{\text{threshold}}\)</span>:</p>
 <ul>
-<li><strong>Phone</strong>: 919-454-2479</li>
-<li><strong>Email</strong>: dko3@ncsu.edu</li>
-<li><strong>Office</strong>: 4331 Fitts-Woolard Hall</li>
-</ul>
-</div>
-</div><div class="column" style="width:70%;">
-<div id="about" class="anchor">
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About me</h2>
-</section>
-</div>
-<p>Hi, I am a Ph.D.&nbsp;student in Industrial &amp; Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.</p>
-<div class="hr">
-
-</div>
-<div class="columns">
-<div class="column" style="width:35%;">
-<section id="interests" class="level3">
-<h3 class="anchored" data-anchor-id="interests"><i class="bi bi-bullseye"></i> Interests</h3>
-<ul>
-<li>Generative AI</li>
-<li>Machine / Deep Learning</li>
-<li>Mathematical Optimization</li>
-<li>Industrial system Prognostics</li>
-<li>Anomaly etection &amp; Monitoring</li>
-<li>Additive Manufactuing</li>
-</ul>
-</section>
-</div><div class="column" style="width:65%;">
-<section id="education" class="level3">
-<h3 class="anchored" data-anchor-id="education"><i class="bi bi-mortarboard"></i> Education</h3>
-<ul>
-<li><strong>Ph.D.</strong>, Industrial &amp; Systems Engineering — NC State (in progress)</li>
-<li><strong>M.S.</strong>, Industrial Engineering — Texas A&amp;M University</li>
-<li><strong>B.A.</strong>, Economics — Korea Military Academy</li>
+<li><strong>“Keep printing”</strong> if predicted defect risk <span class="math inline">\(\leq D^{\text{threshold}}\)</span></li>
+<li><strong>“Stop printing”</strong> if predicted defect risk <span class="math inline">\(&gt; D^{\text{threshold}}\)</span> (early termination to avoid further production cost)</li>
 </ul>
 </section>
-</div>
-</div>
-<div class="hr">
-
-</div>
-<section id="explore" class="level3">
-<h3 class="anchored" data-anchor-id="explore"><i class="bi bi-compass"></i> Explore</h3>
-<p>This site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<section id="study-note" class="level4">
-<h4 class="anchored" data-anchor-id="study-note"><a href="./study/index.html"><i class="bi bi-journal-text"></i> Study Note</a></h4>
-<div class="smalltext">
-<p>Notes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.</p>
-</div>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>This work uses the <strong>Peregrine digital twin dataset</strong> released by Oak Ridge National Laboratory (DOI: <a href="https://doi.org/10.13139/ORNLNCCS/2008021">10.13139/ORNLNCCS/2008021</a>), which consists of 5 LPBF builds with all modalities spatially (pixel-wise) and temporally (layer-wise) aligned: post-melt images, post-recoat images, part ID maps, anomaly segmentation masks (12 classes), laser scan paths, temporal in-build signals, and part-level process parameters. The primary training set uses Builds 1, 2, and 5 (aligned geometry and consistent physical meaning), with Builds 3 and 4 reserved for out-of-distribution evaluation.</p>
+<p>Raw HDF5 scan paths, part IDs, and process parameters are converted into pixel-aligned masks to create a unified layer-aligned multimodal tensor dataset, enabling efficient training without repeated HDF5 traversal.</p>
 </section>
-<section id="research" class="level4">
-<h4 class="anchored" data-anchor-id="research"><a href="./research/index.html"><i class="bi bi-graph-up"></i> Research</a></h4>
-<div class="smalltext">
-<p>A collection of my published papers and conference talks highlighting my research contributions in the socieity.</p>
-</div>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The CDM generates high-quality virtual printings whose structure and texture closely match ground truth. Intensity distributions of the generated samples are well-aligned with ground truth distributions. The defect distribution estimated from the generated samples captures the ground-truth defect rates in the mean-period across 12 defect classes. Real-time GO/NO-GO decisions can be triggered layer-by-layer: for example, if the 100th real printing yields a 2nd-class defect rate of 0.230, printing is halted as this defect will propagate and worsen through subsequent layers.</p>
 </section>
-</div><div class="column" style="width:50%;">
-<section id="paper-review" class="level4">
-<h4 class="anchored" data-anchor-id="paper-review"><a href="./paper_review/index.html"><i class="bi bi-file-text"></i> Paper Review</a></h4>
-<div class="smalltext">
-<p>Summaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.</p>
-</div>
-</section>
-<section id="others" class="level4">
-<h4 class="anchored" data-anchor-id="others"><a href="./investing/index.html"><i class="bi bi-pie-chart"></i> Others</a></h4>
-<div class="smalltext">
-<p>This is an extra archive to stack other funny things!</p>
-</div>
-</section>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
+<section id="contributions" class="level2">
+<h2 class="anchored" data-anchor-id="contributions">Contributions</h2>
+<ul>
+<li>A first unified “Generator–Evaluator–Decision” framework for risk-aware LPBF monitoring</li>
+<li>A first multimodal Conditional Diffusion Model applied to the Peregrine digital twin dataset, fusing image history, temporal signals, scan paths, and process parameters</li>
+<li>Distribution-aware decision-making and uncertainty quantification via defect distributions rather than point predictions, supporting real-time GO/NO-GO decisions under uncertainty</li>
+</ul>
+<p><strong>Conference:</strong> <a href="../files/slide_3.pdf">Download Slides (PDF)</a><br>
+<strong>Poster:</strong> <a href="../files/poster_3.pdf">Download Poster (PDF)</a></p>
+<p><strong>Video:</strong> <a href="../files/vidieo_3.mp4">Download Poster (PDF)</a></p>
+<p><strong>abstract:</strong> <a href="../files/abstract.pdf">Download Poster (PDF)</a></p>
+<p><strong>Citation:</strong><br>
+Ko, Donghyun; Peloquin, Jacob (2026). <em>Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models.</em> Presented at <em>IISE Annual Conference &amp; Expo 2026</em>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

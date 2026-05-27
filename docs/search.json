@@ -60,14 +60,91 @@
     "href": "research/posts/talk1.html",
     "title": "Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process",
     "section": "",
-    "text": "This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes and was presented at the 6th Annual AI4SE & SE4AI Research and Application Workshop held in Washington, DC on September 17–18, 2025, hosted by the George Washington University Trustworthy AI Initiative and organized by the Systems Engineering Research Center (SERC) in collaboration with the U.S. Army DEVCOM Armaments Center. The presentation begins by explaining how degradation signals are constructed from sensor data and why conventional prognostic pipelines—such as Bayesian updating with parametric degradation models and PCA-based lognormal regression—often fail when signals exhibit nonlinear, nonstationary, heteroscedastic, or multimodal behaviors. To address these limitations, the proposed approach reframes RUL/TTF prediction as a conditional generative modeling problem, in which a diffusion model learns the full conditional distribution of future degradation trajectories given partial observations and produces probabilistic TTF predictions via threshold-crossing times. The talk introduces a time-series–specific conditional diffusion architecture that combines Gaussian-process-based forward noising, GRU-based condition encoding, and a Transformer-based reverse denoising process. Performance is systematically evaluated using synthetic degradation datasets with controlled increases in structural complexity, including Brownian-motion noise, localized perturbations, and regime-switching dynamics. Benchmark results using RMSE and MAPE demonstrate that conditional diffusion models consistently outperform Bayesian updating and PCA-based lognormal regression in complex and noise-dominated settings, particularly near failure thresholds, positioning diffusion models as a flexible, nonparametric, and uncertainty-aware alternative for prognostics in realistic engineering systems.\nSlide deck: Download PDF Abstract: Download PDF Citation:\nKo, Donghyun (2025).\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradational Process.\nAI4SE & SE4AI Research and Application Workshop,\n17–18 September 2025, Washington, DC.\nIncluded in the official workshop report:\nAI4SE & SE4AI Final Report (2025)"
+    "text": "This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes and was presented at the 6th Annual AI4SE & SE4AI Research and Application Workshop held in Washington, DC on September 17–18, 2025, hosted by the George Washington University Trustworthy AI Initiative and organized by the Systems Engineering Research Center (SERC) in collaboration with the U.S. Army DEVCOM Armaments Center. The presentation begins by explaining how degradation signals are constructed from sensor data and why conventional prognostic pipelines—such as Bayesian updating with parametric degradation models and PCA-based lognormal regression—often fail when signals exhibit nonlinear, nonstationary, heteroscedastic, or multimodal behaviors. To address these limitations, the proposed approach reframes RUL/TTF prediction as a conditional generative modeling problem, in which a diffusion model learns the full conditional distribution of future degradation trajectories given partial observations and produces probabilistic TTF predictions via threshold-crossing times. The talk introduces a time-series–specific conditional diffusion architecture that combines Gaussian-process-based forward noising, GRU-based condition encoding, and a Transformer-based reverse denoising process. Performance is systematically evaluated using synthetic degradation datasets with controlled increases in structural complexity, including Brownian-motion noise, localized perturbations, and regime-switching dynamics. Benchmark results using RMSE and MAPE demonstrate that conditional diffusion models consistently outperform Bayesian updating and PCA-based lognormal regression in complex and noise-dominated settings, particularly near failure thresholds, positioning diffusion models as a flexible, nonparametric, and uncertainty-aware alternative for prognostics in realistic engineering systems.\nSlide deck: Download PDF\nAbstract: Download PDF\nCitation:\nKo, Donghyun (2025).\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradational Process.\nAI4SE & SE4AI Research and Application Workshop,\n17–18 September 2025, Washington, DC.\nIncluded in the official workshop report:\nAI4SE & SE4AI Final Report (2025)"
   },
   {
-    "objectID": "research/posts/research1.html",
-    "href": "research/posts/research1.html",
-    "title": "Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment",
+    "objectID": "research/posts/research2.html",
+    "href": "research/posts/research2.html",
+    "title": "A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics",
     "section": "",
-    "text": "The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the industrial engineering, and to suggest the final optimized design of a paper drone so that it can fly as long as possible. By applying a variety of design methods, we can build an optimized model to make the best product or system, and this helps us reduce the cost of changing the process conditions so that we can minimize the number of experiment runs to reduce the total cost. We designed the experiment with standard papers given by NASA spaceship center. We set a total 6 factors and investigate the response surface of a paper drone flight time. With this research, we showed that RSM is not an independent way of designing an experiment in isolation, but the perfect way of combinations for those to find the optimal design, and the RSM process will help us to understand the practical way of design any experiment.\nFull paper: Download PDF Citation:\nKo, Donghyun; Bang, Juneyoung (2022).\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment.\nKorean Management Science Review, 39(1), 1–14.\nhttps://doi.org/10.7737/kmsr.2022.39.1.001"
+    "text": "Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains such as aerospace, manufacturing, and energy. Existing approaches largely fall into two categories: model-based methods that explicitly model degradation trajectories under para metric assumptions, and data-driven methods that directly map observed signals to failure time via dimensionality reduction and regression. Representative examples of these ap proaches considered in this paper include Bayesian updating and PCA-based lognormal re gression. While effective for smooth and monotonic degradation patterns, both paradigms often degrade when applied to irregular, nonstationary, or multimodal degradation pro cesses commonly encountered in real-world environments. To address these limitations, we propose a conditional diffusion–based generative framework that learns the full con ditional distribution of future degradation trajectories given partial observations, enabling flexible and probabilistic TTF prediction. By modeling the data distribution directly, diffu sion models can approximate nonlinear, heavy-tailed, and multimodal degradation behav iors. To rigorously evaluate performance, we construct synthetic degradation datasets with controlled increases in structural complexity, incorporating Brownian-motion noise, local ized perturbations, and multi-regime dynamics. Extensive benchmarks against Bayesian updating and PCA-based lognormal regression demonstrate that the proposed diffusion model consistently achieves lower error under complex settings, particularly near failure thresholds and under complex, heteroscedastic conditions. These results position diffusion model as a robust and scalable alternative for predictive analytics in realistic prognostic.\nFull paper: Download PDF\\ Slide: Download PDF\\\nCitation:\nKo, Donghyun; Fang, Xiaolei (2026). A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics. Under review at Engineering Application of Artificial Intelligence.\nPreprint (SSRN): https://doi.org/10.2139/ssrn.6169178"
+  },
+  {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "Research\nThis page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.\n\n\n\n\n\n\n\n\n\n\nRisk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models\n\n\n\n\n\n\nAdditive Manufacturing\n\n\nLPBF\n\n\nGenerative AI\n\n\nDiffusion model\n\n\nDefect Detection\n\n\nReal-time Decision Support\n\n\n\n\n\n\n\n\n\nMay 26, 2026\n\n\n\n\n\n\n\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment\n\n\n\n\n\n\nOptimization\n\n\nResponse Surface Method\n\n\n\n\n\n\n\n\n\nMay 26, 2026\n\n\n\n\n\n\n\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nMay 22, 2026\n\n\n\n\n\n\n\nA Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nMay 22, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "paper_review/posts/review_1.html",
+    "href": "paper_review/posts/review_1.html",
+    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
+    "section": "",
+    "text": "Title: Layer-wise anomaly detection and classification for powder bed additive manufacturing\nAuthors: Luke Scime et al. (Oak Ridge National Laboratory, ORNL)\nThis paper addresses the challenge of real-time quality monitoring in powder-bed additive manufacturing (AM) by proposing a deep-learning–based framework for layer-wise anomaly detection and classification. The work is motivated by the limitations of traditional open-loop process control and ex-situ inspection, which cannot detect or correct defects during the build and often result in significant material and time waste. The authors focus on surface-visible anomalies that persist across layers and are detectable in powder-bed images, making them suitable for in-situ monitoring."
+  },
+  {
+    "objectID": "paper_review/posts/review_1.html#paper-overview",
+    "href": "paper_review/posts/review_1.html#paper-overview",
+    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
+    "section": "",
+    "text": "Title: Layer-wise anomaly detection and classification for powder bed additive manufacturing\nAuthors: Luke Scime et al. (Oak Ridge National Laboratory, ORNL)\nThis paper addresses the challenge of real-time quality monitoring in powder-bed additive manufacturing (AM) by proposing a deep-learning–based framework for layer-wise anomaly detection and classification. The work is motivated by the limitations of traditional open-loop process control and ex-situ inspection, which cannot detect or correct defects during the build and often result in significant material and time waste. The authors focus on surface-visible anomalies that persist across layers and are detectable in powder-bed images, making them suitable for in-situ monitoring."
+  },
+  {
+    "objectID": "paper_review/posts/review_1.html#core-contributions-and-methodology",
+    "href": "paper_review/posts/review_1.html#core-contributions-and-methodology",
+    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
+    "section": "Core Contributions and Methodology",
+    "text": "Core Contributions and Methodology\nThe paper introduces the Dynamic Segmentation Convolutional Neural Network (DSCNN), a pixel-wise semantic segmentation model designed specifically for high-resolution powder-bed imaging data. Unlike earlier patch-based approaches (e.g., MsCNN), DSCNN performs classification at the native image resolution and explicitly captures multi-scale contextual information through a three-leg architecture: (i) a global CNN branch for large-scale bed-level conditions, (ii) a regional U-Net branch for medium-scale morphological features, and (iii) a localization branch operating on native-resolution tiles to preserve fine-grained details. In addition, normalized pixel-coordinate channels are incorporated to encode spatial priors, reflecting the fact that certain defects are more likely to occur in specific regions of the build plate."
+  },
+  {
+    "objectID": "paper_review/posts/review_1.html#data-training-strategy-and-practical-considerations",
+    "href": "paper_review/posts/review_1.html#data-training-strategy-and-practical-considerations",
+    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
+    "section": "Data, Training Strategy, and Practical Considerations",
+    "text": "Data, Training Strategy, and Practical Considerations\nDSCNN is validated across six different powder-bed AM machines spanning three technologies (laser PBF, electron-beam PBF, and binder jetting), demonstrating strong cross-machine generalization. The authors carefully address key challenges in AM data, including extreme class imbalance and noisy manual annotations. To mitigate these issues, the training pipeline employs median-frequency class balancing and a skeptical (hard-bootstrapping) loss, which allows the model to partially rely on its own confident predictions when human labels are inconsistent. A tile-based training strategy is used to manage GPU memory while preserving multi-scale context, enabling efficient training on very large images."
+  },
+  {
+    "objectID": "paper_review/posts/review_1.html#results-and-insights",
+    "href": "paper_review/posts/review_1.html#results-and-insights",
+    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
+    "section": "Results and Insights",
+    "text": "Results and Insights\nExperimental results show that DSCNN significantly outperforms previous patch-based CNN approaches in terms of spatial localization accuracy and false-positive rates, particularly for rare but critical defect classes such as incomplete spreading, recoater streaking, and debris. Transfer learning experiments further demonstrate that models trained on data-rich machines can be effectively adapted to machines with limited labeled data, improving convergence speed and overall performance. Qualitative visualizations confirm that DSCNN produces more precise and interpretable anomaly maps, supporting its suitability for real-time, in-situ monitoring."
+  },
+  {
+    "objectID": "paper_review/posts/review_1.html#reviewers-takeaway",
+    "href": "paper_review/posts/review_1.html#reviewers-takeaway",
+    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
+    "section": "Reviewer’s Takeaway",
+    "text": "Reviewer’s Takeaway\nThis paper represents a strong example of domain-aware deep learning, where network architecture, input representation, and loss design are tightly aligned with the physical and operational characteristics of powder-bed AM processes. Its emphasis on pixel-wise segmentation, multi-scale context, and transferability across machines makes DSCNN a foundational reference for researchers working on real-time quality assurance and closed-loop control in additive manufacturing.\nSlide deck: Download PDF"
+  },
+  {
+    "objectID": "investing/posts/investing_1.html",
+    "href": "investing/posts/investing_1.html",
+    "title": "A",
+    "section": "",
+    "text": "A"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Study & Beyond",
+    "section": "",
+    "text": "Donghyun Ko\nPh.D. Student\nIndustrial & Systems Engineering\nNorth Carolina State University\n\n CV\n\n\n  ORCID\n\n\n\n\n\n\n\n\nPhone: 919-454-2479\nEmail: dko3@ncsu.edu\nOffice: 4331 Fitts-Woolard Hall\n\n\n\n\n\n\n\n\nHi, I am a Ph.D. student in Industrial & Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.\n\n\n\n\n\n\n\n\nGenerative AI\nMachine / Deep Learning\nMathematical Optimization\nIndustrial system Prognostics\nAnomaly etection & Monitoring\nAdditive Manufactuing\n\n\n\n\n\n\nPh.D., Industrial & Systems Engineering — NC State (in progress)\nM.S., Industrial Engineering — Texas A&M University\nB.A., Economics — Korea Military Academy\n\n\n\n\n\n\n\n\n\nThis site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.\n\n\n\n\n\nNotes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.\n\n\n\n\n\nA collection of my published papers and conference talks highlighting my research contributions in the socieity.\n\n\n\n\n\n\nSummaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.\n\n\n\n\n\nThis is an extra archive to stack other funny things!"
+  },
+  {
+    "objectID": "investing/index.html",
+    "href": "investing/index.html",
+    "title": "Others",
+    "section": "",
+    "text": "Others\nTo be updated…\n\n\n\n\n\n\n\n\n\n\nA\n\n\nA\n\n\n\nA\n\n\n\nA\n\n\n\n\n\nMay 26, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "paper_review/index.html",
+    "href": "paper_review/index.html",
+    "title": "Paper Review",
+    "section": "",
+    "text": "Paper Review\nThis page is an archive of concise reviews of papers I have read. Each post summarizes the paper’s core ideas, methods, and key takeaways, with brief notes on why the work matters and how it connects to my research. Codes to reproduce each paper can be found in my GitHub.\n\n\n\n\n\n\n\n\n\n\nDeep Learning-based Optical Image Super-Resolution via Generative Diffusion Models\n\n\nConditional Latent Diffusion for Layer-wise In-situ LPBF Monitoring\n\n\n\nAdditive Manufacturing\n\n\nDiffusion Model\n\n\nSuper-Resolution\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nLayer-wise anomaly detection and classification for powder bed Additive Manufacturing\n\n\nDynamic Segmentation CNN, Luke Scime, ORNL\n\n\n\nAdditive Manufacturing\n\n\nDeep Learning\n\n\nCNN\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "paper_review/posts/review_2.html",
@@ -140,88 +217,46 @@
     "text": "Reviewer’s Takeaway\nThis work demonstrates how conditional latent diffusion models enable scalable, high-fidelity, real-time optical monitoring in LPBF. By integrating probabilistic generative modeling, latent compression, wavelet-based texture evaluation, and 3D geometric reconstruction, the framework advances beyond conventional super-resolution toward physics-aware additive manufacturing monitoring. The combination of distribution modeling and geometric validation makes this study a strong reference for researchers working on:\n\nIn-situ LPBF monitoring\nGenerative models in manufacturing\nDiffusion-based super-resolution\nClosed-loop defect detection systems\n\n\nSlide deck: Download PDF"
   },
   {
-    "objectID": "paper_review/index.html",
-    "href": "paper_review/index.html",
-    "title": "Paper Review",
+    "objectID": "research/posts/research1.html",
+    "href": "research/posts/research1.html",
+    "title": "Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment",
     "section": "",
-    "text": "Paper Review\nThis page is an archive of concise reviews of papers I have read. Each post summarizes the paper’s core ideas, methods, and key takeaways, with brief notes on why the work matters and how it connects to my research. Codes to reproduce each paper can be found in my GitHub.\n\n\n\n\n\n\n\n\n\n\nDeep Learning-based Optical Image Super-Resolution via Generative Diffusion Models\n\n\nConditional Latent Diffusion for Layer-wise In-situ LPBF Monitoring\n\n\n\nAdditive Manufacturing\n\n\nDiffusion Model\n\n\nSuper-Resolution\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nLayer-wise anomaly detection and classification for powder bed Additive Manufacturing\n\n\nDynamic Segmentation CNN, Luke Scime, ORNL\n\n\n\nAdditive Manufacturing\n\n\nDeep Learning\n\n\nCNN\n\n\n\n\n\n\n\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the industrial engineering, and to suggest the final optimized design of a paper drone so that it can fly as long as possible. By applying a variety of design methods, we can build an optimized model to make the best product or system, and this helps us reduce the cost of changing the process conditions so that we can minimize the number of experiment runs to reduce the total cost. We designed the experiment with standard papers given by NASA spaceship center. We set a total 6 factors and investigate the response surface of a paper drone flight time. With this research, we showed that RSM is not an independent way of designing an experiment in isolation, but the perfect way of combinations for those to find the optimal design, and the RSM process will help us to understand the practical way of design any experiment.\nFull paper: Download PDF\nCitation:\nKo, Donghyun; Bang, Juneyoung (2022).\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment.\nKorean Management Science Review, 39(1), 1–14.\nhttps://doi.org/10.7737/kmsr.2022.39.1.001"
   },
   {
-    "objectID": "investing/index.html",
-    "href": "investing/index.html",
-    "title": "Others",
+    "objectID": "research/posts/research3.html",
+    "href": "research/posts/research3.html",
+    "title": "Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models",
     "section": "",
-    "text": "Others\nTo be updated…\n\n\n\n\n\n\n\n\n\n\nA\n\n\nA\n\n\n\nA\n\n\n\nA\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Laser Powder Bed Fusion (LPBF) is a leading technology for producing complex metal components with high performance, but process outcomes are highly sensitive to manufacturing conditions. Key challenges include a high-dimensional process parameter space (e.g., laser power, scan speed, chamber temperature, hatch spacing), stochastic defect formation (e.g., recoater-related defects, incomplete spreading, swelling, debris, porosity), and time- and cost-intensive experimental validation. Existing works mainly rely on generative modeling and defect prediction in isolation, and no generative modeling has previously been applied on the Peregrine dataset.\nTo address these limitations, we propose a unified Generator–Evaluator–Decision framework that integrates generative modeling and defect prediction into a real-time decision-support system capable of (1) replacing costly physical experimentation with probabilistic print forecasting, (2) estimating defect distributions, and (3) supporting risk-aware manufacturing decisions in situ."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Study & Beyond",
-    "section": "",
-    "text": "Donghyun Ko\nPh.D. Student\nIndustrial & Systems Engineering\nNorth Carolina State University\n\n CV\n\n\n  ORCID\n\n\n\n\n\n\n\n\nPhone: 919-454-2479\nEmail: dko3@ncsu.edu\nOffice: 4331 Fitts-Woolard Hall\n\n\n\n\n\n\n\n\nHi, I am a Ph.D. student in Industrial & Systems Engineering at NC State University, working on risk-aware generative AI for industrial predictive analytics. My research focuses on combining diffusion-based Generative models, ML/DL, and optimization to improve additive manufacturing process optimization, RUL/TTF prediction, and decision-making under uncertainty of defense systems.\n\n\n\n\n\n\n\n\nGenerative AI\nMachine / Deep Learning\nMathematical Optimization\nIndustrial system Prognostics\nAnomaly etection & Monitoring\nAdditive Manufactuing\n\n\n\n\n\n\nPh.D., Industrial & Systems Engineering — NC State (in progress)\nM.S., Industrial Engineering — Texas A&M University\nB.A., Economics — Korea Military Academy\n\n\n\n\n\n\n\n\n\nThis site is my personal archive, organized around methodology-focused study notes, paper reviews, research outcomes, and personal investing insights. It brings together how I learn, analyze, experiment, and reflect. Sections below provide more detailed guidance on each area.\n\n\n\n\n\nNotes on methodologies I’ve studied across ML/DL, generative AI, optimization, and statistics.\n\n\n\n\n\nA collection of my published papers and conference talks highlighting my research contributions in the socieity.\n\n\n\n\n\n\nSummaries and reflections on research papers in my field, focusing on core ideas, methods, and insights.\n\n\n\n\n\nThis is an extra archive to stack other funny things!"
+    "objectID": "research/posts/research3.html#framework-overview",
+    "href": "research/posts/research3.html#framework-overview",
+    "title": "Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models",
+    "section": "Framework Overview",
+    "text": "Framework Overview\nThe proposed framework consists of three components:\nCDM-based Generator. Given a context window of \\(k\\) observed layers up to layer \\(i\\), a Conditional Diffusion Model (CDM) generates the next-layer post-melt image patch by learning \\(p_\\theta(X_{i+1}[x_0,y_0] \\mid \\text{context}_{i-k+1:i}(x_0,y_0))\\). The conditioning context fuses past post-melt and post-recoat image history (encoded via CNN+GAP), temporal layer-wise signals (tokenized by a lightweight Transformer), the target-layer scan heatmap, and process-parameter masks. Two complementary conditioning pathways inject context tokens into the U-Net bottleneck (for global structure) and spatial maps as additional inputs (for local process information). The model generates multiple plausible realizations \\(X_0^{(1)}, X_0^{(2)}, \\ldots, X_0^{(M)}\\) through iterative denoising from Gaussian noise.\nCNN-based Defect Evaluator. The evaluator maps each generated sample to defect-related outcomes: \\(Y^{(m)} = f_\\theta(X^{(m)})\\). Taking a 2-channel tensor of [generated post-melt, post-recoat] as input, it outputs defect rates for 12 defect classes per patch. The set of predictions \\(\\{Y^{(1)}, Y^{(2)}, \\ldots, Y^{(M)}\\}\\) is aggregated to form an empirical defect distribution, enabling distribution-level risk estimation rather than single deterministic predictions.\nRule-based Decision Engine. The estimated defect distribution is used to support real-time manufacturing decisions via a user-defined risk threshold \\(D^{\\text{threshold}}\\):\n\n“Keep printing” if predicted defect risk \\(\\leq D^{\\text{threshold}}\\)\n“Stop printing” if predicted defect risk \\(&gt; D^{\\text{threshold}}\\) (early termination to avoid further production cost)"
   },
   {
-    "objectID": "investing/posts/investing_1.html",
-    "href": "investing/posts/investing_1.html",
-    "title": "A",
-    "section": "",
-    "text": "A"
+    "objectID": "research/posts/research3.html#dataset",
+    "href": "research/posts/research3.html#dataset",
+    "title": "Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models",
+    "section": "Dataset",
+    "text": "Dataset\nThis work uses the Peregrine digital twin dataset released by Oak Ridge National Laboratory (DOI: 10.13139/ORNLNCCS/2008021), which consists of 5 LPBF builds with all modalities spatially (pixel-wise) and temporally (layer-wise) aligned: post-melt images, post-recoat images, part ID maps, anomaly segmentation masks (12 classes), laser scan paths, temporal in-build signals, and part-level process parameters. The primary training set uses Builds 1, 2, and 5 (aligned geometry and consistent physical meaning), with Builds 3 and 4 reserved for out-of-distribution evaluation.\nRaw HDF5 scan paths, part IDs, and process parameters are converted into pixel-aligned masks to create a unified layer-aligned multimodal tensor dataset, enabling efficient training without repeated HDF5 traversal."
   },
   {
-    "objectID": "paper_review/posts/review_1.html",
-    "href": "paper_review/posts/review_1.html",
-    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
-    "section": "",
-    "text": "Title: Layer-wise anomaly detection and classification for powder bed additive manufacturing\nAuthors: Luke Scime et al. (Oak Ridge National Laboratory, ORNL)\nThis paper addresses the challenge of real-time quality monitoring in powder-bed additive manufacturing (AM) by proposing a deep-learning–based framework for layer-wise anomaly detection and classification. The work is motivated by the limitations of traditional open-loop process control and ex-situ inspection, which cannot detect or correct defects during the build and often result in significant material and time waste. The authors focus on surface-visible anomalies that persist across layers and are detectable in powder-bed images, making them suitable for in-situ monitoring."
+    "objectID": "research/posts/research3.html#results",
+    "href": "research/posts/research3.html#results",
+    "title": "Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models",
+    "section": "Results",
+    "text": "Results\nThe CDM generates high-quality virtual printings whose structure and texture closely match ground truth. Intensity distributions of the generated samples are well-aligned with ground truth distributions. The defect distribution estimated from the generated samples captures the ground-truth defect rates in the mean-period across 12 defect classes. Real-time GO/NO-GO decisions can be triggered layer-by-layer: for example, if the 100th real printing yields a 2nd-class defect rate of 0.230, printing is halted as this defect will propagate and worsen through subsequent layers."
   },
   {
-    "objectID": "paper_review/posts/review_1.html#paper-overview",
-    "href": "paper_review/posts/review_1.html#paper-overview",
-    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
-    "section": "",
-    "text": "Title: Layer-wise anomaly detection and classification for powder bed additive manufacturing\nAuthors: Luke Scime et al. (Oak Ridge National Laboratory, ORNL)\nThis paper addresses the challenge of real-time quality monitoring in powder-bed additive manufacturing (AM) by proposing a deep-learning–based framework for layer-wise anomaly detection and classification. The work is motivated by the limitations of traditional open-loop process control and ex-situ inspection, which cannot detect or correct defects during the build and often result in significant material and time waste. The authors focus on surface-visible anomalies that persist across layers and are detectable in powder-bed images, making them suitable for in-situ monitoring."
-  },
-  {
-    "objectID": "paper_review/posts/review_1.html#core-contributions-and-methodology",
-    "href": "paper_review/posts/review_1.html#core-contributions-and-methodology",
-    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
-    "section": "Core Contributions and Methodology",
-    "text": "Core Contributions and Methodology\nThe paper introduces the Dynamic Segmentation Convolutional Neural Network (DSCNN), a pixel-wise semantic segmentation model designed specifically for high-resolution powder-bed imaging data. Unlike earlier patch-based approaches (e.g., MsCNN), DSCNN performs classification at the native image resolution and explicitly captures multi-scale contextual information through a three-leg architecture: (i) a global CNN branch for large-scale bed-level conditions, (ii) a regional U-Net branch for medium-scale morphological features, and (iii) a localization branch operating on native-resolution tiles to preserve fine-grained details. In addition, normalized pixel-coordinate channels are incorporated to encode spatial priors, reflecting the fact that certain defects are more likely to occur in specific regions of the build plate."
-  },
-  {
-    "objectID": "paper_review/posts/review_1.html#data-training-strategy-and-practical-considerations",
-    "href": "paper_review/posts/review_1.html#data-training-strategy-and-practical-considerations",
-    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
-    "section": "Data, Training Strategy, and Practical Considerations",
-    "text": "Data, Training Strategy, and Practical Considerations\nDSCNN is validated across six different powder-bed AM machines spanning three technologies (laser PBF, electron-beam PBF, and binder jetting), demonstrating strong cross-machine generalization. The authors carefully address key challenges in AM data, including extreme class imbalance and noisy manual annotations. To mitigate these issues, the training pipeline employs median-frequency class balancing and a skeptical (hard-bootstrapping) loss, which allows the model to partially rely on its own confident predictions when human labels are inconsistent. A tile-based training strategy is used to manage GPU memory while preserving multi-scale context, enabling efficient training on very large images."
-  },
-  {
-    "objectID": "paper_review/posts/review_1.html#results-and-insights",
-    "href": "paper_review/posts/review_1.html#results-and-insights",
-    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
-    "section": "Results and Insights",
-    "text": "Results and Insights\nExperimental results show that DSCNN significantly outperforms previous patch-based CNN approaches in terms of spatial localization accuracy and false-positive rates, particularly for rare but critical defect classes such as incomplete spreading, recoater streaking, and debris. Transfer learning experiments further demonstrate that models trained on data-rich machines can be effectively adapted to machines with limited labeled data, improving convergence speed and overall performance. Qualitative visualizations confirm that DSCNN produces more precise and interpretable anomaly maps, supporting its suitability for real-time, in-situ monitoring."
-  },
-  {
-    "objectID": "paper_review/posts/review_1.html#reviewers-takeaway",
-    "href": "paper_review/posts/review_1.html#reviewers-takeaway",
-    "title": "Layer-wise anomaly detection and classification for powder bed Additive Manufacturing",
-    "section": "Reviewer’s Takeaway",
-    "text": "Reviewer’s Takeaway\nThis paper represents a strong example of domain-aware deep learning, where network architecture, input representation, and loss design are tightly aligned with the physical and operational characteristics of powder-bed AM processes. Its emphasis on pixel-wise segmentation, multi-scale context, and transferability across machines makes DSCNN a foundational reference for researchers working on real-time quality assurance and closed-loop control in additive manufacturing.\nSlide deck: Download PDF"
-  },
-  {
-    "objectID": "research/index.html",
-    "href": "research/index.html",
-    "title": "Research",
-    "section": "",
-    "text": "Research\nThis page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.\n\n\n\n\n\n\n\n\n\n\nDiffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nApplication of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment\n\n\n\n\n\n\nOptimization\n\n\nResponse Surface Method\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\nA Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics\n\n\n\n\n\n\nRUL/TTF Prediction\n\n\nGenerative AI\n\n\nDiffusion model\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "research/posts/research2.html",
-    "href": "research/posts/research2.html",
-    "title": "A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics",
-    "section": "",
-    "text": "Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains such as aerospace, manufacturing, and energy. Existing approaches largely fall into two categories: model-based methods that explicitly model degradation trajectories under para metric assumptions, and data-driven methods that directly map observed signals to failure time via dimensionality reduction and regression. Representative examples of these ap proaches considered in this paper include Bayesian updating and PCA-based lognormal re gression. While effective for smooth and monotonic degradation patterns, both paradigms often degrade when applied to irregular, nonstationary, or multimodal degradation pro cesses commonly encountered in real-world environments. To address these limitations, we propose a conditional diffusion–based generative framework that learns the full con ditional distribution of future degradation trajectories given partial observations, enabling flexible and probabilistic TTF prediction. By modeling the data distribution directly, diffu sion models can approximate nonlinear, heavy-tailed, and multimodal degradation behav iors. To rigorously evaluate performance, we construct synthetic degradation datasets with controlled increases in structural complexity, incorporating Brownian-motion noise, local ized perturbations, and multi-regime dynamics. Extensive benchmarks against Bayesian updating and PCA-based lognormal regression demonstrate that the proposed diffusion model consistently achieves lower error under complex settings, particularly near failure thresholds and under complex, heteroscedastic conditions. These results position diffusion model as a robust and scalable alternative for predictive analytics in realistic prognostic.\nFull paper: Download PDF\nCitation:\nKo, Donghyun; Fang, Xiaolei (2025). A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics.\nUnder review at Mechanical Systems and Signal Processing.\nPreprint (SSRN): https://doi.org/10.2139/ssrn.6169178"
+    "objectID": "research/posts/research3.html#contributions",
+    "href": "research/posts/research3.html#contributions",
+    "title": "Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models",
+    "section": "Contributions",
+    "text": "Contributions\n\nA first unified “Generator–Evaluator–Decision” framework for risk-aware LPBF monitoring\nA first multimodal Conditional Diffusion Model applied to the Peregrine digital twin dataset, fusing image history, temporal signals, scan paths, and process parameters\nDistribution-aware decision-making and uncertainty quantification via defect distributions rather than point predictions, supporting real-time GO/NO-GO decisions under uncertainty\n\nConference: Download Slides (PDF)\nPoster: Download Poster (PDF)\nVideo: Download Poster (PDF)\nabstract: Download Poster (PDF)\nCitation:\nKo, Donghyun; Peloquin, Jacob (2026). Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models. Presented at IISE Annual Conference & Expo 2026."
   },
   {
     "objectID": "study/index.html",

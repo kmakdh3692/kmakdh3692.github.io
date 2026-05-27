@@ -1,9 +1,11 @@
 [
   {
-    "listing": "/paper_review/index.html",
+    "listing": "/research/index.html",
     "items": [
-      "/paper_review/posts/review_2.html",
-      "/paper_review/posts/review_1.html"
+      "/research/posts/research3.html",
+      "/research/posts/research1.html",
+      "/research/posts/talk1.html",
+      "/research/posts/research2.html"
     ]
   },
   {
@@ -13,11 +15,10 @@
     ]
   },
   {
-    "listing": "/research/index.html",
+    "listing": "/paper_review/index.html",
     "items": [
-      "/research/posts/talk1.html",
-      "/research/posts/research1.html",
-      "/research/posts/research2.html"
+      "/paper_review/posts/review_2.html",
+      "/paper_review/posts/review_1.html"
     ]
   },
   {

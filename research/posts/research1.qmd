@@ -11,6 +11,7 @@ The goal of this research is to find the most influential factors for the flying
 
 
 **Full paper:** [Download PDF](../files/research_1.pdf)
+
 **Citation:**  
 Ko, Donghyun; Bang, Juneyoung (2022).  
 *Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment.*  
