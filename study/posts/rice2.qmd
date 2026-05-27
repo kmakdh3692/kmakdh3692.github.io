@@ -1,0 +1,104 @@
+---
+title: "Mathematical Statistics: Chapter 3"
+subtitle: "Joint Distributions"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Statistics", "Probability"]
+format:
+  html: default
+---
+
+Chapter 3 extends one-variable probability to the multivariate setting. Once we have more than one random variable, two new questions arise: how do we compute probabilities of events involving multiple variables simultaneously, and how do we characterize their dependence? This chapter introduces joint CDFs, marginal and conditional distributions, independence, the Jacobian change-of-variables method, and order statistics.
+
+## Joint Cumulative Distribution Function
+
+For random variables $X$ and $Y$ on the same probability space, the **joint CDF** is
+
+$$F_{X,Y}(x, y) = P(X \leq x,\, Y \leq y), \quad x, y \in \mathbb{R}.$$
+
+The **marginal CDFs** are recovered by letting one argument go to infinity:
+
+$$F_X(x) = \lim_{y \to \infty} F_{X,Y}(x, y), \qquad F_Y(y) = \lim_{x \to \infty} F_{X,Y}(x, y).$$
+
+**Rectangle probabilities** follow by inclusion–exclusion: for $a < b$ and $c < d$,
+
+$$P(a < X \leq b,\, c < Y \leq d) = F(b,d) - F(a,d) - F(b,c) + F(a,c).$$
+
+## Independence and Conditional Distributions
+
+$X$ and $Y$ are **independent** if and only if their joint CDF factorizes:
+
+$$F_{X,Y}(x,y) = F_X(x)\,F_Y(y) \quad \text{for all } x, y.$$
+
+When $X$ and $Y$ are not independent, the distribution of $X$ changes depending on the value of $Y$. This dependence is captured by the **conditional distribution** of $X$ given $Y = y$.
+
+**Discrete case** (when $P(Y=y) > 0$):
+$$p_{X|Y}(x \mid y) = \frac{p(x,y)}{p_Y(y)}.$$
+
+**Continuous case** (when $f_Y(y) > 0$):
+$$f_{X|Y}(x \mid y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}, \qquad f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y)\,dx.$$
+
+In both cases, conditioning restricts attention to outcomes consistent with $\{Y = y\}$ and renormalizes so the result is a valid distribution. Independence holds if and only if $f_{X|Y}(x \mid y) = f_X(x)$ for all $x, y$.
+
+## Discrete Joint Distributions
+
+For discrete $(X,Y)$ with joint PMF $p(x,y) = P(X=x,\, Y=y)$, **marginal PMFs** are obtained by summing out the other variable:
+
+$$p_X(x) = \sum_y p(x,y), \qquad p_Y(y) = \sum_x p(x,y).$$
+
+The joint CDF is the cumulative sum $F_{X,Y}(x,y) = \sum_{u \leq x}\sum_{v \leq y} p(u,v)$.
+
+### Multinomial Distribution
+
+When $n$ independent trials each produce one of $r$ categories with probabilities $p_1, \ldots, p_r$ ($\sum p_i = 1$), the vector of counts $(N_1, \ldots, N_r)$ follows the **multinomial distribution**:
+
+$$P(N_1 = n_1, \ldots, N_r = n_r) = \frac{n!}{n_1!\cdots n_r!}\,p_1^{n_1}\cdots p_r^{n_r}, \qquad \sum_{i=1}^r n_i = n.$$
+
+This is the multivariate analogue of the binomial. A histogram is a realization of a multinomial random vector, which explains why bin counts fluctuate even under a uniform distribution.
+
+## Continuous Joint Distributions
+
+A function $f(x,y)$ is a valid **joint PDF** if $f(x,y) \geq 0$ and $\iint f(x,y)\,dx\,dy = 1$. Probabilities of regions are computed by integration:
+
+$$P[(X,Y) \in A] = \iint_A f(x,y)\,dx\,dy.$$
+
+**Always identify the support** $\{(x,y): f(x,y) \neq 0\}$ before setting up limits of integration — most errors in multivariate problems come from ignoring the support.
+
+The joint CDF is $F(x,y) = \int_{-\infty}^x\int_{-\infty}^y f(u,v)\,dv\,du$, and the joint PDF is recovered by mixed differentiation: $f(x,y) = \frac{\partial^2}{\partial x\,\partial y}F(x,y)$.
+
+**Marginal densities** integrate out the other variable:
+
+$$f_X(x) = \int_{-\infty}^{\infty} f(x,y)\,dy, \qquad f_Y(y) = \int_{-\infty}^{\infty} f(x,y)\,dx.$$
+
+When the support is bounded, the joint CDF must be written piecewise — the integration region changes depending on where $(x,y)$ falls relative to the support.
+
+## Transformations: The Jacobian Method
+
+To find the joint density of $(U,V) = g(X,Y)$ when $g$ is one-to-one with differentiable inverse $(X,Y) = g^*(U,V)$:
+
+$$h(u,v) = f\!\left(g_1^*(u,v),\, g_2^*(u,v)\right) \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|.$$
+
+The **Jacobian determinant** $\left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|$ accounts for the local stretching or compression of area under the transformation. The key principle is that probability must be preserved when we change coordinates.
+
+If $X$ and $Y$ are transformed *separately* as $U = g_1(X)$ and $V = g_2(Y)$ (no mixing), then $U$ and $V$ remain independent.
+
+## Order Statistics
+
+Let $X_1, \ldots, X_n$ be i.i.d. continuous random variables with CDF $F$ and density $f$. The **order statistics** $X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}$ are the sorted sample.
+
+**Maximum and minimum:**
+
+$$F_U(u) = [F(u)]^n, \quad f_U(u) = n\,f(u)[F(u)]^{n-1}, \qquad U = \max_i X_i,$$
+$$F_V(v) = 1 - [1-F(v)]^n, \quad f_V(v) = n\,f(v)[1-F(v)]^{n-1}, \qquad V = \min_i X_i.$$
+
+The intuition: $U \leq u$ if and only if *all* $n$ observations are $\leq u$; $V > v$ if and only if *all* observations are $> v$.
+
+**General $k$th order statistic:** for $X_{(k)}$ to be near $x$, we need $k-1$ observations below $x$, one observation near $x$, and $n-k$ observations above $x$. This yields
+
+$$f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!}\,f(x)\,[F(x)]^{k-1}[1-F(x)]^{n-k}.$$
+
+Order statistics appear throughout reliability theory (series/parallel systems), nonparametric statistics, and quality control.
+
+---
+
+**Full notes:** [Download PDF](../files/Rice_Ch_3.pdf)

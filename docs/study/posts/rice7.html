@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Donghyun Ko">
+<meta name="dcterms.date" content="2026-05-26">
 
-<title>index – Study &amp; Beyond</title>
+<title>Estimation and Model Fitting: Bayesian Parameter Estimation – Study &amp; Beyond</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fad5ab29a14bbe0a7a7d29177f3f13bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fad5ab29a14bbe0a7a7d29177f3f13bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,69 +68,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-categories','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Study &amp; Beyond" href="index.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -139,7 +81,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Study &amp; Beyond</span>
     </a>
   </div>
@@ -150,23 +92,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../study/index.html"> 
+    <a class="nav-link" href="../../study/index.html"> 
 <span class="menu-text">Study Note</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../paper_review/index.html"> 
+    <a class="nav-link" href="../../paper_review/index.html"> 
 <span class="menu-text">Paper Review</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../research/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../investing/index.html"> 
+    <a class="nav-link" href="../../investing/index.html"> 
 <span class="menu-text">Others</span></a>
   </li>  
 </ul>
@@ -196,166 +138,56 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#research" id="toc-research" class="nav-link active" data-scroll-target="#research">Research</a></li>
-  </ul>
-</nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5n">Additive Manufacturing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGVmZWN0JTIwRGV0ZWN0aW9u">Defect Detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGlmZnVzaW9uJTIwbW9kZWw=">Diffusion model <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R2VuZXJhdGl2ZSUyMEFJ">Generative AI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TFBCRg==">LPBF <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3B0aW1pemF0aW9u">Optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UlVMJTJGVFRGJTIwUHJlZGljdGlvbg==">RUL/TTF Prediction <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UmVhbC10aW1lJTIwRGVjaXNpb24=">Real-time Decision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k">Response Surface Method <span class="quarto-category-count">(1)</span></div></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Estimation and Model Fitting: Bayesian Parameter Estimation</h1>
+<p class="subtitle lead">Rice Chapter 8.6–8.9</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Statistics</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="research" class="level1">
-<h1>Research</h1>
-<p>This page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.</p>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Donghyun Ko </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 26, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This lecture note covers the Bayesian approach to parameter estimation, contrasting it with the frequentist paradigm and developing the full machinery of prior-to-posterior updating. The notes begin by distinguishing the two paradigms: while frequentists treat θ as a fixed unknown constant and perform inference through estimators and their sampling distributions, the Bayesian framework models the parameter itself as a random variable Θ, encoding pre-data uncertainty via a prior distribution fΘ(θ) and updating it through Bayes’ theorem once data are observed. The resulting posterior distribution fΘ|X(θ|x) ∝ Likelihood × Prior serves as the complete summary of post-data knowledge about the parameter, and all inferential summaries — point estimates, intervals, and predictions — are derived from it.</p>
+<p>The core components of Bayesian inference are developed carefully. The prior distribution captures beliefs before data collection, the likelihood function connects observed data to the parameter through the model, and Bayes’ theorem produces the posterior by combining both. A key computational technique, the Bayesian trick, is introduced: rather than evaluating the normalizing constant explicitly, one identifies the posterior family by matching the kernel of the numerator fX|Θ(x|θ)fΘ(θ) to a known distribution. Posterior summaries discussed include the posterior mean (which minimizes expected squared-error loss), the posterior mode or MAP estimator, posterior variance and standard deviation, and two types of credible intervals — the percentile-based (quantile) interval and the Highest Posterior Density (HPD) interval — both of which carry the direct probabilistic interpretation P(L ≤ Θ ≤ U | data) = 1 − α that frequentist confidence intervals do not.</p>
+<p>Two fully worked conjugate models form the heart of the notes. In the Beta–Binomial model, a Binomial(n, θ) likelihood combined with a Beta(α, β) prior yields a Beta(α + x, β + n − x) posterior, with posterior mean (α + x)/(α + β + n) interpretable as a precision-weighted average of the prior mean and the MLE. A manufacturing defects example compares a flat uniform prior (statistician A) with an informative Beta(20, 2) prior (statistician B) on 50 observations, illustrating concretely how prior strength relative to sample size determines the posterior’s location. In the Normal–Normal model, a Normal likelihood with known variance is combined with a Normal prior on the mean; the posterior precision equals the sum of the data precision nξ₀ and the prior precision ξ_prior, and the posterior mean is the precision-weighted combination of the sample mean and prior mean. Because the posterior is symmetric and unimodal, the Bayesian credible interval and the HPD interval coincide in this case. A Poisson model with an improper 1/λ prior is also worked through, showing that even when the prior does not integrate to a finite value, the posterior can still be proper — here a Gamma distribution — provided the data supply enough information.</p>
+<p>The second half of the notes addresses computational strategies for posterior analysis. Three approaches are presented in order of increasing generality. The first is direct identification: when the posterior kernel matches a known family, no computation is needed beyond recognizing the form. The second is the Laplace approximation: by expanding the log-posterior q(θ) = log fΘ(θ) + ℓ(θ) to second order around its maximum (the posterior mode), one obtains a Normal approximation Θ|X ≈ N(θ̂, [−q″(θ̂)]⁻¹), which is particularly accurate when the posterior is sharply peaked and the sample is large. The third approach is Markov Chain Monte Carlo (MCMC), used when neither analytic identification nor Laplace approximation is adequate. The Metropolis–Hastings algorithm is developed in full: at each iteration a candidate θ* is drawn from a proposal distribution, and the acceptance ratio r = fΘ|X(θ*|x)/fΘ|X(θₜ₋₁|x) is computed using only the posterior kernel (the normalizing constant cancels). The candidate is accepted with probability min(r, 1), ensuring the chain spends more time in high-density regions while still exploring the full posterior. Practical guidance on proposal standard deviation tuning is given: too small leads to slow diffusion, too large leads to excessive rejection. Gibbs sampling is then introduced as an alternative that avoids proposal tuning entirely by iteratively drawing each parameter from its full conditional distribution; in multi-parameter settings where these conditionals are standard distributions (Normal, Gamma), every draw is automatically accepted. Both algorithms produce a Markov chain whose stationary distribution is the target posterior; after discarding an initial burn-in, the retained draws are used to estimate posterior means, variances, modes, and credible intervals numerically. The notes close by comparing the two MCMC methods and providing practical guidance on trace plots, burn-in diagnostics, and posterior histogram interpretation.</p>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_8_6_9.pdf">Download PDF</a></p>
 
 
 
-</section>
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5nJTJDTFBCRiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVsJTJDRGVmZWN0JTIwRGV0ZWN0aW9uJTJDUmVhbC10aW1lJTIwRGVjaXNpb24=" data-listing-date-sort="1779850987000" data-listing-file-modified-sort="1779850987065" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research3.html" class="no-external">Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5n'); return false;">
-Additive Manufacturing
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TFBCRg=='); return false;">
-LPBF
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGVmZWN0JTIwRGV0ZWN0aW9u'); return false;">
-Defect Detection
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVhbC10aW1lJTIwRGVjaXNpb24='); return false;">
-Real-time Decision
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research3.html" class="no-external">Laser Powder Bed Fusion (LPBF) is a leading technology for producing complex metal components with high performance, but process outcomes are highly sensitive to…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research3.html" class="no-external">
-<div class="listing-date">
-May 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="T3B0aW1pemF0aW9uJTJDUmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k" data-listing-date-sort="1779849841000" data-listing-file-modified-sort="1779849841252" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research1.html" class="no-external">Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('T3B0aW1pemF0aW9u'); return false;">
-Optimization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k'); return false;">
-Response Surface Method
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research1.html" class="no-external">The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research1.html" class="no-external">
-<div class="listing-date">
-May 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UlVMJTJGVFRGJTIwUHJlZGljdGlvbiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVs" data-listing-date-sort="1779505352000" data-listing-file-modified-sort="1779505352688" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/talk1.html" class="no-external">Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/talk1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UlVMJTJGVFRGJTIwUHJlZGljdGlvbg=='); return false;">
-RUL/TTF Prediction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/talk1.html" class="no-external">This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/talk1.html" class="no-external">
-<div class="listing-date">
-May 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UlVMJTJGVFRGJTIwUHJlZGljdGlvbiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVs" data-listing-date-sort="1779505218000" data-listing-file-modified-sort="1779505218751" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="262">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research2.html" class="no-external">A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UlVMJTJGVFRGJTIwUHJlZGljdGlvbg=='); return false;">
-RUL/TTF Prediction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research2.html" class="no-external">Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research2.html" class="no-external">
-<div class="listing-date">
-May 22, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

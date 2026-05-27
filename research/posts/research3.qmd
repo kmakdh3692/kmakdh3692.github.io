@@ -2,7 +2,7 @@
 title: "Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models"
 author: "Donghyun Ko"
 date: last-modified
-categories: ["Additive Manufacturing", "LPBF", "Generative AI", "Diffusion model", "Defect Detection", "Real-time Decision Support"]
+categories: ["Additive Manufacturing", "LPBF", "Generative AI", "Diffusion model", "Defect Detection", "Real-time Decision"]
 format:
   html: default
 ---
@@ -40,10 +40,11 @@ The CDM generates high-quality virtual printings whose structure and texture clo
 - A first multimodal Conditional Diffusion Model applied to the Peregrine digital twin dataset, fusing image history, temporal signals, scan paths, and process parameters
 - Distribution-aware decision-making and uncertainty quantification via defect distributions rather than point predictions, supporting real-time GO/NO-GO decisions under uncertainty
 
-**Conference:** [Download Slides (PDF)](../files/slide_3.pdf)  
+**Conference:** [Download Slides (PDF)](../files/slide_3.pdf)\\
+
 **Poster:** [Download Poster (PDF)](../files/poster_3.pdf)  
 
-**Video:** [Download Poster (PDF)](../files/vidieo_3.mp4)  
+**Video:** [Download Poster (MP4)](../files/vidieo_3.mp4)  
 
 **abstract:** [Download Poster (PDF)](../files/abstract.pdf)  
 

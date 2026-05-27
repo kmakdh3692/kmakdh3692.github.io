@@ -1,0 +1,130 @@
+---
+title: "Mathematical Statistics: Chapters 5–6"
+subtitle: "Limit Theorems and Normal-Based Distributions"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Statistics", "Probability"]
+format:
+  html: default
+---
+
+Chapter 5 explains why sample averages behave so well: the Law of Large Numbers (LLN) shows that $\bar{X}_n$ converges to the true mean $\mu$, and the Central Limit Theorem (CLT) quantifies the shape and scale of the remaining fluctuations. Chapter 6 derives the three distributions that appear automatically when working with normal data — the chi-square ($\chi^2$), $t$, and $F$ distributions — which are the probability laws behind confidence intervals, hypothesis tests, and ANOVA.
+
+## Chapter 5: Limit Theorems
+
+### Behavior of the Sample Mean
+
+Let $X_1, \ldots, X_n$ be i.i.d. with $E[X_i] = \mu$ and $\operatorname{Var}(X_i) = \sigma^2 < \infty$. The sample mean $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ satisfies:
+
+1. **Unbiasedness:** $E[\bar{X}_n] = \mu$
+2. **Variance reduction:** $\operatorname{Var}(\bar{X}_n) = \sigma^2/n$
+3. **Exact normality** (when $X_i \sim N(\mu, \sigma^2)$): $\bar{X}_n \sim N(\mu, \sigma^2/n)$
+
+The key insight from property 2: as $n$ grows, the variability of $\bar{X}_n$ shrinks at rate $1/n$, making large deviations from $\mu$ increasingly unlikely.
+
+### Three Modes of Convergence
+
+Because random variables are random, there are several non-equivalent ways to formalize "getting close to a limit."
+
+**Almost sure convergence** ($Z_n \xrightarrow{\text{a.s.}} Z$): for almost every outcome $\omega$, the sequence $Z_n(\omega)$ converges numerically to $Z(\omega)$. This is the strongest notion.
+
+**Convergence in probability** ($Z_n \xrightarrow{p} Z$): for every $\varepsilon > 0$,
+$$\lim_{n\to\infty} P(|Z_n - Z| > \varepsilon) = 0.$$
+Large deviations become increasingly unlikely, but individual paths need not converge.
+
+**Convergence in distribution** ($Z_n \xrightarrow{d} Z$): the CDFs $F_n(x) \to F(x)$ at every continuity point of $F$. This is the weakest notion — it only concerns the shape of distributions, not the values of the random variables.
+
+The implications always go one way:
+$$Z_n \xrightarrow{\text{a.s.}} Z \;\Rightarrow\; Z_n \xrightarrow{p} Z \;\Rightarrow\; Z_n \xrightarrow{d} Z.$$
+
+When the limit is a constant $c$, convergence in distribution and convergence in probability coincide.
+
+**Continuous mapping principle:** if $Z_n \xrightarrow{p} Z$ and $g$ is continuous, then $g(Z_n) \xrightarrow{p} g(Z)$ (and similarly for convergence in distribution). This allows results for $\bar{X}_n$ to transfer immediately to functions like $\bar{X}_n^2$.
+
+### Chebyshev's Inequality and the Weak LLN
+
+Chebyshev's inequality bridges variance and tail probability: for any random variable $Y$ with mean $m$ and variance $v$,
+
+$$P(|Y - m| > \varepsilon) \leq \frac{v}{\varepsilon^2}.$$
+
+Applying this to $\bar{X}_n$ (which has variance $\sigma^2/n$):
+
+$$P(|\bar{X}_n - \mu| > \varepsilon) \leq \frac{\sigma^2}{n\varepsilon^2} \xrightarrow{n\to\infty} 0.$$
+
+This is precisely the **Weak Law of Large Numbers (WLLN)**: $\bar{X}_n \xrightarrow{p} \mu$.
+
+### Strong Law of Large Numbers
+
+The **Strong Law of Large Numbers (SLLN)** asserts a stronger statement: $\bar{X}_n \xrightarrow{\text{a.s.}} \mu$, i.e., $P(\lim_{n\to\infty}\bar{X}_n = \mu) = 1$. With probability one, the sample mean eventually stays arbitrarily close to $\mu$ and never drifts away again.
+
+The SLLN implies the WLLN. In practice, the WLLN explains why averaging reduces noise, while the SLLN justifies treating long-run averages as stable, deterministic quantities.
+
+### Central Limit Theorem
+
+The CLT answers a finer question: not just that $\bar{X}_n \to \mu$, but what is the shape and scale of the remaining fluctuations?
+
+**Theorem (CLT).** Let $X_1, \ldots, X_n$ be i.i.d. with $E[X_i] = \mu$ and $\operatorname{Var}(X_i) = \sigma^2 < \infty$. Then
+
+$$\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1),$$
+
+equivalently, for large $n$: $\bar{X}_n \approx N(\mu, \sigma^2/n)$.
+
+The factor $\sigma/\sqrt{n}$ is the **standard error of the mean**: typical errors shrink at rate $1/\sqrt{n}$. The CLT gives far sharper approximations than Chebyshev — for example:
+
+$$P\!\left(|\bar{X}_n - \mu| > k\sigma/\sqrt{n}\right) \approx P(|Z| > k), \quad Z \sim N(0,1),$$
+
+whereas Chebyshev yields only the crude bound $1/k^2$.
+
+The CLT applies broadly: Binomial, Gamma, and Negative Binomial random variables can all be written as sums of i.i.d. components, so they are all well-approximated by normal distributions for large $n$.
+
+---
+
+## Chapter 6: Distributions Derived from the Normal
+
+### Chi-Square Distribution
+
+If $Z \sim N(0,1)$, squaring removes the sign and produces a nonnegative, right-skewed variable. This is the building block of the chi-square family.
+
+**Definition.** $U = Z^2 \sim \chi^2_1$. If $U_1, \ldots, U_m$ are independent $\chi^2_1$ variables, then $V = \sum_{i=1}^m U_i \sim \chi^2_m$ with $E[\chi^2_m] = m$ and $\operatorname{Var}(\chi^2_m) = 2m$.
+
+**Sample variance from normal data.** If $X_1, \ldots, X_n \overset{\text{i.i.d.}}{\sim} N(\mu, \sigma^2)$, the scaled sample variance follows a chi-square distribution:
+
+$$\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}, \qquad S^2 = \frac{1}{n-1}\sum_{i=1}^n(X_i - \bar{X})^2.$$
+
+The proof uses the decomposition $\sum(X_i - \mu)^2 = \sum(X_i - \bar{X})^2 + n(\bar{X} - \mu)^2$, which splits a $\chi^2_n$ into a $\chi^2_{n-1}$ term plus a $\chi^2_1$ term. Crucially, $\bar{X}$ and $S^2$ are **independent** for normal samples — a special property of the normal distribution.
+
+The one degree of freedom "lost" in going from $\chi^2_n$ to $\chi^2_{n-1}$ reflects the constraint that the deviations $(X_i - \bar{X})$ must sum to zero.
+
+### $t$ Distribution
+
+When $\sigma$ is unknown, we replace it by $S$ in the standardization of $\bar{X}$. Because $S$ is random, the resulting statistic is no longer normal.
+
+**Definition.** Let $Z \sim N(0,1)$ and $U \sim \chi^2_\nu$ be independent. Then
+
+$$T = \frac{Z}{\sqrt{U/\nu}} \sim t_\nu.$$
+
+**Classical $t$ statistic.** For $X_1, \ldots, X_n \overset{\text{i.i.d.}}{\sim} N(\mu, \sigma^2)$,
+
+$$\frac{\bar{X} - \mu}{S/\sqrt{n}} \sim t_{n-1}.$$
+
+The proof matches $Z = (\bar{X}-\mu)/(\sigma/\sqrt{n}) \sim N(0,1)$ and $U = (n-1)S^2/\sigma^2 \sim \chi^2_{n-1}$ (independent by the earlier theorem) to the definition of $t_\nu$ with $\nu = n-1$.
+
+The $t$ distribution has heavier tails than the normal because the denominator $S/\sqrt{n}$ is random — when $S$ is small, $T$ is inflated. As $n \to \infty$, $S \to \sigma$ stably and the $t$ distribution converges to $N(0,1)$.
+
+### $F$ Distribution
+
+The $F$ distribution arises when comparing two independent variance estimates.
+
+**Definition.** Let $U \sim \chi^2_m$ and $V \sim \chi^2_n$ be independent. Then
+
+$$W = \frac{U/m}{V/n} \sim F_{m,n}.$$
+
+**Ratio of sample variances.** Let $X_1, \ldots, X_m \overset{\text{i.i.d.}}{\sim} N(\mu_X, \sigma^2_X)$ and $Y_1, \ldots, Y_n \overset{\text{i.i.d.}}{\sim} N(\mu_Y, \sigma^2_Y)$ be independent samples. Then
+
+$$\frac{S_X^2/\sigma_X^2}{S_Y^2/\sigma_Y^2} \sim F_{m-1,\, n-1}.$$
+
+When $\sigma_X^2 = \sigma_Y^2$, this simplifies to $S_X^2/S_Y^2 \sim F_{m-1,n-1}$. This is the core probabilistic reason why the $F$ distribution appears in classical tests for comparing variances and in ANOVA.
+
+---
+
+**Full notes:** [Download PDF](../files/Rice_Ch_5_6.pdf)

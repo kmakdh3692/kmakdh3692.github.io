@@ -1,0 +1,112 @@
+---
+title: "Mathematical Statistics: Chapter 4"
+subtitle: "Expected Values"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Statistics", "Probability"]
+format:
+  html: default
+---
+
+Chapter 4 asks: how can we summarize a distribution using just a few interpretable numbers? The two most important summaries are the **mean** (expected value) and the **variance** (spread). We then derive tail bounds from these summaries alone (Markov and Chebyshev inequalities), extend to multiple variables via covariance and correlation, simplify calculations using conditional expectation, and encode all moments compactly in the moment generating function.
+
+## Expected Value
+
+The **expected value** is the theoretical long-run average of a random experiment. As the sample size $m$ grows, the sample average $\bar{X}_m$ settles near the constant $E[X]$.
+
+**Definition.** For a random variable $X$:
+
+$$E[X] = \sum_x x\,p_X(x) \quad \text{(discrete)}, \qquad E[X] = \int_{-\infty}^{\infty} x\,f_X(x)\,dx \quad \text{(continuous)}.$$
+
+**LOTUS** (Law of the Unconscious Statistician): to compute $E[g(X)]$, integrate $g(x)$ against the distribution of $X$ — no need to find the distribution of $g(X)$ first:
+
+$$E[g(X)] = \sum_x g(x)\,p_X(x) \quad \text{or} \quad E[g(X)] = \int_{-\infty}^{\infty} g(x)\,f_X(x)\,dx.$$
+
+## Linearity of Expectation
+
+For any constants $a, b, c$ and random variables $X$, $Y$ (not necessarily independent):
+
+$$E[aX + bY + c] = a\,E[X] + b\,E[Y] + c.$$
+
+No independence assumption is needed. This is one of the most powerful tools in probability: it allows complex expectations to be broken into simpler pieces.
+
+## Variance and Standard Deviation
+
+The **variance** measures spread around the mean $\mu = E[X]$:
+
+$$\operatorname{Var}(X) = E\!\left[(X - \mu)^2\right] = E[X^2] - \mu^2.$$
+
+The computational identity $\operatorname{Var}(X) = E[X^2] - \mu^2$ is derived by expanding $(X-\mu)^2$ and applying linearity. The **standard deviation** $\operatorname{SD}(X) = \sqrt{\operatorname{Var}(X)}$ returns to the original units of $X$.
+
+Key fact: $\operatorname{Var}(X) = 0$ if and only if $X = E[X]$ with probability 1 — a nonnegative random variable with zero expectation must be zero almost surely.
+
+## Tail Bounds: Markov and Chebyshev
+
+These inequalities give distribution-free bounds on tail probabilities from moment information alone.
+
+**Markov's inequality.** If $X \geq 0$ a.s. and $E[X] < \infty$, then for all $t > 0$:
+
+$$P(X \geq t) \leq \frac{E[X]}{t}.$$
+
+*Proof sketch:* On the event $\{X \geq t\}$, we have $X \geq t\cdot\mathbf{1}_{\{X \geq t\}}$, so taking expectations gives $E[X] \geq t\,P(X \geq t)$.
+
+**Chebyshev's inequality.** If $E[X] = \mu$ and $\operatorname{Var}(X) = \sigma^2 < \infty$, then for all $t > 0$:
+
+$$P(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2}.$$
+
+*Proof:* Apply Markov's inequality to the nonnegative variable $Y = (X-\mu)^2$ with threshold $a = t^2$, and note $\{(X-\mu)^2 \geq t^2\} = \{|X-\mu| \geq t\}$.
+
+The message: variance controls tails. A smaller variance forces the distribution to concentrate more tightly around $\mu$, regardless of its shape.
+
+## Covariance and Correlation
+
+**Covariance** measures the direction of linear association between two random variables:
+
+$$\operatorname{Cov}(X,Y) = E\!\left[(X - \mu_X)(Y - \mu_Y)\right] = E[XY] - \mu_X\mu_Y.$$
+
+- $\operatorname{Cov}(X,Y) > 0$: large $X$ tends to occur with large $Y$.
+- $\operatorname{Cov}(X,Y) < 0$: large $X$ tends to occur with small $Y$.
+- $\operatorname{Cov}(X,Y) = 0$: uncorrelated, but not necessarily independent.
+
+**Correlation** rescales covariance to the unit-free interval $[-1,1]$:
+
+$$\operatorname{Corr}(X,Y) = \frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)}\sqrt{\operatorname{Var}(Y)}}.$$
+
+**Variance of a linear combination.** For constants $a, b$:
+
+$$\operatorname{Var}(aX + bY) = a^2\operatorname{Var}(X) + b^2\operatorname{Var}(Y) + 2ab\operatorname{Cov}(X,Y).$$
+
+When $X$ and $Y$ are independent, $\operatorname{Cov}(X,Y) = 0$ and the covariance term vanishes. The uncertainty of a sum depends strongly on dependence — two equally spread variables add more total variance when positively correlated.
+
+## Conditional Expectation
+
+For a fixed value $X = x$, the **conditional expectation** $E[Y \mid X = x]$ is the mean of the conditional distribution of $Y$ given $X = x$. Letting $X$ vary, $E[Y \mid X]$ becomes a random variable (a function of $X$).
+
+**Law of total expectation:**
+$$E[Y] = E\!\left[E[Y \mid X]\right].$$
+
+**Law of total variance:**
+$$\operatorname{Var}(Y) = E\!\left[\operatorname{Var}(Y \mid X)\right] + \operatorname{Var}\!\left(E[Y \mid X]\right).$$
+
+The second identity decomposes total variance into *within-group variance* (average spread inside each group) plus *between-group variance* (spread of group means). This decomposition underlies ANOVA.
+
+## Moment Generating Functions
+
+The **moment generating function (MGF)** of $X$ is
+
+$$M_X(t) = E[e^{tX}],$$
+
+defined for values of $t$ where the expectation is finite. When $M_X(t)$ exists on an open interval around 0, all moments can be recovered by differentiation:
+
+$$M_X^{(r)}(0) = E[X^r].$$
+
+Two key properties:
+
+1. **Linear transform:** if $Y = a + bX$, then $M_Y(t) = e^{at}M_X(bt)$.
+2. **Sum of independents:** if $X \perp Z$, then $M_{X+Z}(t) = M_X(t)\,M_Z(t)$.
+
+The second property makes MGFs powerful for studying distributions of sums. For heavy-tailed distributions where the MGF may not exist, the **characteristic function** $\phi_X(t) = E[e^{itX}]$ always exists and plays the same role.
+
+---
+
+**Full notes:** [Download PDF](../files/Rice_Ch_4.pdf)

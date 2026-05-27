@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Donghyun Ko">
+<meta name="dcterms.date" content="2026-05-26">
 
-<title>index – Study &amp; Beyond</title>
+<title>Mathematical Statistics: Chapter 3 – Study &amp; Beyond</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fad5ab29a14bbe0a7a7d29177f3f13bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fad5ab29a14bbe0a7a7d29177f3f13bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-categories','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -129,8 +100,8 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Study &amp; Beyond" href="index.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -139,7 +110,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Study &amp; Beyond</span>
     </a>
   </div>
@@ -150,23 +121,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../study/index.html"> 
+    <a class="nav-link" href="../../study/index.html"> 
 <span class="menu-text">Study Note</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../paper_review/index.html"> 
+    <a class="nav-link" href="../../paper_review/index.html"> 
 <span class="menu-text">Paper Review</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../research/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../investing/index.html"> 
+    <a class="nav-link" href="../../investing/index.html"> 
 <span class="menu-text">Others</span></a>
   </li>  
 </ul>
@@ -201,161 +172,121 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#research" id="toc-research" class="nav-link active" data-scroll-target="#research">Research</a></li>
+  <li><a href="#joint-cumulative-distribution-function" id="toc-joint-cumulative-distribution-function" class="nav-link active" data-scroll-target="#joint-cumulative-distribution-function">Joint Cumulative Distribution Function</a></li>
+  <li><a href="#independence-and-conditional-distributions" id="toc-independence-and-conditional-distributions" class="nav-link" data-scroll-target="#independence-and-conditional-distributions">Independence and Conditional Distributions</a></li>
+  <li><a href="#discrete-joint-distributions" id="toc-discrete-joint-distributions" class="nav-link" data-scroll-target="#discrete-joint-distributions">Discrete Joint Distributions</a>
+  <ul class="collapse">
+  <li><a href="#multinomial-distribution" id="toc-multinomial-distribution" class="nav-link" data-scroll-target="#multinomial-distribution">Multinomial Distribution</a></li>
+  </ul></li>
+  <li><a href="#continuous-joint-distributions" id="toc-continuous-joint-distributions" class="nav-link" data-scroll-target="#continuous-joint-distributions">Continuous Joint Distributions</a></li>
+  <li><a href="#transformations-the-jacobian-method" id="toc-transformations-the-jacobian-method" class="nav-link" data-scroll-target="#transformations-the-jacobian-method">Transformations: The Jacobian Method</a></li>
+  <li><a href="#order-statistics" id="toc-order-statistics" class="nav-link" data-scroll-target="#order-statistics">Order Statistics</a></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5n">Additive Manufacturing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGVmZWN0JTIwRGV0ZWN0aW9u">Defect Detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGlmZnVzaW9uJTIwbW9kZWw=">Diffusion model <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R2VuZXJhdGl2ZSUyMEFJ">Generative AI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TFBCRg==">LPBF <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3B0aW1pemF0aW9u">Optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UlVMJTJGVFRGJTIwUHJlZGljdGlvbg==">RUL/TTF Prediction <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UmVhbC10aW1lJTIwRGVjaXNpb24=">Real-time Decision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k">Response Surface Method <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mathematical Statistics: Chapter 3</h1>
+<p class="subtitle lead">Joint Distributions</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Probability</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="research" class="level1">
-<h1>Research</h1>
-<p>This page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.</p>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Donghyun Ko </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 26, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
+
+</header>
+
+
+<p>Chapter 3 extends one-variable probability to the multivariate setting. Once we have more than one random variable, two new questions arise: how do we compute probabilities of events involving multiple variables simultaneously, and how do we characterize their dependence? This chapter introduces joint CDFs, marginal and conditional distributions, independence, the Jacobian change-of-variables method, and order statistics.</p>
+<section id="joint-cumulative-distribution-function" class="level2">
+<h2 class="anchored" data-anchor-id="joint-cumulative-distribution-function">Joint Cumulative Distribution Function</h2>
+<p>For random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> on the same probability space, the <strong>joint CDF</strong> is</p>
+<p><span class="math display">\[F_{X,Y}(x, y) = P(X \leq x,\, Y \leq y), \quad x, y \in \mathbb{R}.\]</span></p>
+<p>The <strong>marginal CDFs</strong> are recovered by letting one argument go to infinity:</p>
+<p><span class="math display">\[F_X(x) = \lim_{y \to \infty} F_{X,Y}(x, y), \qquad F_Y(y) = \lim_{x \to \infty} F_{X,Y}(x, y).\]</span></p>
+<p><strong>Rectangle probabilities</strong> follow by inclusion–exclusion: for <span class="math inline">\(a &lt; b\)</span> and <span class="math inline">\(c &lt; d\)</span>,</p>
+<p><span class="math display">\[P(a &lt; X \leq b,\, c &lt; Y \leq d) = F(b,d) - F(a,d) - F(b,c) + F(a,c).\]</span></p>
+</section>
+<section id="independence-and-conditional-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="independence-and-conditional-distributions">Independence and Conditional Distributions</h2>
+<p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if and only if their joint CDF factorizes:</p>
+<p><span class="math display">\[F_{X,Y}(x,y) = F_X(x)\,F_Y(y) \quad \text{for all } x, y.\]</span></p>
+<p>When <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are not independent, the distribution of <span class="math inline">\(X\)</span> changes depending on the value of <span class="math inline">\(Y\)</span>. This dependence is captured by the <strong>conditional distribution</strong> of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y = y\)</span>.</p>
+<p><strong>Discrete case</strong> (when <span class="math inline">\(P(Y=y) &gt; 0\)</span>): <span class="math display">\[p_{X|Y}(x \mid y) = \frac{p(x,y)}{p_Y(y)}.\]</span></p>
+<p><strong>Continuous case</strong> (when <span class="math inline">\(f_Y(y) &gt; 0\)</span>): <span class="math display">\[f_{X|Y}(x \mid y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}, \qquad f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y)\,dx.\]</span></p>
+<p>In both cases, conditioning restricts attention to outcomes consistent with <span class="math inline">\(\{Y = y\}\)</span> and renormalizes so the result is a valid distribution. Independence holds if and only if <span class="math inline">\(f_{X|Y}(x \mid y) = f_X(x)\)</span> for all <span class="math inline">\(x, y\)</span>.</p>
+</section>
+<section id="discrete-joint-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-joint-distributions">Discrete Joint Distributions</h2>
+<p>For discrete <span class="math inline">\((X,Y)\)</span> with joint PMF <span class="math inline">\(p(x,y) = P(X=x,\, Y=y)\)</span>, <strong>marginal PMFs</strong> are obtained by summing out the other variable:</p>
+<p><span class="math display">\[p_X(x) = \sum_y p(x,y), \qquad p_Y(y) = \sum_x p(x,y).\]</span></p>
+<p>The joint CDF is the cumulative sum <span class="math inline">\(F_{X,Y}(x,y) = \sum_{u \leq x}\sum_{v \leq y} p(u,v)\)</span>.</p>
+<section id="multinomial-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="multinomial-distribution">Multinomial Distribution</h3>
+<p>When <span class="math inline">\(n\)</span> independent trials each produce one of <span class="math inline">\(r\)</span> categories with probabilities <span class="math inline">\(p_1, \ldots, p_r\)</span> (<span class="math inline">\(\sum p_i = 1\)</span>), the vector of counts <span class="math inline">\((N_1, \ldots, N_r)\)</span> follows the <strong>multinomial distribution</strong>:</p>
+<p><span class="math display">\[P(N_1 = n_1, \ldots, N_r = n_r) = \frac{n!}{n_1!\cdots n_r!}\,p_1^{n_1}\cdots p_r^{n_r}, \qquad \sum_{i=1}^r n_i = n.\]</span></p>
+<p>This is the multivariate analogue of the binomial. A histogram is a realization of a multinomial random vector, which explains why bin counts fluctuate even under a uniform distribution.</p>
+</section>
+</section>
+<section id="continuous-joint-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-joint-distributions">Continuous Joint Distributions</h2>
+<p>A function <span class="math inline">\(f(x,y)\)</span> is a valid <strong>joint PDF</strong> if <span class="math inline">\(f(x,y) \geq 0\)</span> and <span class="math inline">\(\iint f(x,y)\,dx\,dy = 1\)</span>. Probabilities of regions are computed by integration:</p>
+<p><span class="math display">\[P[(X,Y) \in A] = \iint_A f(x,y)\,dx\,dy.\]</span></p>
+<p><strong>Always identify the support</strong> <span class="math inline">\(\{(x,y): f(x,y) \neq 0\}\)</span> before setting up limits of integration — most errors in multivariate problems come from ignoring the support.</p>
+<p>The joint CDF is <span class="math inline">\(F(x,y) = \int_{-\infty}^x\int_{-\infty}^y f(u,v)\,dv\,du\)</span>, and the joint PDF is recovered by mixed differentiation: <span class="math inline">\(f(x,y) = \frac{\partial^2}{\partial x\,\partial y}F(x,y)\)</span>.</p>
+<p><strong>Marginal densities</strong> integrate out the other variable:</p>
+<p><span class="math display">\[f_X(x) = \int_{-\infty}^{\infty} f(x,y)\,dy, \qquad f_Y(y) = \int_{-\infty}^{\infty} f(x,y)\,dx.\]</span></p>
+<p>When the support is bounded, the joint CDF must be written piecewise — the integration region changes depending on where <span class="math inline">\((x,y)\)</span> falls relative to the support.</p>
+</section>
+<section id="transformations-the-jacobian-method" class="level2">
+<h2 class="anchored" data-anchor-id="transformations-the-jacobian-method">Transformations: The Jacobian Method</h2>
+<p>To find the joint density of <span class="math inline">\((U,V) = g(X,Y)\)</span> when <span class="math inline">\(g\)</span> is one-to-one with differentiable inverse <span class="math inline">\((X,Y) = g^*(U,V)\)</span>:</p>
+<p><span class="math display">\[h(u,v) = f\!\left(g_1^*(u,v),\, g_2^*(u,v)\right) \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|.\]</span></p>
+<p>The <strong>Jacobian determinant</strong> <span class="math inline">\(\left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|\)</span> accounts for the local stretching or compression of area under the transformation. The key principle is that probability must be preserved when we change coordinates.</p>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are transformed <em>separately</em> as <span class="math inline">\(U = g_1(X)\)</span> and <span class="math inline">\(V = g_2(Y)\)</span> (no mixing), then <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> remain independent.</p>
+</section>
+<section id="order-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="order-statistics">Order Statistics</h2>
+<p>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be i.i.d. continuous random variables with CDF <span class="math inline">\(F\)</span> and density <span class="math inline">\(f\)</span>. The <strong>order statistics</strong> <span class="math inline">\(X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}\)</span> are the sorted sample.</p>
+<p><strong>Maximum and minimum:</strong></p>
+<p><span class="math display">\[F_U(u) = [F(u)]^n, \quad f_U(u) = n\,f(u)[F(u)]^{n-1}, \qquad U = \max_i X_i,\]</span> <span class="math display">\[F_V(v) = 1 - [1-F(v)]^n, \quad f_V(v) = n\,f(v)[1-F(v)]^{n-1}, \qquad V = \min_i X_i.\]</span></p>
+<p>The intuition: <span class="math inline">\(U \leq u\)</span> if and only if <em>all</em> <span class="math inline">\(n\)</span> observations are <span class="math inline">\(\leq u\)</span>; <span class="math inline">\(V &gt; v\)</span> if and only if <em>all</em> observations are <span class="math inline">\(&gt; v\)</span>.</p>
+<p><strong>General <span class="math inline">\(k\)</span>th order statistic:</strong> for <span class="math inline">\(X_{(k)}\)</span> to be near <span class="math inline">\(x\)</span>, we need <span class="math inline">\(k-1\)</span> observations below <span class="math inline">\(x\)</span>, one observation near <span class="math inline">\(x\)</span>, and <span class="math inline">\(n-k\)</span> observations above <span class="math inline">\(x\)</span>. This yields</p>
+<p><span class="math display">\[f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!}\,f(x)\,[F(x)]^{k-1}[1-F(x)]^{n-k}.\]</span></p>
+<p>Order statistics appear throughout reliability theory (series/parallel systems), nonparametric statistics, and quality control.</p>
+<hr>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_3.pdf">Download PDF</a></p>
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5nJTJDTFBCRiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVsJTJDRGVmZWN0JTIwRGV0ZWN0aW9uJTJDUmVhbC10aW1lJTIwRGVjaXNpb24=" data-listing-date-sort="1779850987000" data-listing-file-modified-sort="1779850987065" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research3.html" class="no-external">Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5n'); return false;">
-Additive Manufacturing
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TFBCRg=='); return false;">
-LPBF
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGVmZWN0JTIwRGV0ZWN0aW9u'); return false;">
-Defect Detection
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVhbC10aW1lJTIwRGVjaXNpb24='); return false;">
-Real-time Decision
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research3.html" class="no-external">Laser Powder Bed Fusion (LPBF) is a leading technology for producing complex metal components with high performance, but process outcomes are highly sensitive to…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research3.html" class="no-external">
-<div class="listing-date">
-May 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="T3B0aW1pemF0aW9uJTJDUmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k" data-listing-date-sort="1779849841000" data-listing-file-modified-sort="1779849841252" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research1.html" class="no-external">Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('T3B0aW1pemF0aW9u'); return false;">
-Optimization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k'); return false;">
-Response Surface Method
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research1.html" class="no-external">The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research1.html" class="no-external">
-<div class="listing-date">
-May 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UlVMJTJGVFRGJTIwUHJlZGljdGlvbiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVs" data-listing-date-sort="1779505352000" data-listing-file-modified-sort="1779505352688" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/talk1.html" class="no-external">Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/talk1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UlVMJTJGVFRGJTIwUHJlZGljdGlvbg=='); return false;">
-RUL/TTF Prediction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/talk1.html" class="no-external">This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/talk1.html" class="no-external">
-<div class="listing-date">
-May 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UlVMJTJGVFRGJTIwUHJlZGljdGlvbiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVs" data-listing-date-sort="1779505218000" data-listing-file-modified-sort="1779505218751" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="262">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research2.html" class="no-external">A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UlVMJTJGVFRGJTIwUHJlZGljdGlvbg=='); return false;">
-RUL/TTF Prediction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research2.html" class="no-external">Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research2.html" class="no-external">
-<div class="listing-date">
-May 22, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,0 +1,264 @@
+---
+title: "Statistical Estimation and Model Fitting"
+subtitle: "Rice Chapter 8.1–8.5: MOM, MLE, Sufficiency"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Statistics", "Estimation"]
+format:
+  html: default
+---
+
+This chapter formalizes parametric statistical modeling: assume data are generated i.i.d. from a distribution $f(x;\theta)$ with unknown parameter(s) $\theta$. We study how to (i) propose a probability model, (ii) estimate $\theta$ via the method of moments and maximum likelihood, and (iii) evaluate estimator quality via bias, variance, MSE, and standard errors, including large-sample approximations used for inference.
+
+---
+
+## 1. Probability Models and Data
+
+In parametric modeling, randomness comes from an assumed stochastic data-generating mechanism:
+$$X_1, \ldots, X_n \overset{\text{i.i.d.}}{\sim} f(x;\theta),$$
+where $\theta$ is a fixed but unknown parameter (or vector). A **statistical model** is a deliberate approximation of reality — once $f(x;\theta)$ is specified, all inference proceeds through $\theta$.
+
+### Parameters, Statistics, and Estimators
+
+- A **parameter** $\theta$ is a fixed but unknown constant characterizing the data-generating distribution (e.g., $\lambda$ in Poisson($\lambda$)).
+- A **statistic** is any function $T = T(X_1, \ldots, X_n)$ of the observed data only — it does not depend on unknown parameters.
+- An **estimator** $\hat{\theta}$ is a statistic chosen to approximate $\theta$. Every estimator is a statistic, but not every statistic is an estimator.
+
+**Example (Poisson counting model).** For emission counts $X_1, \ldots, X_n \overset{\text{i.i.d.}}{\sim} \text{Poisson}(\lambda)$, the sample mean $\bar{X}$ is a natural estimator: $\hat{\lambda} = \bar{X}$, since $E[X] = \lambda$.
+
+### Sampling Distribution and Standard Error
+
+Before data are observed, $\hat{\theta} = \hat{\theta}(X_1, \ldots, X_n)$ is a **random variable**. Its probability distribution under repeated sampling is called the **sampling distribution** of $\hat{\theta}$.
+
+The **standard error (SE)** is the standard deviation of the sampling distribution:
+$$\text{SE}(\hat{\theta}) = \sqrt{\text{Var}(\hat{\theta})}.$$
+
+- A smaller SE corresponds to a tighter sampling distribution and more reliable estimation.
+- SEs decrease as $n$ increases, typically at rate $1/\sqrt{n}$.
+- In practice, $\text{Var}(\hat{\theta})$ is rarely known exactly and must be estimated; the result is a **plug-in SE**.
+
+---
+
+## 2. Evaluating Estimators: Bias, Variance, MSE, and Consistency
+
+### Bias, Variance, and MSE
+
+Let $\hat{\theta}$ be an estimator of $\theta$.
+
+**(1) Bias:**
+$$\text{Bias}(\hat{\theta}) = E[\hat{\theta}] - \theta.$$
+An estimator with $E[\hat{\theta}] = \theta$ is called **unbiased**.
+
+**(2) Variance:**
+$$\text{Var}(\hat{\theta}) = E\!\left[(\hat{\theta} - E[\hat{\theta}])^2\right] = E[\hat{\theta}^2] - (E[\hat{\theta}])^2.$$
+
+**(3) Mean Squared Error (MSE):**
+$$\text{MSE}(\hat{\theta}) = E\!\left[(\hat{\theta} - \theta)^2\right].$$
+
+**Bias–Variance decomposition:**
+$$\text{MSE}(\hat{\theta}) = \text{Var}(\hat{\theta}) + \text{Bias}(\hat{\theta})^2.$$
+
+*Derivation.* Write $\hat{\theta} - \theta = (\hat{\theta} - E[\hat{\theta}]) + (E[\hat{\theta}] - \theta)$, square both sides, and take expectations. The cross term vanishes because $E[\hat{\theta} - E[\hat{\theta}}] = 0$.
+
+> **Implication.** Variance captures random fluctuation; bias captures systematic deviation. A slightly biased estimator can have smaller MSE if it reduces variance enough (**bias–variance tradeoff**).
+
+### Unbiased Sample Variance
+
+For i.i.d. $X_1, \ldots, X_n$ with mean $\mu$ and variance $\sigma^2$, define:
+$$s_n^2 = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X})^2, \quad S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2.$$
+
+Then:
+$$E[S^2] = \sigma^2, \quad E[s_n^2] = \frac{n-1}{n}\sigma^2.$$
+
+Using denominator $n$ underestimates $\sigma^2$ by the factor $(n-1)/n$. The correction $n-1$ yields **exact unbiasedness** for all $n \geq 2$. Despite the bias, $s_n^2$ is still **consistent** since $(n-1)/n \to 1$.
+
+### Consistency
+
+An estimator sequence $\hat{\theta}_n$ is **consistent** for $\theta$ if $\hat{\theta}_n \xrightarrow{p} \theta$ as $n \to \infty$.
+
+- Consistency is a large-sample guarantee; it does not imply unbiasedness for finite $n$.
+- Many biased estimators are consistent (their bias vanishes as $n \to \infty$).
+
+---
+
+## 3. Method of Moments (MOM)
+
+### General Construction
+
+The **k-th population moment** is $\mu_k(\theta) = E_\theta[X^k]$; the **k-th sample moment** is $\hat{\mu}_k = \frac{1}{n}\sum_{i=1}^n X_i^k$.
+
+For a $d$-dimensional parameter, the **MOM estimator** $\hat{\theta}_{\text{MOM}}$ solves:
+$$\mu_j(\theta) = \hat{\mu}_j, \quad j = 1, \ldots, d.$$
+
+> **Procedure:** Specify $f(x;\theta)$ → write down population moments → compute sample moments → solve the system.
+
+MOM is often algebraically simple and yields closed-form estimators. However, it is not automatically optimal: MOM estimators are often **less efficient** (larger variance) than MLE.
+
+### Examples
+
+**Bernoulli($p$).** $E[X] = p$, so $\hat{p}_{\text{MOM}} = \bar{X}$ (sample proportion).
+
+**Normal($\mu, \sigma^2$).** Equating first and second moments gives:
+$$\hat{\mu}_{\text{MOM}} = \bar{X}, \quad \hat{\sigma}^2_{\text{MOM}} = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X})^2.$$
+The MOM estimator uses denominator $n$ — biased but consistent.
+
+**Nonstandard density $f(x;\omega) = \frac{1+\omega x}{2}$ on $[-1,1]$.** Since $E[X] = \omega/3$, we get $\hat{\omega}_{\text{MOM}} = 3\bar{X} \in [-3,3]$, which can **fall outside** the admissible range $[-1,1]$. This highlights a key limitation: **MOM does not automatically respect parameter constraints**.
+
+**Poisson($\lambda$).** $E[X] = \lambda$, so $\hat{\lambda}_{\text{MOM}} = \bar{X}$ with $\text{SE}(\hat{\lambda}) \approx \sqrt{\bar{X}/n}$.
+
+**Gamma($\alpha, \beta$).** Using $E[X] = \alpha/\beta$ and $E[X^2] = \alpha(\alpha+1)/\beta^2$:
+$$\hat{\beta}_{\text{MOM}} = \frac{\bar{X}}{\hat{\mu}_2 - \bar{X}^2}, \quad \hat{\alpha}_{\text{MOM}} = \frac{\bar{X}^2}{\hat{\mu}_2 - \bar{X}^2}.$$
+
+### Bootstrap for MOM Estimators
+
+When closed-form sampling distributions are unavailable, **bootstrap** methods approximate the sampling distribution of $\hat{\theta}$ computationally.
+
+**Parametric bootstrap:**
+
+1. Compute $\hat{\theta} = T(\mathbf{X})$ from observed data.
+2. For $b = 1, \ldots, B$: draw $n$ samples from $F(\cdot;\hat{\theta})$, compute $\hat{\theta}^*_b$.
+3. Use $\{\hat{\theta}^*_b\}$ to estimate SEs and construct CIs.
+
+**Nonparametric bootstrap:**
+
+1. For $b = 1, \ldots, B$: draw $n$ observations **with replacement** from $\{x_1, \ldots, x_n\}$, compute $\hat{\theta}^*_b$.
+2. Use $\{\hat{\theta}^*_b\}$ to approximate the sampling distribution.
+
+Does not require assuming a parametric form; applicable to any statistic $T(\mathbf{X})$.
+
+**Bootstrap SE:**
+$$\widehat{\text{SE}}_B(\hat{\theta}) = \left(\frac{1}{B-1}\sum_{b=1}^B (\hat{\theta}^*_b - \bar{\theta}^*)^2\right)^{1/2}.$$
+
+**Bootstrap confidence intervals:**
+
+- **Percentile CI:** $\left[\hat{\theta}^*_{(\alpha/2)},\, \hat{\theta}^*_{(1-\alpha/2)}\right]$
+- **Reflected (Revised) percentile CI:** $\left[2\hat{\theta} - \hat{\theta}^*_{(1-\alpha/2)},\, 2\hat{\theta} - \hat{\theta}^*_{(\alpha/2)}\right]$
+- **Bootstrap-$t$ CI:** Uses a studentized statistic with two-level resampling to approximate the distribution of $(\hat{\theta} - \theta)/\widehat{\text{SE}}(\hat{\theta})$.
+
+---
+
+## 4. Maximum Likelihood Estimation (MLE)
+
+### Likelihood and Log-Likelihood
+
+Given i.i.d. observations $x_1, \ldots, x_n$ from $f(x;\theta)$, the **likelihood function** is:
+$$L(\theta) = \prod_{i=1}^n f(x_i;\theta).$$
+
+We typically maximize the **log-likelihood**:
+$$\ell(\theta) = \log L(\theta) = \sum_{i=1}^n \log f(x_i;\theta),$$
+since $\log(\cdot)$ is strictly increasing and differentiation is easier.
+
+**Definition (MLE):**
+$$\hat{\theta}_{\text{MLE}} \in \arg\max_{\theta \in \Omega}\, \ell(\theta).$$
+
+### Computing the MLE
+
+At an interior maximum, the **score equation** must hold:
+$$U(\theta) = \ell'(\theta) = \frac{d}{d\theta}\sum_{i=1}^n \log f(x_i;\theta) = 0.$$
+
+Confirm a maximum via $\ell''(\hat{\theta}) < 0$.
+
+**Selected examples:**
+
+| Model | MLE |
+|---|---|
+| Poisson($\lambda$) | $\hat{\lambda} = \bar{X}$ |
+| Normal($\mu, \sigma^2$) | $\hat{\mu} = \bar{X}$,  $\hat{\sigma}^2 = \frac{1}{n}\sum(X_i - \bar{X})^2$ |
+| Binomial($n, p$) | $\hat{p} = X/n$ |
+| Exponential($\lambda$) | $\hat{\lambda} = 1/\bar{X}$ (biased upward for finite $n$) |
+
+> **Note.** The MLE for $\sigma^2$ uses denominator $n$ (biased), unlike the unbiased estimator $S^2$ with denominator $n-1$. MLE prioritizes **likelihood optimality**, not unbiasedness.
+
+### Invariance Property
+
+**Theorem.** If $\hat{\theta}$ is the MLE of $\theta$ and $g(\cdot)$ is continuous, then $g(\hat{\theta})$ is the MLE of $g(\theta)$.
+
+**Example.** For Poisson($\lambda$), the MLE of $P(X=0) = e^{-\lambda}$ is $e^{-\bar{X}}$.
+
+### Large-Sample Theory
+
+**Consistency:** Under regularity conditions, $\hat{\theta}_n \xrightarrow{p} \theta_0$ as $n \to \infty$. The proof uses the WLLN and the fact that $Q(\theta) = E_{\theta_0}[\log f(X;\theta)]$ is uniquely maximized at $\theta_0$ (via the KL divergence).
+
+**Fisher Information.** For one observation $X \sim f(x;\theta)$:
+$$I_1(\theta) = \text{Var}_\theta\!\left(\frac{\partial}{\partial\theta}\log f(X;\theta)\right) = -E_\theta\!\left[\frac{\partial^2}{\partial\theta^2}\log f(X;\theta)\right].$$
+
+For $n$ i.i.d. observations: $I(\theta) = nI_1(\theta)$.
+
+**Asymptotic normality:**
+$$\sqrt{n}(\hat{\theta}_n - \theta_0) \xrightarrow{d} N\!\left(0,\, I_1(\theta_0)^{-1}\right),$$
+or equivalently $\hat{\theta}_n \approx N\!\left(\theta_0,\, \frac{1}{nI_1(\theta_0)}\right)$ for large $n$.
+
+This result is the foundation of Wald tests, likelihood ratio tests, and large-sample confidence intervals.
+
+**Wald CI:**
+$$\hat{\theta}_n \pm z_{1-\alpha/2}\,\widehat{\text{SE}}(\hat{\theta}_n), \quad \widehat{\text{SE}}(\hat{\theta}_n) = \sqrt{\frac{1}{nI_1(\hat{\theta}_n)}}.$$
+
+### Cramér–Rao Lower Bound and Efficiency
+
+For any **unbiased** estimator $T$ of $\theta$:
+$$\text{Var}(T) \geq \frac{1}{nI_1(\theta)}.$$
+
+An unbiased estimator attaining this bound is called **efficient**. The MLE is **asymptotically efficient** since its large-sample variance equals $1/(nI_1(\theta_0))$.
+
+**Relative efficiency** of two unbiased estimators $T_1$, $T_2$:
+$$\text{eff}(T_1, T_2) = \frac{1/\text{Var}(T_2)}{1/\text{Var}(T_1)} = \frac{\text{Var}(T_2)}{\text{Var}(T_1)}.$$
+
+**UMVUE (Uniform Minimum Variance Unbiased Estimator):** An unbiased estimator with the smallest variance among all unbiased estimators. An efficient estimator (if it exists) is automatically the UMVUE.
+
+---
+
+## 5. Sufficiency and the Factorization Theorem
+
+### Definition of Sufficiency
+
+A statistic $T = T(X_1, \ldots, X_n)$ is **sufficient** for $\theta$ if the conditional distribution of $(X_1, \ldots, X_n)$ given $T = t$ does not depend on $\theta$ for any $t$.
+
+Intuitively, once $T$ is known, the remaining variation in the data carries **no additional information** about $\theta$.
+
+### Factorization Theorem (Neyman–Fisher)
+
+$T$ is sufficient for $\theta$ **if and only if** the joint pdf/pmf factors as:
+$$f(x_1, \ldots, x_n;\theta) = g\!\left(T(x_1,\ldots,x_n);\theta\right) \cdot h(x_1, \ldots, x_n),$$
+where $g$ depends on the data only through $T$, and $h$ does not depend on $\theta$.
+
+**Consequence:** If $T$ is sufficient, any MLE $\hat{\theta}$ is a function of $T$.
+
+**Examples:**
+
+- **Bernoulli($\theta$):** $T = \sum X_i$ is sufficient; $\hat{\theta} = T/n = \bar{X}$.
+- **Laplace($\rho$):** $T = \sum |X_i|$ is sufficient; $\hat{\rho} = T/n$.
+- **Normal($\mu, \sigma^2$):** $(T_1, T_2) = (\sum X_i,\, \sum X_i^2)$ — or equivalently $(\bar{X},\, \sum(X_i-\bar{X})^2)$ — is sufficient.
+
+### Exponential Families
+
+A model is in the **one-parameter exponential family** if:
+$$f(x;\theta) = \exp\!\left\{w(\theta)T(x) - b(\theta) + c(x)\right\}.$$
+
+For i.i.d. data, $\sum_{i=1}^n T(X_i)$ is sufficient for $\theta$.
+
+For the **$K$-parameter exponential family**:
+$$f(x;\theta) = \exp\!\left\{\sum_{k=1}^K w_k(\theta)T_k(x) - b(\theta) + c(x)\right\},$$
+the vector $\left(\sum_i T_1(X_i), \ldots, \sum_i T_K(X_i)\right)$ is sufficient for $\theta$.
+
+### Rao–Blackwell Theorem
+
+**Theorem.** Let $g(X)$ be an estimator of $\theta$ with $E[g(X)^2] < \infty$. If $T$ is sufficient for $\theta$, define the **Rao–Blackwellized estimator**:
+$$\tilde{g}(X) = E[g(X) \mid T(X)].$$
+
+Then for all $\theta$:
+$$E\!\left[(\tilde{g}(X) - \theta)^2\right] \leq E\!\left[(g(X) - \theta)^2\right],$$
+with strict inequality unless $\tilde{g}(X) = g(X)$ a.s. Moreover, $\tilde{g}$ is a function of the sufficient statistic $T$.
+
+> **Implication.** Any estimator not already a function of a sufficient statistic can be improved by conditioning on $T$. This motivates restricting attention to estimators that are functions of sufficient statistics when MSE is the criterion.
+
+**Example (Poisson).** Starting from the crude estimator $\hat{\lambda}_1 = X_1$ (unbiased but inefficient), conditioning on $T = \sum X_i$ gives:
+$$\tilde{\lambda} = E[X_1 \mid T] = \frac{T}{n} = \bar{X},$$
+since $X_1 \mid T = t \sim \text{Binomial}(t, 1/n)$. Rao–Blackwell directly produces the sample mean.
+
+**Example (Uniform[0,$\theta$]).** Starting from $\hat{\theta}_1 = 2X_1$, conditioning on $T = X_{(n)} = \max X_i$ gives:
+$$\tilde{\theta} = \frac{n+1}{n}X_{(n)},$$
+which has smaller MSE than $2X_1$.
+
+---
+
+**Full notes:** [Download PDF](../files/Rice_Ch_8_1_5.pdf)

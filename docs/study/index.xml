@@ -10,7 +10,676 @@
 <atom:link href="https://kmakdh3692.github.io/study/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Sun, 04 Jan 2026 03:29:56 GMT</lastBuildDate>
+<lastBuildDate>Wed, 27 May 2026 03:32:20 GMT</lastBuildDate>
+<item>
+  <title>Statistical Estimation and Model Fitting</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice6.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This chapter formalizes parametric statistical modeling: assume data are generated i.i.d. from a distribution <img src="https://latex.codecogs.com/png.latex?f(x;%5Ctheta)"> with unknown parameter(s) <img src="https://latex.codecogs.com/png.latex?%5Ctheta">. We study how to (i) propose a probability model, (ii) estimate <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> via the method of moments and maximum likelihood, and (iii) evaluate estimator quality via bias, variance, MSE, and standard errors, including large-sample approximations used for inference.</p>
+<hr>
+<section id="probability-models-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="probability-models-and-data">1. Probability Models and Data</h2>
+<p>In parametric modeling, randomness comes from an assumed stochastic data-generating mechanism: <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n%20%5Coverset%7B%5Ctext%7Bi.i.d.%7D%7D%7B%5Csim%7D%20f(x;%5Ctheta),"> where <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is a fixed but unknown parameter (or vector). A <strong>statistical model</strong> is a deliberate approximation of reality — once <img src="https://latex.codecogs.com/png.latex?f(x;%5Ctheta)"> is specified, all inference proceeds through <img src="https://latex.codecogs.com/png.latex?%5Ctheta">.</p>
+<section id="parameters-statistics-and-estimators" class="level3">
+<h3 class="anchored" data-anchor-id="parameters-statistics-and-estimators">Parameters, Statistics, and Estimators</h3>
+<ul>
+<li>A <strong>parameter</strong> <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> is a fixed but unknown constant characterizing the data-generating distribution (e.g., <img src="https://latex.codecogs.com/png.latex?%5Clambda"> in Poisson(<img src="https://latex.codecogs.com/png.latex?%5Clambda">)).</li>
+<li>A <strong>statistic</strong> is any function <img src="https://latex.codecogs.com/png.latex?T%20=%20T(X_1,%20%5Cldots,%20X_n)"> of the observed data only — it does not depend on unknown parameters.</li>
+<li>An <strong>estimator</strong> <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> is a statistic chosen to approximate <img src="https://latex.codecogs.com/png.latex?%5Ctheta">. Every estimator is a statistic, but not every statistic is an estimator.</li>
+</ul>
+<p><strong>Example (Poisson counting model).</strong> For emission counts <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n%20%5Coverset%7B%5Ctext%7Bi.i.d.%7D%7D%7B%5Csim%7D%20%5Ctext%7BPoisson%7D(%5Clambda)">, the sample mean <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D"> is a natural estimator: <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Clambda%7D%20=%20%5Cbar%7BX%7D">, since <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20%5Clambda">.</p>
+</section>
+<section id="sampling-distribution-and-standard-error" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-distribution-and-standard-error">Sampling Distribution and Standard Error</h3>
+<p>Before data are observed, <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D%20=%20%5Chat%7B%5Ctheta%7D(X_1,%20%5Cldots,%20X_n)"> is a <strong>random variable</strong>. Its probability distribution under repeated sampling is called the <strong>sampling distribution</strong> of <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D">.</p>
+<p>The <strong>standard error (SE)</strong> is the standard deviation of the sampling distribution: <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSE%7D(%5Chat%7B%5Ctheta%7D)%20=%20%5Csqrt%7B%5Ctext%7BVar%7D(%5Chat%7B%5Ctheta%7D)%7D."></p>
+<ul>
+<li>A smaller SE corresponds to a tighter sampling distribution and more reliable estimation.</li>
+<li>SEs decrease as <img src="https://latex.codecogs.com/png.latex?n"> increases, typically at rate <img src="https://latex.codecogs.com/png.latex?1/%5Csqrt%7Bn%7D">.</li>
+<li>In practice, <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BVar%7D(%5Chat%7B%5Ctheta%7D)"> is rarely known exactly and must be estimated; the result is a <strong>plug-in SE</strong>.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="evaluating-estimators-bias-variance-mse-and-consistency" class="level2">
+<h2 class="anchored" data-anchor-id="evaluating-estimators-bias-variance-mse-and-consistency">2. Evaluating Estimators: Bias, Variance, MSE, and Consistency</h2>
+<section id="bias-variance-and-mse" class="level3">
+<h3 class="anchored" data-anchor-id="bias-variance-and-mse">Bias, Variance, and MSE</h3>
+<p>Let <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> be an estimator of <img src="https://latex.codecogs.com/png.latex?%5Ctheta">.</p>
+<p><strong>(1) Bias:</strong> <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BBias%7D(%5Chat%7B%5Ctheta%7D)%20=%20E%5B%5Chat%7B%5Ctheta%7D%5D%20-%20%5Ctheta."> An estimator with <img src="https://latex.codecogs.com/png.latex?E%5B%5Chat%7B%5Ctheta%7D%5D%20=%20%5Ctheta"> is called <strong>unbiased</strong>.</p>
+<p><strong>(2) Variance:</strong> <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BVar%7D(%5Chat%7B%5Ctheta%7D)%20=%20E%5C!%5Cleft%5B(%5Chat%7B%5Ctheta%7D%20-%20E%5B%5Chat%7B%5Ctheta%7D%5D)%5E2%5Cright%5D%20=%20E%5B%5Chat%7B%5Ctheta%7D%5E2%5D%20-%20(E%5B%5Chat%7B%5Ctheta%7D%5D)%5E2."></p>
+<p><strong>(3) Mean Squared Error (MSE):</strong> <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BMSE%7D(%5Chat%7B%5Ctheta%7D)%20=%20E%5C!%5Cleft%5B(%5Chat%7B%5Ctheta%7D%20-%20%5Ctheta)%5E2%5Cright%5D."></p>
+<p><strong>Bias–Variance decomposition:</strong> <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BMSE%7D(%5Chat%7B%5Ctheta%7D)%20=%20%5Ctext%7BVar%7D(%5Chat%7B%5Ctheta%7D)%20+%20%5Ctext%7BBias%7D(%5Chat%7B%5Ctheta%7D)%5E2."></p>
+<p><em>Derivation.</em> Write <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D%20-%20%5Ctheta%20=%20(%5Chat%7B%5Ctheta%7D%20-%20E%5B%5Chat%7B%5Ctheta%7D%5D)%20+%20(E%5B%5Chat%7B%5Ctheta%7D%5D%20-%20%5Ctheta)">, square both sides, and take expectations. The cross term vanishes because <img src="https://latex.codecogs.com/png.latex?E%5B%5Chat%7B%5Ctheta%7D%20-%20E%5B%5Chat%7B%5Ctheta%7D%7D%5D%20=%200">.</p>
+<blockquote class="blockquote">
+<p><strong>Implication.</strong> Variance captures random fluctuation; bias captures systematic deviation. A slightly biased estimator can have smaller MSE if it reduces variance enough (<strong>bias–variance tradeoff</strong>).</p>
+</blockquote>
+</section>
+<section id="unbiased-sample-variance" class="level3">
+<h3 class="anchored" data-anchor-id="unbiased-sample-variance">Unbiased Sample Variance</h3>
+<p>For i.i.d. <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n"> with mean <img src="https://latex.codecogs.com/png.latex?%5Cmu"> and variance <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2">, define: <img src="https://latex.codecogs.com/png.latex?s_n%5E2%20=%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi=1%7D%5En%20(X_i%20-%20%5Cbar%7BX%7D)%5E2,%20%5Cquad%20S%5E2%20=%20%5Cfrac%7B1%7D%7Bn-1%7D%5Csum_%7Bi=1%7D%5En%20(X_i%20-%20%5Cbar%7BX%7D)%5E2."></p>
+<p>Then: <img src="https://latex.codecogs.com/png.latex?E%5BS%5E2%5D%20=%20%5Csigma%5E2,%20%5Cquad%20E%5Bs_n%5E2%5D%20=%20%5Cfrac%7Bn-1%7D%7Bn%7D%5Csigma%5E2."></p>
+<p>Using denominator <img src="https://latex.codecogs.com/png.latex?n"> underestimates <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2"> by the factor <img src="https://latex.codecogs.com/png.latex?(n-1)/n">. The correction <img src="https://latex.codecogs.com/png.latex?n-1"> yields <strong>exact unbiasedness</strong> for all <img src="https://latex.codecogs.com/png.latex?n%20%5Cgeq%202">. Despite the bias, <img src="https://latex.codecogs.com/png.latex?s_n%5E2"> is still <strong>consistent</strong> since <img src="https://latex.codecogs.com/png.latex?(n-1)/n%20%5Cto%201">.</p>
+</section>
+<section id="consistency" class="level3">
+<h3 class="anchored" data-anchor-id="consistency">Consistency</h3>
+<p>An estimator sequence <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_n"> is <strong>consistent</strong> for <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> if <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_n%20%5Cxrightarrow%7Bp%7D%20%5Ctheta"> as <img src="https://latex.codecogs.com/png.latex?n%20%5Cto%20%5Cinfty">.</p>
+<ul>
+<li>Consistency is a large-sample guarantee; it does not imply unbiasedness for finite <img src="https://latex.codecogs.com/png.latex?n">.</li>
+<li>Many biased estimators are consistent (their bias vanishes as <img src="https://latex.codecogs.com/png.latex?n%20%5Cto%20%5Cinfty">).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="method-of-moments-mom" class="level2">
+<h2 class="anchored" data-anchor-id="method-of-moments-mom">3. Method of Moments (MOM)</h2>
+<section id="general-construction" class="level3">
+<h3 class="anchored" data-anchor-id="general-construction">General Construction</h3>
+<p>The <strong>k-th population moment</strong> is <img src="https://latex.codecogs.com/png.latex?%5Cmu_k(%5Ctheta)%20=%20E_%5Ctheta%5BX%5Ek%5D">; the <strong>k-th sample moment</strong> is <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Cmu%7D_k%20=%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi=1%7D%5En%20X_i%5Ek">.</p>
+<p>For a <img src="https://latex.codecogs.com/png.latex?d">-dimensional parameter, the <strong>MOM estimator</strong> <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_%7B%5Ctext%7BMOM%7D%7D"> solves: <img src="https://latex.codecogs.com/png.latex?%5Cmu_j(%5Ctheta)%20=%20%5Chat%7B%5Cmu%7D_j,%20%5Cquad%20j%20=%201,%20%5Cldots,%20d."></p>
+<blockquote class="blockquote">
+<p><strong>Procedure:</strong> Specify <img src="https://latex.codecogs.com/png.latex?f(x;%5Ctheta)"> → write down population moments → compute sample moments → solve the system.</p>
+</blockquote>
+<p>MOM is often algebraically simple and yields closed-form estimators. However, it is not automatically optimal: MOM estimators are often <strong>less efficient</strong> (larger variance) than MLE.</p>
+</section>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<p><strong>Bernoulli(<img src="https://latex.codecogs.com/png.latex?p">).</strong> <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20p">, so <img src="https://latex.codecogs.com/png.latex?%5Chat%7Bp%7D_%7B%5Ctext%7BMOM%7D%7D%20=%20%5Cbar%7BX%7D"> (sample proportion).</p>
+<p><strong>Normal(<img src="https://latex.codecogs.com/png.latex?%5Cmu,%20%5Csigma%5E2">).</strong> Equating first and second moments gives: <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Cmu%7D_%7B%5Ctext%7BMOM%7D%7D%20=%20%5Cbar%7BX%7D,%20%5Cquad%20%5Chat%7B%5Csigma%7D%5E2_%7B%5Ctext%7BMOM%7D%7D%20=%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi=1%7D%5En%20(X_i%20-%20%5Cbar%7BX%7D)%5E2."> The MOM estimator uses denominator <img src="https://latex.codecogs.com/png.latex?n"> — biased but consistent.</p>
+<p><strong>Nonstandard density <img src="https://latex.codecogs.com/png.latex?f(x;%5Comega)%20=%20%5Cfrac%7B1+%5Comega%20x%7D%7B2%7D"> on <img src="https://latex.codecogs.com/png.latex?%5B-1,1%5D">.</strong> Since <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20%5Comega/3">, we get <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Comega%7D_%7B%5Ctext%7BMOM%7D%7D%20=%203%5Cbar%7BX%7D%20%5Cin%20%5B-3,3%5D">, which can <strong>fall outside</strong> the admissible range <img src="https://latex.codecogs.com/png.latex?%5B-1,1%5D">. This highlights a key limitation: <strong>MOM does not automatically respect parameter constraints</strong>.</p>
+<p><strong>Poisson(<img src="https://latex.codecogs.com/png.latex?%5Clambda">).</strong> <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20%5Clambda">, so <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Clambda%7D_%7B%5Ctext%7BMOM%7D%7D%20=%20%5Cbar%7BX%7D"> with <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSE%7D(%5Chat%7B%5Clambda%7D)%20%5Capprox%20%5Csqrt%7B%5Cbar%7BX%7D/n%7D">.</p>
+<p><strong>Gamma(<img src="https://latex.codecogs.com/png.latex?%5Calpha,%20%5Cbeta">).</strong> Using <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20%5Calpha/%5Cbeta"> and <img src="https://latex.codecogs.com/png.latex?E%5BX%5E2%5D%20=%20%5Calpha(%5Calpha+1)/%5Cbeta%5E2">: <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Cbeta%7D_%7B%5Ctext%7BMOM%7D%7D%20=%20%5Cfrac%7B%5Cbar%7BX%7D%7D%7B%5Chat%7B%5Cmu%7D_2%20-%20%5Cbar%7BX%7D%5E2%7D,%20%5Cquad%20%5Chat%7B%5Calpha%7D_%7B%5Ctext%7BMOM%7D%7D%20=%20%5Cfrac%7B%5Cbar%7BX%7D%5E2%7D%7B%5Chat%7B%5Cmu%7D_2%20-%20%5Cbar%7BX%7D%5E2%7D."></p>
+</section>
+<section id="bootstrap-for-mom-estimators" class="level3">
+<h3 class="anchored" data-anchor-id="bootstrap-for-mom-estimators">Bootstrap for MOM Estimators</h3>
+<p>When closed-form sampling distributions are unavailable, <strong>bootstrap</strong> methods approximate the sampling distribution of <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> computationally.</p>
+<p><strong>Parametric bootstrap:</strong></p>
+<ol type="1">
+<li>Compute <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D%20=%20T(%5Cmathbf%7BX%7D)"> from observed data.</li>
+<li>For <img src="https://latex.codecogs.com/png.latex?b%20=%201,%20%5Cldots,%20B">: draw <img src="https://latex.codecogs.com/png.latex?n"> samples from <img src="https://latex.codecogs.com/png.latex?F(%5Ccdot;%5Chat%7B%5Ctheta%7D)">, compute <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D%5E*_b">.</li>
+<li>Use <img src="https://latex.codecogs.com/png.latex?%5C%7B%5Chat%7B%5Ctheta%7D%5E*_b%5C%7D"> to estimate SEs and construct CIs.</li>
+</ol>
+<p><strong>Nonparametric bootstrap:</strong></p>
+<ol type="1">
+<li>For <img src="https://latex.codecogs.com/png.latex?b%20=%201,%20%5Cldots,%20B">: draw <img src="https://latex.codecogs.com/png.latex?n"> observations <strong>with replacement</strong> from <img src="https://latex.codecogs.com/png.latex?%5C%7Bx_1,%20%5Cldots,%20x_n%5C%7D">, compute <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D%5E*_b">.</li>
+<li>Use <img src="https://latex.codecogs.com/png.latex?%5C%7B%5Chat%7B%5Ctheta%7D%5E*_b%5C%7D"> to approximate the sampling distribution.</li>
+</ol>
+<p>Does not require assuming a parametric form; applicable to any statistic <img src="https://latex.codecogs.com/png.latex?T(%5Cmathbf%7BX%7D)">.</p>
+<p><strong>Bootstrap SE:</strong> <img src="https://latex.codecogs.com/png.latex?%5Cwidehat%7B%5Ctext%7BSE%7D%7D_B(%5Chat%7B%5Ctheta%7D)%20=%20%5Cleft(%5Cfrac%7B1%7D%7BB-1%7D%5Csum_%7Bb=1%7D%5EB%20(%5Chat%7B%5Ctheta%7D%5E*_b%20-%20%5Cbar%7B%5Ctheta%7D%5E*)%5E2%5Cright)%5E%7B1/2%7D."></p>
+<p><strong>Bootstrap confidence intervals:</strong></p>
+<ul>
+<li><strong>Percentile CI:</strong> <img src="https://latex.codecogs.com/png.latex?%5Cleft%5B%5Chat%7B%5Ctheta%7D%5E*_%7B(%5Calpha/2)%7D,%5C,%20%5Chat%7B%5Ctheta%7D%5E*_%7B(1-%5Calpha/2)%7D%5Cright%5D"></li>
+<li><strong>Reflected (Revised) percentile CI:</strong> <img src="https://latex.codecogs.com/png.latex?%5Cleft%5B2%5Chat%7B%5Ctheta%7D%20-%20%5Chat%7B%5Ctheta%7D%5E*_%7B(1-%5Calpha/2)%7D,%5C,%202%5Chat%7B%5Ctheta%7D%20-%20%5Chat%7B%5Ctheta%7D%5E*_%7B(%5Calpha/2)%7D%5Cright%5D"></li>
+<li><strong>Bootstrap-<img src="https://latex.codecogs.com/png.latex?t"> CI:</strong> Uses a studentized statistic with two-level resampling to approximate the distribution of <img src="https://latex.codecogs.com/png.latex?(%5Chat%7B%5Ctheta%7D%20-%20%5Ctheta)/%5Cwidehat%7B%5Ctext%7BSE%7D%7D(%5Chat%7B%5Ctheta%7D)">.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="maximum-likelihood-estimation-mle" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-likelihood-estimation-mle">4. Maximum Likelihood Estimation (MLE)</h2>
+<section id="likelihood-and-log-likelihood" class="level3">
+<h3 class="anchored" data-anchor-id="likelihood-and-log-likelihood">Likelihood and Log-Likelihood</h3>
+<p>Given i.i.d. observations <img src="https://latex.codecogs.com/png.latex?x_1,%20%5Cldots,%20x_n"> from <img src="https://latex.codecogs.com/png.latex?f(x;%5Ctheta)">, the <strong>likelihood function</strong> is: <img src="https://latex.codecogs.com/png.latex?L(%5Ctheta)%20=%20%5Cprod_%7Bi=1%7D%5En%20f(x_i;%5Ctheta)."></p>
+<p>We typically maximize the <strong>log-likelihood</strong>: <img src="https://latex.codecogs.com/png.latex?%5Cell(%5Ctheta)%20=%20%5Clog%20L(%5Ctheta)%20=%20%5Csum_%7Bi=1%7D%5En%20%5Clog%20f(x_i;%5Ctheta),"> since <img src="https://latex.codecogs.com/png.latex?%5Clog(%5Ccdot)"> is strictly increasing and differentiation is easier.</p>
+<p><strong>Definition (MLE):</strong> <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_%7B%5Ctext%7BMLE%7D%7D%20%5Cin%20%5Carg%5Cmax_%7B%5Ctheta%20%5Cin%20%5COmega%7D%5C,%20%5Cell(%5Ctheta)."></p>
+</section>
+<section id="computing-the-mle" class="level3">
+<h3 class="anchored" data-anchor-id="computing-the-mle">Computing the MLE</h3>
+<p>At an interior maximum, the <strong>score equation</strong> must hold: <img src="https://latex.codecogs.com/png.latex?U(%5Ctheta)%20=%20%5Cell'(%5Ctheta)%20=%20%5Cfrac%7Bd%7D%7Bd%5Ctheta%7D%5Csum_%7Bi=1%7D%5En%20%5Clog%20f(x_i;%5Ctheta)%20=%200."></p>
+<p>Confirm a maximum via <img src="https://latex.codecogs.com/png.latex?%5Cell''(%5Chat%7B%5Ctheta%7D)%20%3C%200">.</p>
+<p><strong>Selected examples:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>MLE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Poisson(<img src="https://latex.codecogs.com/png.latex?%5Clambda">)</td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Clambda%7D%20=%20%5Cbar%7BX%7D"></td>
+</tr>
+<tr class="even">
+<td>Normal(<img src="https://latex.codecogs.com/png.latex?%5Cmu,%20%5Csigma%5E2">)</td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Cmu%7D%20=%20%5Cbar%7BX%7D">, <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Csigma%7D%5E2%20=%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(X_i%20-%20%5Cbar%7BX%7D)%5E2"></td>
+</tr>
+<tr class="odd">
+<td>Binomial(<img src="https://latex.codecogs.com/png.latex?n,%20p">)</td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Chat%7Bp%7D%20=%20X/n"></td>
+</tr>
+<tr class="even">
+<td>Exponential(<img src="https://latex.codecogs.com/png.latex?%5Clambda">)</td>
+<td><img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Clambda%7D%20=%201/%5Cbar%7BX%7D"> (biased upward for finite <img src="https://latex.codecogs.com/png.latex?n">)</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Note.</strong> The MLE for <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2"> uses denominator <img src="https://latex.codecogs.com/png.latex?n"> (biased), unlike the unbiased estimator <img src="https://latex.codecogs.com/png.latex?S%5E2"> with denominator <img src="https://latex.codecogs.com/png.latex?n-1">. MLE prioritizes <strong>likelihood optimality</strong>, not unbiasedness.</p>
+</blockquote>
+</section>
+<section id="invariance-property" class="level3">
+<h3 class="anchored" data-anchor-id="invariance-property">Invariance Property</h3>
+<p><strong>Theorem.</strong> If <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> is the MLE of <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> and <img src="https://latex.codecogs.com/png.latex?g(%5Ccdot)"> is continuous, then <img src="https://latex.codecogs.com/png.latex?g(%5Chat%7B%5Ctheta%7D)"> is the MLE of <img src="https://latex.codecogs.com/png.latex?g(%5Ctheta)">.</p>
+<p><strong>Example.</strong> For Poisson(<img src="https://latex.codecogs.com/png.latex?%5Clambda">), the MLE of <img src="https://latex.codecogs.com/png.latex?P(X=0)%20=%20e%5E%7B-%5Clambda%7D"> is <img src="https://latex.codecogs.com/png.latex?e%5E%7B-%5Cbar%7BX%7D%7D">.</p>
+</section>
+<section id="large-sample-theory" class="level3">
+<h3 class="anchored" data-anchor-id="large-sample-theory">Large-Sample Theory</h3>
+<p><strong>Consistency:</strong> Under regularity conditions, <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_n%20%5Cxrightarrow%7Bp%7D%20%5Ctheta_0"> as <img src="https://latex.codecogs.com/png.latex?n%20%5Cto%20%5Cinfty">. The proof uses the WLLN and the fact that <img src="https://latex.codecogs.com/png.latex?Q(%5Ctheta)%20=%20E_%7B%5Ctheta_0%7D%5B%5Clog%20f(X;%5Ctheta)%5D"> is uniquely maximized at <img src="https://latex.codecogs.com/png.latex?%5Ctheta_0"> (via the KL divergence).</p>
+<p><strong>Fisher Information.</strong> For one observation <img src="https://latex.codecogs.com/png.latex?X%20%5Csim%20f(x;%5Ctheta)">: <img src="https://latex.codecogs.com/png.latex?I_1(%5Ctheta)%20=%20%5Ctext%7BVar%7D_%5Ctheta%5C!%5Cleft(%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%5Ctheta%7D%5Clog%20f(X;%5Ctheta)%5Cright)%20=%20-E_%5Ctheta%5C!%5Cleft%5B%5Cfrac%7B%5Cpartial%5E2%7D%7B%5Cpartial%5Ctheta%5E2%7D%5Clog%20f(X;%5Ctheta)%5Cright%5D."></p>
+<p>For <img src="https://latex.codecogs.com/png.latex?n"> i.i.d. observations: <img src="https://latex.codecogs.com/png.latex?I(%5Ctheta)%20=%20nI_1(%5Ctheta)">.</p>
+<p><strong>Asymptotic normality:</strong> <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Bn%7D(%5Chat%7B%5Ctheta%7D_n%20-%20%5Ctheta_0)%20%5Cxrightarrow%7Bd%7D%20N%5C!%5Cleft(0,%5C,%20I_1(%5Ctheta_0)%5E%7B-1%7D%5Cright),"> or equivalently <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_n%20%5Capprox%20N%5C!%5Cleft(%5Ctheta_0,%5C,%20%5Cfrac%7B1%7D%7BnI_1(%5Ctheta_0)%7D%5Cright)"> for large <img src="https://latex.codecogs.com/png.latex?n">.</p>
+<p>This result is the foundation of Wald tests, likelihood ratio tests, and large-sample confidence intervals.</p>
+<p><strong>Wald CI:</strong> <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_n%20%5Cpm%20z_%7B1-%5Calpha/2%7D%5C,%5Cwidehat%7B%5Ctext%7BSE%7D%7D(%5Chat%7B%5Ctheta%7D_n),%20%5Cquad%20%5Cwidehat%7B%5Ctext%7BSE%7D%7D(%5Chat%7B%5Ctheta%7D_n)%20=%20%5Csqrt%7B%5Cfrac%7B1%7D%7BnI_1(%5Chat%7B%5Ctheta%7D_n)%7D%7D."></p>
+</section>
+<section id="cramérrao-lower-bound-and-efficiency" class="level3">
+<h3 class="anchored" data-anchor-id="cramérrao-lower-bound-and-efficiency">Cramér–Rao Lower Bound and Efficiency</h3>
+<p>For any <strong>unbiased</strong> estimator <img src="https://latex.codecogs.com/png.latex?T"> of <img src="https://latex.codecogs.com/png.latex?%5Ctheta">: <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BVar%7D(T)%20%5Cgeq%20%5Cfrac%7B1%7D%7BnI_1(%5Ctheta)%7D."></p>
+<p>An unbiased estimator attaining this bound is called <strong>efficient</strong>. The MLE is <strong>asymptotically efficient</strong> since its large-sample variance equals <img src="https://latex.codecogs.com/png.latex?1/(nI_1(%5Ctheta_0))">.</p>
+<p><strong>Relative efficiency</strong> of two unbiased estimators <img src="https://latex.codecogs.com/png.latex?T_1">, <img src="https://latex.codecogs.com/png.latex?T_2">: <img src="https://latex.codecogs.com/png.latex?%5Ctext%7Beff%7D(T_1,%20T_2)%20=%20%5Cfrac%7B1/%5Ctext%7BVar%7D(T_2)%7D%7B1/%5Ctext%7BVar%7D(T_1)%7D%20=%20%5Cfrac%7B%5Ctext%7BVar%7D(T_2)%7D%7B%5Ctext%7BVar%7D(T_1)%7D."></p>
+<p><strong>UMVUE (Uniform Minimum Variance Unbiased Estimator):</strong> An unbiased estimator with the smallest variance among all unbiased estimators. An efficient estimator (if it exists) is automatically the UMVUE.</p>
+<hr>
+</section>
+</section>
+<section id="sufficiency-and-the-factorization-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="sufficiency-and-the-factorization-theorem">5. Sufficiency and the Factorization Theorem</h2>
+<section id="definition-of-sufficiency" class="level3">
+<h3 class="anchored" data-anchor-id="definition-of-sufficiency">Definition of Sufficiency</h3>
+<p>A statistic <img src="https://latex.codecogs.com/png.latex?T%20=%20T(X_1,%20%5Cldots,%20X_n)"> is <strong>sufficient</strong> for <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> if the conditional distribution of <img src="https://latex.codecogs.com/png.latex?(X_1,%20%5Cldots,%20X_n)"> given <img src="https://latex.codecogs.com/png.latex?T%20=%20t"> does not depend on <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> for any <img src="https://latex.codecogs.com/png.latex?t">.</p>
+<p>Intuitively, once <img src="https://latex.codecogs.com/png.latex?T"> is known, the remaining variation in the data carries <strong>no additional information</strong> about <img src="https://latex.codecogs.com/png.latex?%5Ctheta">.</p>
+</section>
+<section id="factorization-theorem-neymanfisher" class="level3">
+<h3 class="anchored" data-anchor-id="factorization-theorem-neymanfisher">Factorization Theorem (Neyman–Fisher)</h3>
+<p><img src="https://latex.codecogs.com/png.latex?T"> is sufficient for <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> <strong>if and only if</strong> the joint pdf/pmf factors as: <img src="https://latex.codecogs.com/png.latex?f(x_1,%20%5Cldots,%20x_n;%5Ctheta)%20=%20g%5C!%5Cleft(T(x_1,%5Cldots,x_n);%5Ctheta%5Cright)%20%5Ccdot%20h(x_1,%20%5Cldots,%20x_n),"> where <img src="https://latex.codecogs.com/png.latex?g"> depends on the data only through <img src="https://latex.codecogs.com/png.latex?T">, and <img src="https://latex.codecogs.com/png.latex?h"> does not depend on <img src="https://latex.codecogs.com/png.latex?%5Ctheta">.</p>
+<p><strong>Consequence:</strong> If <img src="https://latex.codecogs.com/png.latex?T"> is sufficient, any MLE <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D"> is a function of <img src="https://latex.codecogs.com/png.latex?T">.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Bernoulli(<img src="https://latex.codecogs.com/png.latex?%5Ctheta">):</strong> <img src="https://latex.codecogs.com/png.latex?T%20=%20%5Csum%20X_i"> is sufficient; <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D%20=%20T/n%20=%20%5Cbar%7BX%7D">.</li>
+<li><strong>Laplace(<img src="https://latex.codecogs.com/png.latex?%5Crho">):</strong> <img src="https://latex.codecogs.com/png.latex?T%20=%20%5Csum%20%7CX_i%7C"> is sufficient; <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Crho%7D%20=%20T/n">.</li>
+<li><strong>Normal(<img src="https://latex.codecogs.com/png.latex?%5Cmu,%20%5Csigma%5E2">):</strong> <img src="https://latex.codecogs.com/png.latex?(T_1,%20T_2)%20=%20(%5Csum%20X_i,%5C,%20%5Csum%20X_i%5E2)"> — or equivalently <img src="https://latex.codecogs.com/png.latex?(%5Cbar%7BX%7D,%5C,%20%5Csum(X_i-%5Cbar%7BX%7D)%5E2)"> — is sufficient.</li>
+</ul>
+</section>
+<section id="exponential-families" class="level3">
+<h3 class="anchored" data-anchor-id="exponential-families">Exponential Families</h3>
+<p>A model is in the <strong>one-parameter exponential family</strong> if: <img src="https://latex.codecogs.com/png.latex?f(x;%5Ctheta)%20=%20%5Cexp%5C!%5Cleft%5C%7Bw(%5Ctheta)T(x)%20-%20b(%5Ctheta)%20+%20c(x)%5Cright%5C%7D."></p>
+<p>For i.i.d. data, <img src="https://latex.codecogs.com/png.latex?%5Csum_%7Bi=1%7D%5En%20T(X_i)"> is sufficient for <img src="https://latex.codecogs.com/png.latex?%5Ctheta">.</p>
+<p>For the <strong><img src="https://latex.codecogs.com/png.latex?K">-parameter exponential family</strong>: <img src="https://latex.codecogs.com/png.latex?f(x;%5Ctheta)%20=%20%5Cexp%5C!%5Cleft%5C%7B%5Csum_%7Bk=1%7D%5EK%20w_k(%5Ctheta)T_k(x)%20-%20b(%5Ctheta)%20+%20c(x)%5Cright%5C%7D,"> the vector <img src="https://latex.codecogs.com/png.latex?%5Cleft(%5Csum_i%20T_1(X_i),%20%5Cldots,%20%5Csum_i%20T_K(X_i)%5Cright)"> is sufficient for <img src="https://latex.codecogs.com/png.latex?%5Ctheta">.</p>
+</section>
+<section id="raoblackwell-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="raoblackwell-theorem">Rao–Blackwell Theorem</h3>
+<p><strong>Theorem.</strong> Let <img src="https://latex.codecogs.com/png.latex?g(X)"> be an estimator of <img src="https://latex.codecogs.com/png.latex?%5Ctheta"> with <img src="https://latex.codecogs.com/png.latex?E%5Bg(X)%5E2%5D%20%3C%20%5Cinfty">. If <img src="https://latex.codecogs.com/png.latex?T"> is sufficient for <img src="https://latex.codecogs.com/png.latex?%5Ctheta">, define the <strong>Rao–Blackwellized estimator</strong>: <img src="https://latex.codecogs.com/png.latex?%5Ctilde%7Bg%7D(X)%20=%20E%5Bg(X)%20%5Cmid%20T(X)%5D."></p>
+<p>Then for all <img src="https://latex.codecogs.com/png.latex?%5Ctheta">: <img src="https://latex.codecogs.com/png.latex?E%5C!%5Cleft%5B(%5Ctilde%7Bg%7D(X)%20-%20%5Ctheta)%5E2%5Cright%5D%20%5Cleq%20E%5C!%5Cleft%5B(g(X)%20-%20%5Ctheta)%5E2%5Cright%5D,"> with strict inequality unless <img src="https://latex.codecogs.com/png.latex?%5Ctilde%7Bg%7D(X)%20=%20g(X)"> a.s. Moreover, <img src="https://latex.codecogs.com/png.latex?%5Ctilde%7Bg%7D"> is a function of the sufficient statistic <img src="https://latex.codecogs.com/png.latex?T">.</p>
+<blockquote class="blockquote">
+<p><strong>Implication.</strong> Any estimator not already a function of a sufficient statistic can be improved by conditioning on <img src="https://latex.codecogs.com/png.latex?T">. This motivates restricting attention to estimators that are functions of sufficient statistics when MSE is the criterion.</p>
+</blockquote>
+<p><strong>Example (Poisson).</strong> Starting from the crude estimator <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Clambda%7D_1%20=%20X_1"> (unbiased but inefficient), conditioning on <img src="https://latex.codecogs.com/png.latex?T%20=%20%5Csum%20X_i"> gives: <img src="https://latex.codecogs.com/png.latex?%5Ctilde%7B%5Clambda%7D%20=%20E%5BX_1%20%5Cmid%20T%5D%20=%20%5Cfrac%7BT%7D%7Bn%7D%20=%20%5Cbar%7BX%7D,"> since <img src="https://latex.codecogs.com/png.latex?X_1%20%5Cmid%20T%20=%20t%20%5Csim%20%5Ctext%7BBinomial%7D(t,%201/n)">. Rao–Blackwell directly produces the sample mean.</p>
+<p><strong>Example (Uniform[0,<img src="https://latex.codecogs.com/png.latex?%5Ctheta">]).</strong> Starting from <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Ctheta%7D_1%20=%202X_1">, conditioning on <img src="https://latex.codecogs.com/png.latex?T%20=%20X_%7B(n)%7D%20=%20%5Cmax%20X_i"> gives: <img src="https://latex.codecogs.com/png.latex?%5Ctilde%7B%5Ctheta%7D%20=%20%5Cfrac%7Bn+1%7D%7Bn%7DX_%7B(n)%7D,"> which has smaller MSE than <img src="https://latex.codecogs.com/png.latex?2X_1">.</p>
+<hr>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_8_1_5.pdf">Download PDF</a></p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>Statistics</category>
+  <category>Estimation</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice6.html</guid>
+  <pubDate>Wed, 27 May 2026 03:32:20 GMT</pubDate>
+</item>
+<item>
+  <title>Estimation and Model Fitting: Bayesian Parameter Estimation</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice7.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note covers the Bayesian approach to parameter estimation, contrasting it with the frequentist paradigm and developing the full machinery of prior-to-posterior updating. The notes begin by distinguishing the two paradigms: while frequentists treat θ as a fixed unknown constant and perform inference through estimators and their sampling distributions, the Bayesian framework models the parameter itself as a random variable Θ, encoding pre-data uncertainty via a prior distribution fΘ(θ) and updating it through Bayes’ theorem once data are observed. The resulting posterior distribution fΘ|X(θ|x) ∝ Likelihood × Prior serves as the complete summary of post-data knowledge about the parameter, and all inferential summaries — point estimates, intervals, and predictions — are derived from it.</p>
+<p>The core components of Bayesian inference are developed carefully. The prior distribution captures beliefs before data collection, the likelihood function connects observed data to the parameter through the model, and Bayes’ theorem produces the posterior by combining both. A key computational technique, the Bayesian trick, is introduced: rather than evaluating the normalizing constant explicitly, one identifies the posterior family by matching the kernel of the numerator fX|Θ(x|θ)fΘ(θ) to a known distribution. Posterior summaries discussed include the posterior mean (which minimizes expected squared-error loss), the posterior mode or MAP estimator, posterior variance and standard deviation, and two types of credible intervals — the percentile-based (quantile) interval and the Highest Posterior Density (HPD) interval — both of which carry the direct probabilistic interpretation P(L ≤ Θ ≤ U | data) = 1 − α that frequentist confidence intervals do not.</p>
+<p>Two fully worked conjugate models form the heart of the notes. In the Beta–Binomial model, a Binomial(n, θ) likelihood combined with a Beta(α, β) prior yields a Beta(α + x, β + n − x) posterior, with posterior mean (α + x)/(α + β + n) interpretable as a precision-weighted average of the prior mean and the MLE. A manufacturing defects example compares a flat uniform prior (statistician A) with an informative Beta(20, 2) prior (statistician B) on 50 observations, illustrating concretely how prior strength relative to sample size determines the posterior’s location. In the Normal–Normal model, a Normal likelihood with known variance is combined with a Normal prior on the mean; the posterior precision equals the sum of the data precision nξ₀ and the prior precision ξ_prior, and the posterior mean is the precision-weighted combination of the sample mean and prior mean. Because the posterior is symmetric and unimodal, the Bayesian credible interval and the HPD interval coincide in this case. A Poisson model with an improper 1/λ prior is also worked through, showing that even when the prior does not integrate to a finite value, the posterior can still be proper — here a Gamma distribution — provided the data supply enough information.</p>
+<p>The second half of the notes addresses computational strategies for posterior analysis. Three approaches are presented in order of increasing generality. The first is direct identification: when the posterior kernel matches a known family, no computation is needed beyond recognizing the form. The second is the Laplace approximation: by expanding the log-posterior q(θ) = log fΘ(θ) + ℓ(θ) to second order around its maximum (the posterior mode), one obtains a Normal approximation Θ|X ≈ N(θ̂, [−q″(θ̂)]⁻¹), which is particularly accurate when the posterior is sharply peaked and the sample is large. The third approach is Markov Chain Monte Carlo (MCMC), used when neither analytic identification nor Laplace approximation is adequate. The Metropolis–Hastings algorithm is developed in full: at each iteration a candidate θ* is drawn from a proposal distribution, and the acceptance ratio r = fΘ|X(θ*|x)/fΘ|X(θₜ₋₁|x) is computed using only the posterior kernel (the normalizing constant cancels). The candidate is accepted with probability min(r, 1), ensuring the chain spends more time in high-density regions while still exploring the full posterior. Practical guidance on proposal standard deviation tuning is given: too small leads to slow diffusion, too large leads to excessive rejection. Gibbs sampling is then introduced as an alternative that avoids proposal tuning entirely by iteratively drawing each parameter from its full conditional distribution; in multi-parameter settings where these conditionals are standard distributions (Normal, Gamma), every draw is automatically accepted. Both algorithms produce a Markov chain whose stationary distribution is the target posterior; after discarding an initial burn-in, the retained draws are used to estimate posterior means, variances, modes, and credible intervals numerically. The notes close by comparing the two MCMC methods and providing practical guidance on trace plots, burn-in diagnostics, and posterior histogram interpretation.</p>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_8_6_9.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Statistics</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice7.html</guid>
+  <pubDate>Wed, 27 May 2026 03:28:55 GMT</pubDate>
+</item>
+<item>
+  <title>Survey Sampling</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice5.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note develops the foundations of survey sampling, covering how to draw valid inferences about population-level quantities from a randomly selected subset when measuring the entire population is infeasible. The notes begin by identifying the four core steps of survey sampling — sample selection, data collection, estimation, and inference — and sharply distinguishing probabilistic sampling designs (in which every unit’s selection probability is known and nonzero) from non-probabilistic schemes such as convenience or volunteer samples. The key point is that only probabilistic designs permit valid standard error and confidence interval calculations, because only then is the randomness of the estimator fully characterized by the sampling mechanism. A concrete example with university heights illustrates how a gym-convenience sample can introduce systematic bias that additional sample size cannot fix.</p>
+<p>Five common probabilistic designs are surveyed: Simple Random Sampling (SRS) as the conceptual baseline; stratified sampling, which partitions the population into homogeneous strata and samples independently within each, reducing variance when within-stratum variability is small; cluster sampling, which selects groups of units and observes all members within chosen clusters, trading some efficiency for cost savings while requiring appropriate standard-error formulas; multistage sampling, which chains these designs across stages; and systematic random sampling, which selects every k-th unit after a random start. The note then establishes the fundamental distinction between fixed population parameters (mean µ, total τ, variance σ², and proportion p) and sample statistics viewed as random variables (estimators) before data collection. For binary (0–1) characteristics, it is shown algebraically that the population mean equals the proportion p and the population variance equals p(1 − p), so proportion estimation is a special case of mean estimation. A conceptual random variable X is introduced as a bookkeeping device for a uniformly drawn population unit, with E[X] = µ and Var(X) = σ², whose mean and variance are derived from first principles using the frequency representation of the finite population.</p>
+<p>The variance and inferential properties of the sample mean are then derived under two designs. Under SRS with replacement (WR), the draws X₁, …, Xₙ are i.i.d., which immediately yields E[X̄] = µ and Var(X̄) = σ²/n by linearity of expectation and variance additivity. The standard error σ/√n decreases at rate 1/√n, so halving it requires quadrupling the sample size. The Central Limit Theorem guarantees that (X̄ − µ)/(σ/√n) converges in distribution to N(0, 1) regardless of the population shape, and since σ is unknown in practice it is replaced by the sample standard deviation S — justified by Bessel’s-corrected S² being unbiased and consistent for σ². This produces the studentized statistic whose limiting normality underpins the CLT-based confidence interval X̄ ± z_{1−α/2} S/√n.&nbsp;The bias of the naive variance estimator (denominator n) is derived in full, showing it underestimates σ² by the factor (n−1)/n and motivating the n−1 correction.</p>
+<p>Under SRS without replacement (WOR), observations are dependent because previously selected units are removed from the pool. Each Xi still has the same marginal distribution as a uniformly drawn population element (by the symmetry of SRS), so E[X̄] = µ and the estimator remains unbiased. However, the covariance between any two draws is derived to be −σ²/(N−1), reflecting the negative dependence: selecting a large value leaves slightly fewer large values for subsequent draws. Substituting into the variance decomposition gives Var(X̄) = (σ²/n)·(N−n)/(N−1), where the finite population correction (FPC) factor (N−n)/(N−1) quantifies the variance reduction relative to WR sampling. When the sampling fraction f = n/N is negligible the FPC is close to 1 and WR formulas suffice; when f is non-negligible, ignoring the FPC leads to conservative (inflated) standard errors. Practical standard error estimation under WOR uses s²/n·(1 − n/N) with the ordinary sample variance, and the same finite-population CLT justifies the approximate confidence interval X̄ ± z_{1−α/2} sX̄ where sX̄ = (s/√n)√(1 − n/N). The variance estimator for the total T = NX̄ and the proportion estimator p̂ = X̄ for 0–1 data are obtained as immediate corollaries. Numerical examples compare FPC values for different population and sample sizes, making concrete when WOR matters and when it can safely be ignored.</p>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_7_1_3.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Statistics</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice5.html</guid>
+  <pubDate>Wed, 27 May 2026 03:28:17 GMT</pubDate>
+</item>
+<item>
+  <title>Testing Hypotheses and Assessing Goodness of Fit</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice8.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lecture note follows Rice Chapter 9 with a textbook-style exposition that emphasizes explanation over formula collection. It begins by motivating hypothesis testing as a principled framework for deciding whether observed data are sufficiently inconsistent with a baseline claim, introducing the language of null and alternative hypotheses, simple versus composite hypotheses, and the two possible conclusions — reject or fail to reject. The Bayesian perspective is developed first through Bayes factors, which combine prior odds and likelihood ratios to quantify relative support for competing hypotheses, illustrated with a detailed binomial notification-app example including explicit computation of rejection regions and error probabilities. The frequentist perspective is then developed carefully: Type I and Type II errors are defined and interpreted via the justice-system analogy, rejection regions are constructed by controlling the significance level under the null distribution, and the power function is derived and analyzed through a fully worked normal-mean example at RDU airport. The p-value is introduced as both the probability of observing data as extreme or more extreme under H₀ and as the smallest significance level at which H₀ would be rejected, with explicit warnings about common misconceptions and the distinction between statistical and practical significance.</p>
+<p>Two general test statistics are then developed in depth. The Wald test standardizes a consistent estimator under H₀ and uses the asymptotic normality of the MLE, with decision rules tabulated for right-tailed, left-tailed, and two-sided alternatives. The Likelihood Ratio Test (LRT) is introduced for simple hypotheses by comparing likelihoods directly, and the Neyman–Pearson Lemma is stated and interpreted: among all level-α tests, the LRT is the most powerful, motivating the likelihood ratio as the optimal decision criterion. Uniformly Most Powerful (UMP) tests are discussed for one-sided composite alternatives, with examples for the exponential and binomial families showing that the rejection region depends only on a sufficient statistic. The Generalized Likelihood Ratio Test (GLRT) extends these ideas to composite hypotheses by comparing the maximized likelihood under H₀ to the unrestricted maximum, and Wilks’ Theorem establishes that −2 ln Λ converges in distribution to a chi-squared distribution whose degrees of freedom equal the difference in parameter dimensions, making rejection regions and p-values computable without knowing the exact null distribution of Λ. One-sided GLRT variants are handled via the signed root statistic.</p>
+<p>The second half of the notes covers model assessment. The duality between two-sided tests and confidence intervals is proved algebraically: failing to reject H₀ at level α is equivalent to the null value lying inside the 100(1−α)% confidence interval, unifying the two major branches of frequentist inference. Pearson’s χ² goodness-of-fit statistic is derived as a large-sample approximation to the GLRT in the multinomial model, and its degrees of freedom are explained as the number of cells minus one minus the number of estimated parameters. Three detailed examples are solved in full: a coin-fairness test with 17,950 tosses, a binomial fit for grouped coin-toss frequencies revealing a striking excess of 4-head outcomes, and a Poisson fit to the classical Bortkiewicz horse-kick data that fails to reject and illustrates the purpose of goodness-of-fit testing. Normal Q–Q plots are then constructed and interpreted as a visual diagnostic for normality: straight lines indicate approximate normality, while bending patterns reveal heavy tails, light tails, right skewness, and left skewness. The Poisson dispersion test is introduced as a check on the mean-equals-variance constraint, and probability plots for general location-scale families are discussed as richer alternatives to single-number test statistics. The notes conclude with a unified summary emphasizing that likelihood ratios organize virtually all of the chapter’s testing procedures, that confidence intervals and tests are dual constructions, and that formal tests and graphical diagnostics should always be used together.</p>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_9.pdf">Download PDF</a></p>
+
+
+
+ ]]></description>
+  <category>Statistics</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice8.html</guid>
+  <pubDate>Wed, 27 May 2026 03:25:26 GMT</pubDate>
+</item>
+<item>
+  <title>Mathematical Statistics: Chapters 5–6</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice4.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Chapter 5 explains why sample averages behave so well: the Law of Large Numbers (LLN) shows that <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n"> converges to the true mean <img src="https://latex.codecogs.com/png.latex?%5Cmu">, and the Central Limit Theorem (CLT) quantifies the shape and scale of the remaining fluctuations. Chapter 6 derives the three distributions that appear automatically when working with normal data — the chi-square (<img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2">), <img src="https://latex.codecogs.com/png.latex?t">, and <img src="https://latex.codecogs.com/png.latex?F"> distributions — which are the probability laws behind confidence intervals, hypothesis tests, and ANOVA.</p>
+<section id="chapter-5-limit-theorems" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-5-limit-theorems">Chapter 5: Limit Theorems</h2>
+<section id="behavior-of-the-sample-mean" class="level3">
+<h3 class="anchored" data-anchor-id="behavior-of-the-sample-mean">Behavior of the Sample Mean</h3>
+<p>Let <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n"> be i.i.d. with <img src="https://latex.codecogs.com/png.latex?E%5BX_i%5D%20=%20%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(X_i)%20=%20%5Csigma%5E2%20%3C%20%5Cinfty">. The sample mean <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n%20=%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi=1%7D%5En%20X_i"> satisfies:</p>
+<ol type="1">
+<li><strong>Unbiasedness:</strong> <img src="https://latex.codecogs.com/png.latex?E%5B%5Cbar%7BX%7D_n%5D%20=%20%5Cmu"></li>
+<li><strong>Variance reduction:</strong> <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(%5Cbar%7BX%7D_n)%20=%20%5Csigma%5E2/n"></li>
+<li><strong>Exact normality</strong> (when <img src="https://latex.codecogs.com/png.latex?X_i%20%5Csim%20N(%5Cmu,%20%5Csigma%5E2)">): <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n%20%5Csim%20N(%5Cmu,%20%5Csigma%5E2/n)"></li>
+</ol>
+<p>The key insight from property 2: as <img src="https://latex.codecogs.com/png.latex?n"> grows, the variability of <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n"> shrinks at rate <img src="https://latex.codecogs.com/png.latex?1/n">, making large deviations from <img src="https://latex.codecogs.com/png.latex?%5Cmu"> increasingly unlikely.</p>
+</section>
+<section id="three-modes-of-convergence" class="level3">
+<h3 class="anchored" data-anchor-id="three-modes-of-convergence">Three Modes of Convergence</h3>
+<p>Because random variables are random, there are several non-equivalent ways to formalize “getting close to a limit.”</p>
+<p><strong>Almost sure convergence</strong> (<img src="https://latex.codecogs.com/png.latex?Z_n%20%5Cxrightarrow%7B%5Ctext%7Ba.s.%7D%7D%20Z">): for almost every outcome <img src="https://latex.codecogs.com/png.latex?%5Comega">, the sequence <img src="https://latex.codecogs.com/png.latex?Z_n(%5Comega)"> converges numerically to <img src="https://latex.codecogs.com/png.latex?Z(%5Comega)">. This is the strongest notion.</p>
+<p><strong>Convergence in probability</strong> (<img src="https://latex.codecogs.com/png.latex?Z_n%20%5Cxrightarrow%7Bp%7D%20Z">): for every <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon%20%3E%200">, <img src="https://latex.codecogs.com/png.latex?%5Clim_%7Bn%5Cto%5Cinfty%7D%20P(%7CZ_n%20-%20Z%7C%20%3E%20%5Cvarepsilon)%20=%200."> Large deviations become increasingly unlikely, but individual paths need not converge.</p>
+<p><strong>Convergence in distribution</strong> (<img src="https://latex.codecogs.com/png.latex?Z_n%20%5Cxrightarrow%7Bd%7D%20Z">): the CDFs <img src="https://latex.codecogs.com/png.latex?F_n(x)%20%5Cto%20F(x)"> at every continuity point of <img src="https://latex.codecogs.com/png.latex?F">. This is the weakest notion — it only concerns the shape of distributions, not the values of the random variables.</p>
+<p>The implications always go one way: <img src="https://latex.codecogs.com/png.latex?Z_n%20%5Cxrightarrow%7B%5Ctext%7Ba.s.%7D%7D%20Z%20%5C;%5CRightarrow%5C;%20Z_n%20%5Cxrightarrow%7Bp%7D%20Z%20%5C;%5CRightarrow%5C;%20Z_n%20%5Cxrightarrow%7Bd%7D%20Z."></p>
+<p>When the limit is a constant <img src="https://latex.codecogs.com/png.latex?c">, convergence in distribution and convergence in probability coincide.</p>
+<p><strong>Continuous mapping principle:</strong> if <img src="https://latex.codecogs.com/png.latex?Z_n%20%5Cxrightarrow%7Bp%7D%20Z"> and <img src="https://latex.codecogs.com/png.latex?g"> is continuous, then <img src="https://latex.codecogs.com/png.latex?g(Z_n)%20%5Cxrightarrow%7Bp%7D%20g(Z)"> (and similarly for convergence in distribution). This allows results for <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n"> to transfer immediately to functions like <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n%5E2">.</p>
+</section>
+<section id="chebyshevs-inequality-and-the-weak-lln" class="level3">
+<h3 class="anchored" data-anchor-id="chebyshevs-inequality-and-the-weak-lln">Chebyshev’s Inequality and the Weak LLN</h3>
+<p>Chebyshev’s inequality bridges variance and tail probability: for any random variable <img src="https://latex.codecogs.com/png.latex?Y"> with mean <img src="https://latex.codecogs.com/png.latex?m"> and variance <img src="https://latex.codecogs.com/png.latex?v">,</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(%7CY%20-%20m%7C%20%3E%20%5Cvarepsilon)%20%5Cleq%20%5Cfrac%7Bv%7D%7B%5Cvarepsilon%5E2%7D."></p>
+<p>Applying this to <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n"> (which has variance <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2/n">):</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(%7C%5Cbar%7BX%7D_n%20-%20%5Cmu%7C%20%3E%20%5Cvarepsilon)%20%5Cleq%20%5Cfrac%7B%5Csigma%5E2%7D%7Bn%5Cvarepsilon%5E2%7D%20%5Cxrightarrow%7Bn%5Cto%5Cinfty%7D%200."></p>
+<p>This is precisely the <strong>Weak Law of Large Numbers (WLLN)</strong>: <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n%20%5Cxrightarrow%7Bp%7D%20%5Cmu">.</p>
+</section>
+<section id="strong-law-of-large-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="strong-law-of-large-numbers">Strong Law of Large Numbers</h3>
+<p>The <strong>Strong Law of Large Numbers (SLLN)</strong> asserts a stronger statement: <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n%20%5Cxrightarrow%7B%5Ctext%7Ba.s.%7D%7D%20%5Cmu">, i.e., <img src="https://latex.codecogs.com/png.latex?P(%5Clim_%7Bn%5Cto%5Cinfty%7D%5Cbar%7BX%7D_n%20=%20%5Cmu)%20=%201">. With probability one, the sample mean eventually stays arbitrarily close to <img src="https://latex.codecogs.com/png.latex?%5Cmu"> and never drifts away again.</p>
+<p>The SLLN implies the WLLN. In practice, the WLLN explains why averaging reduces noise, while the SLLN justifies treating long-run averages as stable, deterministic quantities.</p>
+</section>
+<section id="central-limit-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h3>
+<p>The CLT answers a finer question: not just that <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n%20%5Cto%20%5Cmu">, but what is the shape and scale of the remaining fluctuations?</p>
+<p><strong>Theorem (CLT).</strong> Let <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n"> be i.i.d. with <img src="https://latex.codecogs.com/png.latex?E%5BX_i%5D%20=%20%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(X_i)%20=%20%5Csigma%5E2%20%3C%20%5Cinfty">. Then</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Cbar%7BX%7D_n%20-%20%5Cmu%7D%7B%5Csigma/%5Csqrt%7Bn%7D%7D%20%5Cxrightarrow%7Bd%7D%20N(0,1),"></p>
+<p>equivalently, for large <img src="https://latex.codecogs.com/png.latex?n">: <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_n%20%5Capprox%20N(%5Cmu,%20%5Csigma%5E2/n)">.</p>
+<p>The factor <img src="https://latex.codecogs.com/png.latex?%5Csigma/%5Csqrt%7Bn%7D"> is the <strong>standard error of the mean</strong>: typical errors shrink at rate <img src="https://latex.codecogs.com/png.latex?1/%5Csqrt%7Bn%7D">. The CLT gives far sharper approximations than Chebyshev — for example:</p>
+<p><img src="https://latex.codecogs.com/png.latex?P%5C!%5Cleft(%7C%5Cbar%7BX%7D_n%20-%20%5Cmu%7C%20%3E%20k%5Csigma/%5Csqrt%7Bn%7D%5Cright)%20%5Capprox%20P(%7CZ%7C%20%3E%20k),%20%5Cquad%20Z%20%5Csim%20N(0,1),"></p>
+<p>whereas Chebyshev yields only the crude bound <img src="https://latex.codecogs.com/png.latex?1/k%5E2">.</p>
+<p>The CLT applies broadly: Binomial, Gamma, and Negative Binomial random variables can all be written as sums of i.i.d. components, so they are all well-approximated by normal distributions for large <img src="https://latex.codecogs.com/png.latex?n">.</p>
+<hr>
+</section>
+</section>
+<section id="chapter-6-distributions-derived-from-the-normal" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-6-distributions-derived-from-the-normal">Chapter 6: Distributions Derived from the Normal</h2>
+<section id="chi-square-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="chi-square-distribution">Chi-Square Distribution</h3>
+<p>If <img src="https://latex.codecogs.com/png.latex?Z%20%5Csim%20N(0,1)">, squaring removes the sign and produces a nonnegative, right-skewed variable. This is the building block of the chi-square family.</p>
+<p><strong>Definition.</strong> <img src="https://latex.codecogs.com/png.latex?U%20=%20Z%5E2%20%5Csim%20%5Cchi%5E2_1">. If <img src="https://latex.codecogs.com/png.latex?U_1,%20%5Cldots,%20U_m"> are independent <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_1"> variables, then <img src="https://latex.codecogs.com/png.latex?V%20=%20%5Csum_%7Bi=1%7D%5Em%20U_i%20%5Csim%20%5Cchi%5E2_m"> with <img src="https://latex.codecogs.com/png.latex?E%5B%5Cchi%5E2_m%5D%20=%20m"> and <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(%5Cchi%5E2_m)%20=%202m">.</p>
+<p><strong>Sample variance from normal data.</strong> If <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n%20%5Coverset%7B%5Ctext%7Bi.i.d.%7D%7D%7B%5Csim%7D%20N(%5Cmu,%20%5Csigma%5E2)">, the scaled sample variance follows a chi-square distribution:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B(n-1)S%5E2%7D%7B%5Csigma%5E2%7D%20%5Csim%20%5Cchi%5E2_%7Bn-1%7D,%20%5Cqquad%20S%5E2%20=%20%5Cfrac%7B1%7D%7Bn-1%7D%5Csum_%7Bi=1%7D%5En(X_i%20-%20%5Cbar%7BX%7D)%5E2."></p>
+<p>The proof uses the decomposition <img src="https://latex.codecogs.com/png.latex?%5Csum(X_i%20-%20%5Cmu)%5E2%20=%20%5Csum(X_i%20-%20%5Cbar%7BX%7D)%5E2%20+%20n(%5Cbar%7BX%7D%20-%20%5Cmu)%5E2">, which splits a <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_n"> into a <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_%7Bn-1%7D"> term plus a <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_1"> term. Crucially, <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D"> and <img src="https://latex.codecogs.com/png.latex?S%5E2"> are <strong>independent</strong> for normal samples — a special property of the normal distribution.</p>
+<p>The one degree of freedom “lost” in going from <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_n"> to <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_%7Bn-1%7D"> reflects the constraint that the deviations <img src="https://latex.codecogs.com/png.latex?(X_i%20-%20%5Cbar%7BX%7D)"> must sum to zero.</p>
+</section>
+<section id="t-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="t-distribution"><img src="https://latex.codecogs.com/png.latex?t"> Distribution</h3>
+<p>When <img src="https://latex.codecogs.com/png.latex?%5Csigma"> is unknown, we replace it by <img src="https://latex.codecogs.com/png.latex?S"> in the standardization of <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D">. Because <img src="https://latex.codecogs.com/png.latex?S"> is random, the resulting statistic is no longer normal.</p>
+<p><strong>Definition.</strong> Let <img src="https://latex.codecogs.com/png.latex?Z%20%5Csim%20N(0,1)"> and <img src="https://latex.codecogs.com/png.latex?U%20%5Csim%20%5Cchi%5E2_%5Cnu"> be independent. Then</p>
+<p><img src="https://latex.codecogs.com/png.latex?T%20=%20%5Cfrac%7BZ%7D%7B%5Csqrt%7BU/%5Cnu%7D%7D%20%5Csim%20t_%5Cnu."></p>
+<p><strong>Classical <img src="https://latex.codecogs.com/png.latex?t"> statistic.</strong> For <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n%20%5Coverset%7B%5Ctext%7Bi.i.d.%7D%7D%7B%5Csim%7D%20N(%5Cmu,%20%5Csigma%5E2)">,</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Cbar%7BX%7D%20-%20%5Cmu%7D%7BS/%5Csqrt%7Bn%7D%7D%20%5Csim%20t_%7Bn-1%7D."></p>
+<p>The proof matches <img src="https://latex.codecogs.com/png.latex?Z%20=%20(%5Cbar%7BX%7D-%5Cmu)/(%5Csigma/%5Csqrt%7Bn%7D)%20%5Csim%20N(0,1)"> and <img src="https://latex.codecogs.com/png.latex?U%20=%20(n-1)S%5E2/%5Csigma%5E2%20%5Csim%20%5Cchi%5E2_%7Bn-1%7D"> (independent by the earlier theorem) to the definition of <img src="https://latex.codecogs.com/png.latex?t_%5Cnu"> with <img src="https://latex.codecogs.com/png.latex?%5Cnu%20=%20n-1">.</p>
+<p>The <img src="https://latex.codecogs.com/png.latex?t"> distribution has heavier tails than the normal because the denominator <img src="https://latex.codecogs.com/png.latex?S/%5Csqrt%7Bn%7D"> is random — when <img src="https://latex.codecogs.com/png.latex?S"> is small, <img src="https://latex.codecogs.com/png.latex?T"> is inflated. As <img src="https://latex.codecogs.com/png.latex?n%20%5Cto%20%5Cinfty">, <img src="https://latex.codecogs.com/png.latex?S%20%5Cto%20%5Csigma"> stably and the <img src="https://latex.codecogs.com/png.latex?t"> distribution converges to <img src="https://latex.codecogs.com/png.latex?N(0,1)">.</p>
+</section>
+<section id="f-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="f-distribution"><img src="https://latex.codecogs.com/png.latex?F"> Distribution</h3>
+<p>The <img src="https://latex.codecogs.com/png.latex?F"> distribution arises when comparing two independent variance estimates.</p>
+<p><strong>Definition.</strong> Let <img src="https://latex.codecogs.com/png.latex?U%20%5Csim%20%5Cchi%5E2_m"> and <img src="https://latex.codecogs.com/png.latex?V%20%5Csim%20%5Cchi%5E2_n"> be independent. Then</p>
+<p><img src="https://latex.codecogs.com/png.latex?W%20=%20%5Cfrac%7BU/m%7D%7BV/n%7D%20%5Csim%20F_%7Bm,n%7D."></p>
+<p><strong>Ratio of sample variances.</strong> Let <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_m%20%5Coverset%7B%5Ctext%7Bi.i.d.%7D%7D%7B%5Csim%7D%20N(%5Cmu_X,%20%5Csigma%5E2_X)"> and <img src="https://latex.codecogs.com/png.latex?Y_1,%20%5Cldots,%20Y_n%20%5Coverset%7B%5Ctext%7Bi.i.d.%7D%7D%7B%5Csim%7D%20N(%5Cmu_Y,%20%5Csigma%5E2_Y)"> be independent samples. Then</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7BS_X%5E2/%5Csigma_X%5E2%7D%7BS_Y%5E2/%5Csigma_Y%5E2%7D%20%5Csim%20F_%7Bm-1,%5C,%20n-1%7D."></p>
+<p>When <img src="https://latex.codecogs.com/png.latex?%5Csigma_X%5E2%20=%20%5Csigma_Y%5E2">, this simplifies to <img src="https://latex.codecogs.com/png.latex?S_X%5E2/S_Y%5E2%20%5Csim%20F_%7Bm-1,n-1%7D">. This is the core probabilistic reason why the <img src="https://latex.codecogs.com/png.latex?F"> distribution appears in classical tests for comparing variances and in ANOVA.</p>
+<hr>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_5_6.pdf">Download PDF</a></p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>Statistics</category>
+  <category>Probability</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice4.html</guid>
+  <pubDate>Wed, 27 May 2026 03:20:55 GMT</pubDate>
+</item>
+<item>
+  <title>Mathematical Statistics: Chapter 4</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice3.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Chapter 4 asks: how can we summarize a distribution using just a few interpretable numbers? The two most important summaries are the <strong>mean</strong> (expected value) and the <strong>variance</strong> (spread). We then derive tail bounds from these summaries alone (Markov and Chebyshev inequalities), extend to multiple variables via covariance and correlation, simplify calculations using conditional expectation, and encode all moments compactly in the moment generating function.</p>
+<section id="expected-value" class="level2">
+<h2 class="anchored" data-anchor-id="expected-value">Expected Value</h2>
+<p>The <strong>expected value</strong> is the theoretical long-run average of a random experiment. As the sample size <img src="https://latex.codecogs.com/png.latex?m"> grows, the sample average <img src="https://latex.codecogs.com/png.latex?%5Cbar%7BX%7D_m"> settles near the constant <img src="https://latex.codecogs.com/png.latex?E%5BX%5D">.</p>
+<p><strong>Definition.</strong> For a random variable <img src="https://latex.codecogs.com/png.latex?X">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20%5Csum_x%20x%5C,p_X(x)%20%5Cquad%20%5Ctext%7B(discrete)%7D,%20%5Cqquad%20E%5BX%5D%20=%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%20x%5C,f_X(x)%5C,dx%20%5Cquad%20%5Ctext%7B(continuous)%7D."></p>
+<p><strong>LOTUS</strong> (Law of the Unconscious Statistician): to compute <img src="https://latex.codecogs.com/png.latex?E%5Bg(X)%5D">, integrate <img src="https://latex.codecogs.com/png.latex?g(x)"> against the distribution of <img src="https://latex.codecogs.com/png.latex?X"> — no need to find the distribution of <img src="https://latex.codecogs.com/png.latex?g(X)"> first:</p>
+<p><img src="https://latex.codecogs.com/png.latex?E%5Bg(X)%5D%20=%20%5Csum_x%20g(x)%5C,p_X(x)%20%5Cquad%20%5Ctext%7Bor%7D%20%5Cquad%20E%5Bg(X)%5D%20=%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%20g(x)%5C,f_X(x)%5C,dx."></p>
+</section>
+<section id="linearity-of-expectation" class="level2">
+<h2 class="anchored" data-anchor-id="linearity-of-expectation">Linearity of Expectation</h2>
+<p>For any constants <img src="https://latex.codecogs.com/png.latex?a,%20b,%20c"> and random variables <img src="https://latex.codecogs.com/png.latex?X">, <img src="https://latex.codecogs.com/png.latex?Y"> (not necessarily independent):</p>
+<p><img src="https://latex.codecogs.com/png.latex?E%5BaX%20+%20bY%20+%20c%5D%20=%20a%5C,E%5BX%5D%20+%20b%5C,E%5BY%5D%20+%20c."></p>
+<p>No independence assumption is needed. This is one of the most powerful tools in probability: it allows complex expectations to be broken into simpler pieces.</p>
+</section>
+<section id="variance-and-standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and Standard Deviation</h2>
+<p>The <strong>variance</strong> measures spread around the mean <img src="https://latex.codecogs.com/png.latex?%5Cmu%20=%20E%5BX%5D">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(X)%20=%20E%5C!%5Cleft%5B(X%20-%20%5Cmu)%5E2%5Cright%5D%20=%20E%5BX%5E2%5D%20-%20%5Cmu%5E2."></p>
+<p>The computational identity <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(X)%20=%20E%5BX%5E2%5D%20-%20%5Cmu%5E2"> is derived by expanding <img src="https://latex.codecogs.com/png.latex?(X-%5Cmu)%5E2"> and applying linearity. The <strong>standard deviation</strong> <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BSD%7D(X)%20=%20%5Csqrt%7B%5Coperatorname%7BVar%7D(X)%7D"> returns to the original units of <img src="https://latex.codecogs.com/png.latex?X">.</p>
+<p>Key fact: <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(X)%20=%200"> if and only if <img src="https://latex.codecogs.com/png.latex?X%20=%20E%5BX%5D"> with probability 1 — a nonnegative random variable with zero expectation must be zero almost surely.</p>
+</section>
+<section id="tail-bounds-markov-and-chebyshev" class="level2">
+<h2 class="anchored" data-anchor-id="tail-bounds-markov-and-chebyshev">Tail Bounds: Markov and Chebyshev</h2>
+<p>These inequalities give distribution-free bounds on tail probabilities from moment information alone.</p>
+<p><strong>Markov’s inequality.</strong> If <img src="https://latex.codecogs.com/png.latex?X%20%5Cgeq%200"> a.s. and <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20%3C%20%5Cinfty">, then for all <img src="https://latex.codecogs.com/png.latex?t%20%3E%200">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(X%20%5Cgeq%20t)%20%5Cleq%20%5Cfrac%7BE%5BX%5D%7D%7Bt%7D."></p>
+<p><em>Proof sketch:</em> On the event <img src="https://latex.codecogs.com/png.latex?%5C%7BX%20%5Cgeq%20t%5C%7D">, we have <img src="https://latex.codecogs.com/png.latex?X%20%5Cgeq%20t%5Ccdot%5Cmathbf%7B1%7D_%7B%5C%7BX%20%5Cgeq%20t%5C%7D%7D">, so taking expectations gives <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20%5Cgeq%20t%5C,P(X%20%5Cgeq%20t)">.</p>
+<p><strong>Chebyshev’s inequality.</strong> If <img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(X)%20=%20%5Csigma%5E2%20%3C%20%5Cinfty">, then for all <img src="https://latex.codecogs.com/png.latex?t%20%3E%200">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(%7CX%20-%20%5Cmu%7C%20%5Cgeq%20t)%20%5Cleq%20%5Cfrac%7B%5Csigma%5E2%7D%7Bt%5E2%7D."></p>
+<p><em>Proof:</em> Apply Markov’s inequality to the nonnegative variable <img src="https://latex.codecogs.com/png.latex?Y%20=%20(X-%5Cmu)%5E2"> with threshold <img src="https://latex.codecogs.com/png.latex?a%20=%20t%5E2">, and note <img src="https://latex.codecogs.com/png.latex?%5C%7B(X-%5Cmu)%5E2%20%5Cgeq%20t%5E2%5C%7D%20=%20%5C%7B%7CX-%5Cmu%7C%20%5Cgeq%20t%5C%7D">.</p>
+<p>The message: variance controls tails. A smaller variance forces the distribution to concentrate more tightly around <img src="https://latex.codecogs.com/png.latex?%5Cmu">, regardless of its shape.</p>
+</section>
+<section id="covariance-and-correlation" class="level2">
+<h2 class="anchored" data-anchor-id="covariance-and-correlation">Covariance and Correlation</h2>
+<p><strong>Covariance</strong> measures the direction of linear association between two random variables:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BCov%7D(X,Y)%20=%20E%5C!%5Cleft%5B(X%20-%20%5Cmu_X)(Y%20-%20%5Cmu_Y)%5Cright%5D%20=%20E%5BXY%5D%20-%20%5Cmu_X%5Cmu_Y."></p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BCov%7D(X,Y)%20%3E%200">: large <img src="https://latex.codecogs.com/png.latex?X"> tends to occur with large <img src="https://latex.codecogs.com/png.latex?Y">.</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BCov%7D(X,Y)%20%3C%200">: large <img src="https://latex.codecogs.com/png.latex?X"> tends to occur with small <img src="https://latex.codecogs.com/png.latex?Y">.</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BCov%7D(X,Y)%20=%200">: uncorrelated, but not necessarily independent.</li>
+</ul>
+<p><strong>Correlation</strong> rescales covariance to the unit-free interval <img src="https://latex.codecogs.com/png.latex?%5B-1,1%5D">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BCorr%7D(X,Y)%20=%20%5Cfrac%7B%5Coperatorname%7BCov%7D(X,Y)%7D%7B%5Csqrt%7B%5Coperatorname%7BVar%7D(X)%7D%5Csqrt%7B%5Coperatorname%7BVar%7D(Y)%7D%7D."></p>
+<p><strong>Variance of a linear combination.</strong> For constants <img src="https://latex.codecogs.com/png.latex?a,%20b">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(aX%20+%20bY)%20=%20a%5E2%5Coperatorname%7BVar%7D(X)%20+%20b%5E2%5Coperatorname%7BVar%7D(Y)%20+%202ab%5Coperatorname%7BCov%7D(X,Y)."></p>
+<p>When <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?Y"> are independent, <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BCov%7D(X,Y)%20=%200"> and the covariance term vanishes. The uncertainty of a sum depends strongly on dependence — two equally spread variables add more total variance when positively correlated.</p>
+</section>
+<section id="conditional-expectation" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-expectation">Conditional Expectation</h2>
+<p>For a fixed value <img src="https://latex.codecogs.com/png.latex?X%20=%20x">, the <strong>conditional expectation</strong> <img src="https://latex.codecogs.com/png.latex?E%5BY%20%5Cmid%20X%20=%20x%5D"> is the mean of the conditional distribution of <img src="https://latex.codecogs.com/png.latex?Y"> given <img src="https://latex.codecogs.com/png.latex?X%20=%20x">. Letting <img src="https://latex.codecogs.com/png.latex?X"> vary, <img src="https://latex.codecogs.com/png.latex?E%5BY%20%5Cmid%20X%5D"> becomes a random variable (a function of <img src="https://latex.codecogs.com/png.latex?X">).</p>
+<p><strong>Law of total expectation:</strong> <img src="https://latex.codecogs.com/png.latex?E%5BY%5D%20=%20E%5C!%5Cleft%5BE%5BY%20%5Cmid%20X%5D%5Cright%5D."></p>
+<p><strong>Law of total variance:</strong> <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(Y)%20=%20E%5C!%5Cleft%5B%5Coperatorname%7BVar%7D(Y%20%5Cmid%20X)%5Cright%5D%20+%20%5Coperatorname%7BVar%7D%5C!%5Cleft(E%5BY%20%5Cmid%20X%5D%5Cright)."></p>
+<p>The second identity decomposes total variance into <em>within-group variance</em> (average spread inside each group) plus <em>between-group variance</em> (spread of group means). This decomposition underlies ANOVA.</p>
+</section>
+<section id="moment-generating-functions" class="level2">
+<h2 class="anchored" data-anchor-id="moment-generating-functions">Moment Generating Functions</h2>
+<p>The <strong>moment generating function (MGF)</strong> of <img src="https://latex.codecogs.com/png.latex?X"> is</p>
+<p><img src="https://latex.codecogs.com/png.latex?M_X(t)%20=%20E%5Be%5E%7BtX%7D%5D,"></p>
+<p>defined for values of <img src="https://latex.codecogs.com/png.latex?t"> where the expectation is finite. When <img src="https://latex.codecogs.com/png.latex?M_X(t)"> exists on an open interval around 0, all moments can be recovered by differentiation:</p>
+<p><img src="https://latex.codecogs.com/png.latex?M_X%5E%7B(r)%7D(0)%20=%20E%5BX%5Er%5D."></p>
+<p>Two key properties:</p>
+<ol type="1">
+<li><strong>Linear transform:</strong> if <img src="https://latex.codecogs.com/png.latex?Y%20=%20a%20+%20bX">, then <img src="https://latex.codecogs.com/png.latex?M_Y(t)%20=%20e%5E%7Bat%7DM_X(bt)">.</li>
+<li><strong>Sum of independents:</strong> if <img src="https://latex.codecogs.com/png.latex?X%20%5Cperp%20Z">, then <img src="https://latex.codecogs.com/png.latex?M_%7BX+Z%7D(t)%20=%20M_X(t)%5C,M_Z(t)">.</li>
+</ol>
+<p>The second property makes MGFs powerful for studying distributions of sums. For heavy-tailed distributions where the MGF may not exist, the <strong>characteristic function</strong> <img src="https://latex.codecogs.com/png.latex?%5Cphi_X(t)%20=%20E%5Be%5E%7BitX%7D%5D"> always exists and plays the same role.</p>
+<hr>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_4.pdf">Download PDF</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Statistics</category>
+  <category>Probability</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice3.html</guid>
+  <pubDate>Wed, 27 May 2026 03:20:46 GMT</pubDate>
+</item>
+<item>
+  <title>Mathematical Statistics: Chapter 3</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Chapter 3 extends one-variable probability to the multivariate setting. Once we have more than one random variable, two new questions arise: how do we compute probabilities of events involving multiple variables simultaneously, and how do we characterize their dependence? This chapter introduces joint CDFs, marginal and conditional distributions, independence, the Jacobian change-of-variables method, and order statistics.</p>
+<section id="joint-cumulative-distribution-function" class="level2">
+<h2 class="anchored" data-anchor-id="joint-cumulative-distribution-function">Joint Cumulative Distribution Function</h2>
+<p>For random variables <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?Y"> on the same probability space, the <strong>joint CDF</strong> is</p>
+<p><img src="https://latex.codecogs.com/png.latex?F_%7BX,Y%7D(x,%20y)%20=%20P(X%20%5Cleq%20x,%5C,%20Y%20%5Cleq%20y),%20%5Cquad%20x,%20y%20%5Cin%20%5Cmathbb%7BR%7D."></p>
+<p>The <strong>marginal CDFs</strong> are recovered by letting one argument go to infinity:</p>
+<p><img src="https://latex.codecogs.com/png.latex?F_X(x)%20=%20%5Clim_%7By%20%5Cto%20%5Cinfty%7D%20F_%7BX,Y%7D(x,%20y),%20%5Cqquad%20F_Y(y)%20=%20%5Clim_%7Bx%20%5Cto%20%5Cinfty%7D%20F_%7BX,Y%7D(x,%20y)."></p>
+<p><strong>Rectangle probabilities</strong> follow by inclusion–exclusion: for <img src="https://latex.codecogs.com/png.latex?a%20%3C%20b"> and <img src="https://latex.codecogs.com/png.latex?c%20%3C%20d">,</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(a%20%3C%20X%20%5Cleq%20b,%5C,%20c%20%3C%20Y%20%5Cleq%20d)%20=%20F(b,d)%20-%20F(a,d)%20-%20F(b,c)%20+%20F(a,c)."></p>
+</section>
+<section id="independence-and-conditional-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="independence-and-conditional-distributions">Independence and Conditional Distributions</h2>
+<p><img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?Y"> are <strong>independent</strong> if and only if their joint CDF factorizes:</p>
+<p><img src="https://latex.codecogs.com/png.latex?F_%7BX,Y%7D(x,y)%20=%20F_X(x)%5C,F_Y(y)%20%5Cquad%20%5Ctext%7Bfor%20all%20%7D%20x,%20y."></p>
+<p>When <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?Y"> are not independent, the distribution of <img src="https://latex.codecogs.com/png.latex?X"> changes depending on the value of <img src="https://latex.codecogs.com/png.latex?Y">. This dependence is captured by the <strong>conditional distribution</strong> of <img src="https://latex.codecogs.com/png.latex?X"> given <img src="https://latex.codecogs.com/png.latex?Y%20=%20y">.</p>
+<p><strong>Discrete case</strong> (when <img src="https://latex.codecogs.com/png.latex?P(Y=y)%20%3E%200">): <img src="https://latex.codecogs.com/png.latex?p_%7BX%7CY%7D(x%20%5Cmid%20y)%20=%20%5Cfrac%7Bp(x,y)%7D%7Bp_Y(y)%7D."></p>
+<p><strong>Continuous case</strong> (when <img src="https://latex.codecogs.com/png.latex?f_Y(y)%20%3E%200">): <img src="https://latex.codecogs.com/png.latex?f_%7BX%7CY%7D(x%20%5Cmid%20y)%20=%20%5Cfrac%7Bf_%7BX,Y%7D(x,y)%7D%7Bf_Y(y)%7D,%20%5Cqquad%20f_Y(y)%20=%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%20f_%7BX,Y%7D(x,y)%5C,dx."></p>
+<p>In both cases, conditioning restricts attention to outcomes consistent with <img src="https://latex.codecogs.com/png.latex?%5C%7BY%20=%20y%5C%7D"> and renormalizes so the result is a valid distribution. Independence holds if and only if <img src="https://latex.codecogs.com/png.latex?f_%7BX%7CY%7D(x%20%5Cmid%20y)%20=%20f_X(x)"> for all <img src="https://latex.codecogs.com/png.latex?x,%20y">.</p>
+</section>
+<section id="discrete-joint-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-joint-distributions">Discrete Joint Distributions</h2>
+<p>For discrete <img src="https://latex.codecogs.com/png.latex?(X,Y)"> with joint PMF <img src="https://latex.codecogs.com/png.latex?p(x,y)%20=%20P(X=x,%5C,%20Y=y)">, <strong>marginal PMFs</strong> are obtained by summing out the other variable:</p>
+<p><img src="https://latex.codecogs.com/png.latex?p_X(x)%20=%20%5Csum_y%20p(x,y),%20%5Cqquad%20p_Y(y)%20=%20%5Csum_x%20p(x,y)."></p>
+<p>The joint CDF is the cumulative sum <img src="https://latex.codecogs.com/png.latex?F_%7BX,Y%7D(x,y)%20=%20%5Csum_%7Bu%20%5Cleq%20x%7D%5Csum_%7Bv%20%5Cleq%20y%7D%20p(u,v)">.</p>
+<section id="multinomial-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="multinomial-distribution">Multinomial Distribution</h3>
+<p>When <img src="https://latex.codecogs.com/png.latex?n"> independent trials each produce one of <img src="https://latex.codecogs.com/png.latex?r"> categories with probabilities <img src="https://latex.codecogs.com/png.latex?p_1,%20%5Cldots,%20p_r"> (<img src="https://latex.codecogs.com/png.latex?%5Csum%20p_i%20=%201">), the vector of counts <img src="https://latex.codecogs.com/png.latex?(N_1,%20%5Cldots,%20N_r)"> follows the <strong>multinomial distribution</strong>:</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(N_1%20=%20n_1,%20%5Cldots,%20N_r%20=%20n_r)%20=%20%5Cfrac%7Bn!%7D%7Bn_1!%5Ccdots%20n_r!%7D%5C,p_1%5E%7Bn_1%7D%5Ccdots%20p_r%5E%7Bn_r%7D,%20%5Cqquad%20%5Csum_%7Bi=1%7D%5Er%20n_i%20=%20n."></p>
+<p>This is the multivariate analogue of the binomial. A histogram is a realization of a multinomial random vector, which explains why bin counts fluctuate even under a uniform distribution.</p>
+</section>
+</section>
+<section id="continuous-joint-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-joint-distributions">Continuous Joint Distributions</h2>
+<p>A function <img src="https://latex.codecogs.com/png.latex?f(x,y)"> is a valid <strong>joint PDF</strong> if <img src="https://latex.codecogs.com/png.latex?f(x,y)%20%5Cgeq%200"> and <img src="https://latex.codecogs.com/png.latex?%5Ciint%20f(x,y)%5C,dx%5C,dy%20=%201">. Probabilities of regions are computed by integration:</p>
+<p><img src="https://latex.codecogs.com/png.latex?P%5B(X,Y)%20%5Cin%20A%5D%20=%20%5Ciint_A%20f(x,y)%5C,dx%5C,dy."></p>
+<p><strong>Always identify the support</strong> <img src="https://latex.codecogs.com/png.latex?%5C%7B(x,y):%20f(x,y)%20%5Cneq%200%5C%7D"> before setting up limits of integration — most errors in multivariate problems come from ignoring the support.</p>
+<p>The joint CDF is <img src="https://latex.codecogs.com/png.latex?F(x,y)%20=%20%5Cint_%7B-%5Cinfty%7D%5Ex%5Cint_%7B-%5Cinfty%7D%5Ey%20f(u,v)%5C,dv%5C,du">, and the joint PDF is recovered by mixed differentiation: <img src="https://latex.codecogs.com/png.latex?f(x,y)%20=%20%5Cfrac%7B%5Cpartial%5E2%7D%7B%5Cpartial%20x%5C,%5Cpartial%20y%7DF(x,y)">.</p>
+<p><strong>Marginal densities</strong> integrate out the other variable:</p>
+<p><img src="https://latex.codecogs.com/png.latex?f_X(x)%20=%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%20f(x,y)%5C,dy,%20%5Cqquad%20f_Y(y)%20=%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%20f(x,y)%5C,dx."></p>
+<p>When the support is bounded, the joint CDF must be written piecewise — the integration region changes depending on where <img src="https://latex.codecogs.com/png.latex?(x,y)"> falls relative to the support.</p>
+</section>
+<section id="transformations-the-jacobian-method" class="level2">
+<h2 class="anchored" data-anchor-id="transformations-the-jacobian-method">Transformations: The Jacobian Method</h2>
+<p>To find the joint density of <img src="https://latex.codecogs.com/png.latex?(U,V)%20=%20g(X,Y)"> when <img src="https://latex.codecogs.com/png.latex?g"> is one-to-one with differentiable inverse <img src="https://latex.codecogs.com/png.latex?(X,Y)%20=%20g%5E*(U,V)">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?h(u,v)%20=%20f%5C!%5Cleft(g_1%5E*(u,v),%5C,%20g_2%5E*(u,v)%5Cright)%20%5Cleft%7C%5Cdet%5Cfrac%7B%5Cpartial(x,y)%7D%7B%5Cpartial(u,v)%7D%5Cright%7C."></p>
+<p>The <strong>Jacobian determinant</strong> <img src="https://latex.codecogs.com/png.latex?%5Cleft%7C%5Cdet%5Cfrac%7B%5Cpartial(x,y)%7D%7B%5Cpartial(u,v)%7D%5Cright%7C"> accounts for the local stretching or compression of area under the transformation. The key principle is that probability must be preserved when we change coordinates.</p>
+<p>If <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?Y"> are transformed <em>separately</em> as <img src="https://latex.codecogs.com/png.latex?U%20=%20g_1(X)"> and <img src="https://latex.codecogs.com/png.latex?V%20=%20g_2(Y)"> (no mixing), then <img src="https://latex.codecogs.com/png.latex?U"> and <img src="https://latex.codecogs.com/png.latex?V"> remain independent.</p>
+</section>
+<section id="order-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="order-statistics">Order Statistics</h2>
+<p>Let <img src="https://latex.codecogs.com/png.latex?X_1,%20%5Cldots,%20X_n"> be i.i.d. continuous random variables with CDF <img src="https://latex.codecogs.com/png.latex?F"> and density <img src="https://latex.codecogs.com/png.latex?f">. The <strong>order statistics</strong> <img src="https://latex.codecogs.com/png.latex?X_%7B(1)%7D%20%5Cleq%20X_%7B(2)%7D%20%5Cleq%20%5Ccdots%20%5Cleq%20X_%7B(n)%7D"> are the sorted sample.</p>
+<p><strong>Maximum and minimum:</strong></p>
+<p><img src="https://latex.codecogs.com/png.latex?F_U(u)%20=%20%5BF(u)%5D%5En,%20%5Cquad%20f_U(u)%20=%20n%5C,f(u)%5BF(u)%5D%5E%7Bn-1%7D,%20%5Cqquad%20U%20=%20%5Cmax_i%20X_i,"> <img src="https://latex.codecogs.com/png.latex?F_V(v)%20=%201%20-%20%5B1-F(v)%5D%5En,%20%5Cquad%20f_V(v)%20=%20n%5C,f(v)%5B1-F(v)%5D%5E%7Bn-1%7D,%20%5Cqquad%20V%20=%20%5Cmin_i%20X_i."></p>
+<p>The intuition: <img src="https://latex.codecogs.com/png.latex?U%20%5Cleq%20u"> if and only if <em>all</em> <img src="https://latex.codecogs.com/png.latex?n"> observations are <img src="https://latex.codecogs.com/png.latex?%5Cleq%20u">; <img src="https://latex.codecogs.com/png.latex?V%20%3E%20v"> if and only if <em>all</em> observations are <img src="https://latex.codecogs.com/png.latex?%3E%20v">.</p>
+<p><strong>General <img src="https://latex.codecogs.com/png.latex?k">th order statistic:</strong> for <img src="https://latex.codecogs.com/png.latex?X_%7B(k)%7D"> to be near <img src="https://latex.codecogs.com/png.latex?x">, we need <img src="https://latex.codecogs.com/png.latex?k-1"> observations below <img src="https://latex.codecogs.com/png.latex?x">, one observation near <img src="https://latex.codecogs.com/png.latex?x">, and <img src="https://latex.codecogs.com/png.latex?n-k"> observations above <img src="https://latex.codecogs.com/png.latex?x">. This yields</p>
+<p><img src="https://latex.codecogs.com/png.latex?f_%7BX_%7B(k)%7D%7D(x)%20=%20%5Cfrac%7Bn!%7D%7B(k-1)!(n-k)!%7D%5C,f(x)%5C,%5BF(x)%5D%5E%7Bk-1%7D%5B1-F(x)%5D%5E%7Bn-k%7D."></p>
+<p>Order statistics appear throughout reliability theory (series/parallel systems), nonparametric statistics, and quality control.</p>
+<hr>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_3.pdf">Download PDF</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Statistics</category>
+  <category>Probability</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice2.html</guid>
+  <pubDate>Wed, 27 May 2026 03:20:18 GMT</pubDate>
+</item>
+<item>
+  <title>Mathematical Statistics: Chapters 1–2</title>
+  <dc:creator>Donghyun Ko</dc:creator>
+  <link>https://kmakdh3692.github.io/study/posts/rice1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>These notes cover the foundational building blocks of probability and random variables from Rice’s <em>Mathematical Statistics and Data Analysis</em> (3rd ed.). Chapter 1 constructs the framework for reasoning about uncertain outcomes — from sample spaces and axioms through conditional probability and Bayes’ rule. Chapter 2 turns outcomes into numbers via random variables, introduces the CDF, PMF, and PDF, and covers expectations, variance, and transformations.</p>
+<section id="chapter-1-probability" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-1-probability">Chapter 1: Probability</h2>
+<section id="sample-space-and-events" class="level3">
+<h3 class="anchored" data-anchor-id="sample-space-and-events">Sample Space and Events</h3>
+<p>A probability model starts by specifying all possible outcomes. The <strong>sample space</strong> <img src="https://latex.codecogs.com/png.latex?%5COmega"> is the set of all possible outcomes of an experiment. An <strong>event</strong> <img src="https://latex.codecogs.com/png.latex?A"> is a subset of <img src="https://latex.codecogs.com/png.latex?%5COmega">, and it occurs if the realized outcome <img src="https://latex.codecogs.com/png.latex?%5Comega"> lies in <img src="https://latex.codecogs.com/png.latex?A">.</p>
+<p>Because events are sets, we use standard set operations:</p>
+<ul>
+<li><strong>Complement</strong> <img src="https://latex.codecogs.com/png.latex?A%5Ec">: the event that <img src="https://latex.codecogs.com/png.latex?A"> does not occur.</li>
+<li><strong>Intersection</strong> <img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20B">: both <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> occur.</li>
+<li><strong>Union</strong> <img src="https://latex.codecogs.com/png.latex?A%20%5Ccup%20B">: at least one of <img src="https://latex.codecogs.com/png.latex?A"> or <img src="https://latex.codecogs.com/png.latex?B"> occurs.</li>
+<li><strong>Disjoint</strong> events: <img src="https://latex.codecogs.com/png.latex?A%20%5Ccap%20B%20=%20%5Cemptyset">; they cannot happen simultaneously.</li>
+</ul>
+</section>
+<section id="axioms-of-probability" class="level3">
+<h3 class="anchored" data-anchor-id="axioms-of-probability">Axioms of Probability</h3>
+<p>A probability measure <img src="https://latex.codecogs.com/png.latex?P"> assigns a number to each event <img src="https://latex.codecogs.com/png.latex?A%20%5Csubset%20%5COmega"> and must satisfy:</p>
+<ol type="1">
+<li><strong>Normalization:</strong> <img src="https://latex.codecogs.com/png.latex?P(%5COmega)%20=%201"></li>
+<li><strong>Nonnegativity:</strong> <img src="https://latex.codecogs.com/png.latex?P(A)%20%5Cgeq%200"> for all <img src="https://latex.codecogs.com/png.latex?A%20%5Csubset%20%5COmega"></li>
+<li><strong>Additivity:</strong> if <img src="https://latex.codecogs.com/png.latex?A_1,%20A_2,%20%5Cldots"> are disjoint, then <img src="https://latex.codecogs.com/png.latex?P%5C!%5Cleft(%5Cbigcup_i%20A_i%5Cright)%20=%20%5Csum_i%20P(A_i)"></li>
+</ol>
+<p>From these three axioms, the useful working rules follow directly:</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(A%5Ec)%20=%201%20-%20P(A),%20%5Cquad%20P(%5Cemptyset)%20=%200,%20%5Cquad%20P(A%20%5Ccup%20B)%20=%20P(A)%20+%20P(B)%20-%20P(A%20%5Ccap%20B)."></p>
+</section>
+<section id="conditional-probability-and-bayes-rule" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-probability-and-bayes-rule">Conditional Probability and Bayes’ Rule</h3>
+<p>For events <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> with <img src="https://latex.codecogs.com/png.latex?P(B)%20%3E%200">, the <strong>conditional probability</strong> of <img src="https://latex.codecogs.com/png.latex?A"> given <img src="https://latex.codecogs.com/png.latex?B"> is</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(A%20%5Cmid%20B)%20=%20%5Cfrac%7BP(A%20%5Ccap%20B)%7D%7BP(B)%7D."></p>
+<p>Rearranging gives the <strong>multiplication rule</strong>: <img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccap%20B)%20=%20P(A%20%5Cmid%20B)%5C,P(B)">.</p>
+<p>If <img src="https://latex.codecogs.com/png.latex?B_1,%20%5Cldots,%20B_n"> partition <img src="https://latex.codecogs.com/png.latex?%5COmega">, the <strong>law of total probability</strong> decomposes any event <img src="https://latex.codecogs.com/png.latex?A"> as</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(A)%20=%20%5Csum_%7Bi=1%7D%5En%20P(A%20%5Cmid%20B_i)%5C,P(B_i)."></p>
+<p><strong>Bayes’ rule</strong> reverses the direction of conditioning:</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(B_j%20%5Cmid%20A)%20=%20%5Cfrac%7BP(A%20%5Cmid%20B_j)%5C,P(B_j)%7D%7B%5Csum_%7Bi=1%7D%5En%20P(A%20%5Cmid%20B_i)%5C,P(B_i)%7D."></p>
+<p>This is the foundation of Bayesian inference: update the prior probability of a cause <img src="https://latex.codecogs.com/png.latex?B_j"> after observing evidence <img src="https://latex.codecogs.com/png.latex?A">.</p>
+</section>
+<section id="independence" class="level3">
+<h3 class="anchored" data-anchor-id="independence">Independence</h3>
+<p>Events <img src="https://latex.codecogs.com/png.latex?A"> and <img src="https://latex.codecogs.com/png.latex?B"> are <strong>independent</strong> if <img src="https://latex.codecogs.com/png.latex?P(A%20%5Ccap%20B)%20=%20P(A)%5C,P(B)">, equivalently <img src="https://latex.codecogs.com/png.latex?P(A%20%5Cmid%20B)%20=%20P(A)">. Knowing that <img src="https://latex.codecogs.com/png.latex?B"> occurred tells us nothing new about <img src="https://latex.codecogs.com/png.latex?A">.</p>
+<hr>
+</section>
+</section>
+<section id="chapter-2-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-2-random-variables">Chapter 2: Random Variables</h2>
+<p>A <strong>random variable</strong> <img src="https://latex.codecogs.com/png.latex?X"> is a real-valued function on <img src="https://latex.codecogs.com/png.latex?%5COmega">. Rather than reasoning about outcomes directly, we reason about the numerical summaries they produce.</p>
+<section id="cumulative-distribution-function" class="level3">
+<h3 class="anchored" data-anchor-id="cumulative-distribution-function">Cumulative Distribution Function</h3>
+<p>Every random variable is completely characterized by its <strong>CDF</strong>:</p>
+<p><img src="https://latex.codecogs.com/png.latex?F(x)%20=%20P(X%20%5Cleq%20x),%20%5Cquad%20x%20%5Cin%20%5Cmathbb%7BR%7D."></p>
+<p>The CDF is non-decreasing, satisfies <img src="https://latex.codecogs.com/png.latex?%5Clim_%7Bx%20%5Cto%20-%5Cinfty%7D%20F(x)%20=%200"> and <img src="https://latex.codecogs.com/png.latex?%5Clim_%7Bx%20%5Cto%20%5Cinfty%7D%20F(x)%20=%201">, and gives interval probabilities via <img src="https://latex.codecogs.com/png.latex?P(a%20%3C%20X%20%5Cleq%20b)%20=%20F(b)%20-%20F(a)">.</p>
+</section>
+<section id="discrete-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-random-variables">Discrete Random Variables</h3>
+<p>A random variable is <strong>discrete</strong> if it takes values in a countable set. Its distribution is described by the <strong>probability mass function (PMF)</strong>:</p>
+<p><img src="https://latex.codecogs.com/png.latex?p(x)%20=%20P(X%20=%20x),%20%5Cquad%20%5Csum_%7Bx%7D%20p(x)%20=%201."></p>
+<p>Common discrete distributions include:</p>
+<ul>
+<li><strong>Bernoulli(<img src="https://latex.codecogs.com/png.latex?p">):</strong> single trial, <img src="https://latex.codecogs.com/png.latex?P(X=1)%20=%20p">.</li>
+<li><strong>Binomial(<img src="https://latex.codecogs.com/png.latex?n,p">):</strong> number of successes in <img src="https://latex.codecogs.com/png.latex?n"> independent trials.</li>
+<li><strong>Geometric(<img src="https://latex.codecogs.com/png.latex?p">):</strong> number of trials until the first success.</li>
+<li><strong>Poisson(<img src="https://latex.codecogs.com/png.latex?%5Clambda">):</strong> count of rare events; <img src="https://latex.codecogs.com/png.latex?P(X=x)%20=%20e%5E%7B-%5Clambda%7D%5Clambda%5Ex%20/%20x!">.</li>
+</ul>
+</section>
+<section id="continuous-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-random-variables">Continuous Random Variables</h3>
+<p>A random variable is <strong>continuous</strong> if its distribution is described by a <strong>probability density function (PDF)</strong> <img src="https://latex.codecogs.com/png.latex?f(x)%20%5Cgeq%200">, where</p>
+<p><img src="https://latex.codecogs.com/png.latex?P(a%20%3C%20X%20%3C%20b)%20=%20%5Cint_a%5Eb%20f(x)%5C,dx,%20%5Cqquad%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%20f(x)%5C,dx%20=%201."></p>
+<p>Note that <img src="https://latex.codecogs.com/png.latex?P(X%20=%20x)%20=%200"> for every single point. The support of <img src="https://latex.codecogs.com/png.latex?X"> is <img src="https://latex.codecogs.com/png.latex?%5C%7Bx%20:%20f(x)%20%5Cneq%200%5C%7D">.</p>
+<p>Key continuous distributions:</p>
+<ul>
+<li><strong>Uniform(<img src="https://latex.codecogs.com/png.latex?a,b">):</strong> <img src="https://latex.codecogs.com/png.latex?f(x)%20=%201/(b-a)"> on <img src="https://latex.codecogs.com/png.latex?%5Ba,b%5D">.</li>
+<li><strong>Exponential(<img src="https://latex.codecogs.com/png.latex?%5Clambda">):</strong> <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20%5Clambda%20e%5E%7B-%5Clambda%20x%7D"> for <img src="https://latex.codecogs.com/png.latex?x%20%5Cgeq%200">; satisfies the memoryless property.</li>
+<li><strong>Gamma(<img src="https://latex.codecogs.com/png.latex?%5Calpha,%20%5Clambda">):</strong> waiting time for <img src="https://latex.codecogs.com/png.latex?%5Calpha"> events; reduces to Exponential when <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%201">.</li>
+<li><strong>Normal(<img src="https://latex.codecogs.com/png.latex?%5Cmu,%20%5Csigma%5E2">):</strong> <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20%5Cfrac%7B1%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cexp%5C!%5Cleft%5C%7B-%5Cfrac%7B(x-%5Cmu)%5E2%7D%7B2%5Csigma%5E2%7D%5Cright%5C%7D">.</li>
+<li><strong>Beta(<img src="https://latex.codecogs.com/png.latex?%5Calpha,%5Cbeta">):</strong> defined on <img src="https://latex.codecogs.com/png.latex?%5B0,1%5D">; used to model proportions and unknown probabilities.</li>
+</ul>
+<p>The CDF and PDF are linked by <img src="https://latex.codecogs.com/png.latex?F(x)%20=%20%5Cint_%7B-%5Cinfty%7D%5Ex%20f(t)%5C,dt"> and <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20F'(x)">.</p>
+</section>
+<section id="expectation-and-variance" class="level3">
+<h3 class="anchored" data-anchor-id="expectation-and-variance">Expectation and Variance</h3>
+<p>The <strong>expected value</strong> (mean) summarizes the center of a distribution:</p>
+<p><img src="https://latex.codecogs.com/png.latex?E%5BX%5D%20=%20%5Csum_x%20x%5C,p(x)%20%5Cquad%20%5Ctext%7B(discrete)%7D,%20%5Cqquad%20E%5BX%5D%20=%20%5Cint_%7B-%5Cinfty%7D%5E%5Cinfty%20x%5C,f(x)%5C,dx%20%5Cquad%20%5Ctext%7B(continuous)%7D."></p>
+<p>The <strong>variance</strong> measures spread around the mean:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(X)%20=%20E%5C!%5Cleft%5B(X%20-%20%5Cmu)%5E2%5Cright%5D%20=%20E%5BX%5E2%5D%20-%20%5Cmu%5E2,%20%5Cquad%20%5Cmu%20=%20E%5BX%5D."></p>
+<p>For a linear transformation <img src="https://latex.codecogs.com/png.latex?Y%20=%20aX%20+%20b">: <img src="https://latex.codecogs.com/png.latex?E%5BY%5D%20=%20aE%5BX%5D%20+%20b"> and <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BVar%7D(Y)%20=%20a%5E2%5Coperatorname%7BVar%7D(X)">.</p>
+</section>
+<section id="transformations-of-continuous-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="transformations-of-continuous-random-variables">Transformations of Continuous Random Variables</h3>
+<p>If <img src="https://latex.codecogs.com/png.latex?Y%20=%20g(X)"> where <img src="https://latex.codecogs.com/png.latex?g"> is strictly monotone and differentiable, the <strong>change-of-variables formula</strong> gives</p>
+<p><img src="https://latex.codecogs.com/png.latex?f_Y(y)%20=%20f_X%5C!%5Cleft(g%5E%7B-1%7D(y)%5Cright)%5Cleft%7C%5Cfrac%7Bd%7D%7Bdy%7Dg%5E%7B-1%7D(y)%5Cright%7C."></p>
+<p>A special case: if <img src="https://latex.codecogs.com/png.latex?Y%20=%20F(X)"> where <img src="https://latex.codecogs.com/png.latex?F"> is the CDF of a continuous <img src="https://latex.codecogs.com/png.latex?X">, then <img src="https://latex.codecogs.com/png.latex?Y%20%5Csim%20%5Ctext%7BUniform%7D(0,1)"> — the <strong>probability integral transform</strong>, which underlies random-number simulation.</p>
+<hr>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_1_2.pdf">Download PDF</a></p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>Statistics</category>
+  <category>Probability</category>
+  <guid>https://kmakdh3692.github.io/study/posts/rice1.html</guid>
+  <pubDate>Wed, 27 May 2026 03:19:20 GMT</pubDate>
+</item>
 <item>
   <title>Generative AI_2</title>
   <dc:creator>Donghyun Ko</dc:creator>
@@ -238,63 +907,6 @@
   <category>Deep Learning</category>
   <guid>https://kmakdh3692.github.io/study/posts/article_4.html</guid>
   <pubDate>Sun, 04 Jan 2026 02:48:01 GMT</pubDate>
-</item>
-<item>
-  <title>Scientific Machine Learning 03</title>
-  <dc:creator>Donghyun Ko</dc:creator>
-  <link>https://kmakdh3692.github.io/study/posts/article_3.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This lecture note explains backpropagation as the core algorithm that enables neural networks to compute gradients efficiently and learn from data. It begins by introducing clear layer-wise notation for weights, biases, pre-activations, and activations, and shows how a forward pass computes <img src="https://latex.codecogs.com/png.latex?z%5E%5Cell%20=%20W%5E%5Cell%20a%5E%7B%5Cell-1%7D%20+%20b%5E%5Cell"> and <img src="https://latex.codecogs.com/png.latex?a%5E%5Cell%20=%20%5Csigma(z%5E%5Cell)">. The notes then state two key assumptions on the cost function: that the total cost is an average of per-sample costs, and that each per-sample cost depends only on the network outputs. Under these assumptions, the lecture derives the four fundamental backpropagation equations, explaining how to compute the error at the output layer, propagate that error backward through hidden layers using transposed weight matrices, and obtain gradients with respect to biases and weights. Each gradient is given a concrete interpretation, such as a weight gradient being the product of the destination neuron’s error and the source neuron’s activation. Finally, the full backpropagation algorithm is summarized step by step, combining a forward pass, a backward pass, and parameter updates, and the notes explain why this procedure is computationally efficient and how it integrates naturally with stochastic gradient descent.</p>
-<p><strong>Full notes:</strong> <a href="../files/SciML_3_Backpropagation.pdf">Download PDF</a></p>
-
-
-
- ]]></description>
-  <category>Deep Learning</category>
-  <guid>https://kmakdh3692.github.io/study/posts/article_3.html</guid>
-  <pubDate>Sun, 04 Jan 2026 02:46:00 GMT</pubDate>
-</item>
-<item>
-  <title>Scientific Machine Learning 02</title>
-  <dc:creator>Donghyun Ko</dc:creator>
-  <link>https://kmakdh3692.github.io/study/posts/article_2.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This lecture note explains how the basic neural network concepts from the previous chapter are used to build and train a real classifier, using handwritten digit recognition as a concrete example. It formulates the task of mapping a 28×28 grayscale image to one of ten digits by flattening each image into a 784-dimensional vector and feeding it into a simple two-layer neural network. The notes clearly justify why digit labels should be encoded using one-hot vectors instead of ordinal numbers, showing how one-hot encoding gives cleaner learning signals for multi-class classification. The MNIST dataset is introduced with a clear separation between training and test data, emphasizing proper evaluation. The lecture then defines the quadratic (MSE) cost function and explains why accuracy alone cannot be used as a training objective. It derives gradient descent step by step, showing how gradients determine parameter updates and why moving opposite to the gradient reduces error. Finally, it introduces stochastic gradient descent and mini-batching, carefully defining practical terms such as batch size, iteration, and epoch, and explaining how repeated updates over multiple epochs enable neural networks to learn effectively from data.</p>
-<p><strong>Full notes:</strong> <a href="../files/SciML_2_Classifying_Handwritten_Digits_Gradient_Descent.pdf">Download PDF</a></p>
-
-
-
- ]]></description>
-  <category>Deep Learning</category>
-  <guid>https://kmakdh3692.github.io/study/posts/article_2.html</guid>
-  <pubDate>Sun, 04 Jan 2026 02:39:32 GMT</pubDate>
-</item>
-<item>
-  <title>Scientific Machine Learning 01</title>
-  <dc:creator>Donghyun Ko</dc:creator>
-  <link>https://kmakdh3692.github.io/study/posts/2025-08-01-ml-intro.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This lecture note introduces the most fundamental building blocks required to study deep learning: perceptrons, sigmoid neurons, and artificial neural networks. It begins with the perceptron, a linear binary classifier that computes a weighted sum of inputs plus a bias and applies a step function to make yes-or-no decisions, which geometrically corresponds to separating data with a line or hyperplane. The notes show how such perceptrons can implement logic gates like AND, OR, and NAND, and how NAND gates can be combined to build simple digital circuits such as a half-adder. However, because the step activation changes output abruptly and has no usable gradient, perceptrons are difficult to train from data. To address this limitation, the lecture introduces the sigmoid neuron, which replaces the step function with a smooth, differentiable activation and explicitly derives its derivative, enabling learning through gradient descent. The notes then relate artificial neurons to their biological counterparts and explain how neurons are organized into input, hidden, and output layers to form feedforward artificial neural networks. Finally, the lecture presents the mathematical structure of ANNs and explains why even shallow networks, when properly constructed, can approximate complex functions—laying the essential groundwork for deeper neural network models.</p>
-<p><strong>Full notes:</strong> <a href="../files/SciML_1_Perceptrons_Sigmoid_and_ANN.pdf">Download PDF</a></p>
-
-
-
- ]]></description>
-  <category>Deep Learning</category>
-  <guid>https://kmakdh3692.github.io/study/posts/2025-08-01-ml-intro.html</guid>
-  <pubDate>Sun, 04 Jan 2026 02:29:14 GMT</pubDate>
 </item>
 </channel>
 </rss>

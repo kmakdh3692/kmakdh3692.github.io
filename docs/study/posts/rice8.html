@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Donghyun Ko">
+<meta name="dcterms.date" content="2026-05-26">
 
-<title>index – Study &amp; Beyond</title>
+<title>Testing Hypotheses and Assessing Goodness of Fit – Study &amp; Beyond</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fad5ab29a14bbe0a7a7d29177f3f13bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fad5ab29a14bbe0a7a7d29177f3f13bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,69 +68,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-categories','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Study &amp; Beyond" href="index.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -139,7 +81,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Study &amp; Beyond</span>
     </a>
   </div>
@@ -150,23 +92,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../study/index.html"> 
+    <a class="nav-link" href="../../study/index.html"> 
 <span class="menu-text">Study Note</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../paper_review/index.html"> 
+    <a class="nav-link" href="../../paper_review/index.html"> 
 <span class="menu-text">Paper Review</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../research/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../investing/index.html"> 
+    <a class="nav-link" href="../../investing/index.html"> 
 <span class="menu-text">Others</span></a>
   </li>  
 </ul>
@@ -196,166 +138,55 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#research" id="toc-research" class="nav-link active" data-scroll-target="#research">Research</a></li>
-  </ul>
-</nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5n">Additive Manufacturing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGVmZWN0JTIwRGV0ZWN0aW9u">Defect Detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGlmZnVzaW9uJTIwbW9kZWw=">Diffusion model <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R2VuZXJhdGl2ZSUyMEFJ">Generative AI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TFBCRg==">LPBF <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3B0aW1pemF0aW9u">Optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UlVMJTJGVFRGJTIwUHJlZGljdGlvbg==">RUL/TTF Prediction <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UmVhbC10aW1lJTIwRGVjaXNpb24=">Real-time Decision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k">Response Surface Method <span class="quarto-category-count">(1)</span></div></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Testing Hypotheses and Assessing Goodness of Fit</h1>
+<p class="subtitle lead">Rice Chapter 9</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Statistics</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="research" class="level1">
-<h1>Research</h1>
-<p>This page presents my research portfolio, including published and under-review journal articles, ongoing studies, and research presented at academic conferences. The posts captures the progression of my research ideas, methods, and findings.</p>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Donghyun Ko </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 26, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This lecture note follows Rice Chapter 9 with a textbook-style exposition that emphasizes explanation over formula collection. It begins by motivating hypothesis testing as a principled framework for deciding whether observed data are sufficiently inconsistent with a baseline claim, introducing the language of null and alternative hypotheses, simple versus composite hypotheses, and the two possible conclusions — reject or fail to reject. The Bayesian perspective is developed first through Bayes factors, which combine prior odds and likelihood ratios to quantify relative support for competing hypotheses, illustrated with a detailed binomial notification-app example including explicit computation of rejection regions and error probabilities. The frequentist perspective is then developed carefully: Type I and Type II errors are defined and interpreted via the justice-system analogy, rejection regions are constructed by controlling the significance level under the null distribution, and the power function is derived and analyzed through a fully worked normal-mean example at RDU airport. The p-value is introduced as both the probability of observing data as extreme or more extreme under H₀ and as the smallest significance level at which H₀ would be rejected, with explicit warnings about common misconceptions and the distinction between statistical and practical significance.</p>
+<p>Two general test statistics are then developed in depth. The Wald test standardizes a consistent estimator under H₀ and uses the asymptotic normality of the MLE, with decision rules tabulated for right-tailed, left-tailed, and two-sided alternatives. The Likelihood Ratio Test (LRT) is introduced for simple hypotheses by comparing likelihoods directly, and the Neyman–Pearson Lemma is stated and interpreted: among all level-α tests, the LRT is the most powerful, motivating the likelihood ratio as the optimal decision criterion. Uniformly Most Powerful (UMP) tests are discussed for one-sided composite alternatives, with examples for the exponential and binomial families showing that the rejection region depends only on a sufficient statistic. The Generalized Likelihood Ratio Test (GLRT) extends these ideas to composite hypotheses by comparing the maximized likelihood under H₀ to the unrestricted maximum, and Wilks’ Theorem establishes that −2 ln Λ converges in distribution to a chi-squared distribution whose degrees of freedom equal the difference in parameter dimensions, making rejection regions and p-values computable without knowing the exact null distribution of Λ. One-sided GLRT variants are handled via the signed root statistic.</p>
+<p>The second half of the notes covers model assessment. The duality between two-sided tests and confidence intervals is proved algebraically: failing to reject H₀ at level α is equivalent to the null value lying inside the 100(1−α)% confidence interval, unifying the two major branches of frequentist inference. Pearson’s χ² goodness-of-fit statistic is derived as a large-sample approximation to the GLRT in the multinomial model, and its degrees of freedom are explained as the number of cells minus one minus the number of estimated parameters. Three detailed examples are solved in full: a coin-fairness test with 17,950 tosses, a binomial fit for grouped coin-toss frequencies revealing a striking excess of 4-head outcomes, and a Poisson fit to the classical Bortkiewicz horse-kick data that fails to reject and illustrates the purpose of goodness-of-fit testing. Normal Q–Q plots are then constructed and interpreted as a visual diagnostic for normality: straight lines indicate approximate normality, while bending patterns reveal heavy tails, light tails, right skewness, and left skewness. The Poisson dispersion test is introduced as a check on the mean-equals-variance constraint, and probability plots for general location-scale families are discussed as richer alternatives to single-number test statistics. The notes conclude with a unified summary emphasizing that likelihood ratios organize virtually all of the chapter’s testing procedures, that confidence intervals and tests are dual constructions, and that formal tests and graphical diagnostics should always be used together.</p>
+<p><strong>Full notes:</strong> <a href="../files/Rice_Ch_9.pdf">Download PDF</a></p>
 
 
 
-</section>
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5nJTJDTFBCRiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVsJTJDRGVmZWN0JTIwRGV0ZWN0aW9uJTJDUmVhbC10aW1lJTIwRGVjaXNpb24=" data-listing-date-sort="1779850987000" data-listing-file-modified-sort="1779850987065" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research3.html" class="no-external">Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('QWRkaXRpdmUlMjBNYW51ZmFjdHVyaW5n'); return false;">
-Additive Manufacturing
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TFBCRg=='); return false;">
-LPBF
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGVmZWN0JTIwRGV0ZWN0aW9u'); return false;">
-Defect Detection
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVhbC10aW1lJTIwRGVjaXNpb24='); return false;">
-Real-time Decision
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research3.html" class="no-external">Laser Powder Bed Fusion (LPBF) is a leading technology for producing complex metal components with high performance, but process outcomes are highly sensitive to…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research3.html" class="no-external">
-<div class="listing-date">
-May 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="T3B0aW1pemF0aW9uJTJDUmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k" data-listing-date-sort="1779849841000" data-listing-file-modified-sort="1779849841252" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research1.html" class="no-external">Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('T3B0aW1pemF0aW9u'); return false;">
-Optimization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzcG9uc2UlMjBTdXJmYWNlJTIwTWV0aG9k'); return false;">
-Response Surface Method
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research1.html" class="no-external">The goal of this research is to find the most influential factors for the flying time of a paper drone by using a variety of methodologies from design and analysis of the…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research1.html" class="no-external">
-<div class="listing-date">
-May 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UlVMJTJGVFRGJTIwUHJlZGljdGlvbiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVs" data-listing-date-sort="1779505352000" data-listing-file-modified-sort="1779505352688" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/talk1.html" class="no-external">Diffusion Models for Robust RUL/TTF Prediction under Complex Degradation Process</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/talk1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UlVMJTJGVFRGJTIwUHJlZGljdGlvbg=='); return false;">
-RUL/TTF Prediction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/talk1.html" class="no-external">This talk presents a conditional diffusion–based framework for robust Remaining Useful Life (RUL) and Time-to-Failure (TTF) prediction under complex degradation processes…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/talk1.html" class="no-external">
-<div class="listing-date">
-May 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UlVMJTJGVFRGJTIwUHJlZGljdGlvbiUyQ0dlbmVyYXRpdmUlMjBBSSUyQ0RpZmZ1c2lvbiUyMG1vZGVs" data-listing-date-sort="1779505218000" data-listing-file-modified-sort="1779505218751" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="262">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/posts/research2.html" class="no-external">A Conditional Diffusion-Based Generative AI Model for Industrial Predictive Analytics</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/posts/research2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UlVMJTJGVFRGJTIwUHJlZGljdGlvbg=='); return false;">
-RUL/TTF Prediction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyMEFJ'); return false;">
-Generative AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGlmZnVzaW9uJTIwbW9kZWw='); return false;">
-Diffusion model
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/posts/research2.html" class="no-external">Accurate prediction of remaining useful life (RUL) or time-to-failure (TTF) from degradation signals is a central problem in prognostics and health management across domains…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/posts/research2.html" class="no-external">
-<div class="listing-date">
-May 22, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -10,7 +10,7 @@
 <atom:link href="https://kmakdh3692.github.io/research/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Wed, 27 May 2026 02:50:33 GMT</lastBuildDate>
+<lastBuildDate>Wed, 27 May 2026 03:03:07 GMT</lastBuildDate>
 <item>
   <title>Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models</title>
   <dc:creator>Donghyun Ko</dc:creator>
@@ -49,9 +49,9 @@
 <li>A first multimodal Conditional Diffusion Model applied to the Peregrine digital twin dataset, fusing image history, temporal signals, scan paths, and process parameters</li>
 <li>Distribution-aware decision-making and uncertainty quantification via defect distributions rather than point predictions, supporting real-time GO/NO-GO decisions under uncertainty</li>
 </ul>
-<p><strong>Conference:</strong> <a href="../files/slide_3.pdf">Download Slides (PDF)</a><br>
-<strong>Poster:</strong> <a href="../files/poster_3.pdf">Download Poster (PDF)</a></p>
-<p><strong>Video:</strong> <a href="../files/vidieo_3.mp4">Download Poster (PDF)</a></p>
+<p><strong>Conference:</strong> <a href="../files/slide_3.pdf">Download Slides (PDF)</a>\</p>
+<p><strong>Poster:</strong> <a href="../files/poster_3.pdf">Download Poster (PDF)</a></p>
+<p><strong>Video:</strong> <a href="../files/vidieo_3.mp4">Download Poster (MP4)</a></p>
 <p><strong>abstract:</strong> <a href="../files/abstract.pdf">Download Poster (PDF)</a></p>
 <p><strong>Citation:</strong><br>
 Ko, Donghyun; Peloquin, Jacob (2026). <em>Risk-Aware Decision Making for Metal Additive Manufacturing via Conditional Diffusion Models.</em> Presented at <em>IISE Annual Conference &amp; Expo 2026</em>.</p>
@@ -65,9 +65,9 @@ Ko, Donghyun; Peloquin, Jacob (2026). <em>Risk-Aware Decision Making for Metal A
   <category>Generative AI</category>
   <category>Diffusion model</category>
   <category>Defect Detection</category>
-  <category>Real-time Decision Support</category>
+  <category>Real-time Decision</category>
   <guid>https://kmakdh3692.github.io/research/posts/research3.html</guid>
-  <pubDate>Wed, 27 May 2026 02:50:33 GMT</pubDate>
+  <pubDate>Wed, 27 May 2026 03:03:07 GMT</pubDate>
 </item>
 <item>
   <title>Application of Response Surface Method on Non-linear System Optimization: Paper Drone Experiment</title>

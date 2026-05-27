@@ -1,0 +1,127 @@
+---
+title: "Mathematical Statistics: Chapters 1–2"
+subtitle: "Probability and Random Variables"
+author: "Donghyun Ko"
+date: last-modified
+categories: ["Statistics", "Probability"]
+format:
+  html: default
+---
+
+These notes cover the foundational building blocks of probability and random variables from Rice's *Mathematical Statistics and Data Analysis* (3rd ed.). Chapter 1 constructs the framework for reasoning about uncertain outcomes — from sample spaces and axioms through conditional probability and Bayes' rule. Chapter 2 turns outcomes into numbers via random variables, introduces the CDF, PMF, and PDF, and covers expectations, variance, and transformations.
+
+## Chapter 1: Probability
+
+### Sample Space and Events
+
+A probability model starts by specifying all possible outcomes. The **sample space** $\Omega$ is the set of all possible outcomes of an experiment. An **event** $A$ is a subset of $\Omega$, and it occurs if the realized outcome $\omega$ lies in $A$.
+
+Because events are sets, we use standard set operations:
+
+- **Complement** $A^c$: the event that $A$ does not occur.
+- **Intersection** $A \cap B$: both $A$ and $B$ occur.
+- **Union** $A \cup B$: at least one of $A$ or $B$ occurs.
+- **Disjoint** events: $A \cap B = \emptyset$; they cannot happen simultaneously.
+
+### Axioms of Probability
+
+A probability measure $P$ assigns a number to each event $A \subset \Omega$ and must satisfy:
+
+1. **Normalization:** $P(\Omega) = 1$
+2. **Nonnegativity:** $P(A) \geq 0$ for all $A \subset \Omega$
+3. **Additivity:** if $A_1, A_2, \ldots$ are disjoint, then $P\!\left(\bigcup_i A_i\right) = \sum_i P(A_i)$
+
+From these three axioms, the useful working rules follow directly:
+
+$$P(A^c) = 1 - P(A), \quad P(\emptyset) = 0, \quad P(A \cup B) = P(A) + P(B) - P(A \cap B).$$
+
+### Conditional Probability and Bayes' Rule
+
+For events $A$ and $B$ with $P(B) > 0$, the **conditional probability** of $A$ given $B$ is
+
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}.$$
+
+Rearranging gives the **multiplication rule**: $P(A \cap B) = P(A \mid B)\,P(B)$.
+
+If $B_1, \ldots, B_n$ partition $\Omega$, the **law of total probability** decomposes any event $A$ as
+
+$$P(A) = \sum_{i=1}^n P(A \mid B_i)\,P(B_i).$$
+
+**Bayes' rule** reverses the direction of conditioning:
+
+$$P(B_j \mid A) = \frac{P(A \mid B_j)\,P(B_j)}{\sum_{i=1}^n P(A \mid B_i)\,P(B_i)}.$$
+
+This is the foundation of Bayesian inference: update the prior probability of a cause $B_j$ after observing evidence $A$.
+
+### Independence
+
+Events $A$ and $B$ are **independent** if $P(A \cap B) = P(A)\,P(B)$, equivalently $P(A \mid B) = P(A)$. Knowing that $B$ occurred tells us nothing new about $A$.
+
+---
+
+## Chapter 2: Random Variables
+
+A **random variable** $X$ is a real-valued function on $\Omega$. Rather than reasoning about outcomes directly, we reason about the numerical summaries they produce.
+
+### Cumulative Distribution Function
+
+Every random variable is completely characterized by its **CDF**:
+
+$$F(x) = P(X \leq x), \quad x \in \mathbb{R}.$$
+
+The CDF is non-decreasing, satisfies $\lim_{x \to -\infty} F(x) = 0$ and $\lim_{x \to \infty} F(x) = 1$, and gives interval probabilities via $P(a < X \leq b) = F(b) - F(a)$.
+
+### Discrete Random Variables
+
+A random variable is **discrete** if it takes values in a countable set. Its distribution is described by the **probability mass function (PMF)**:
+
+$$p(x) = P(X = x), \quad \sum_{x} p(x) = 1.$$
+
+Common discrete distributions include:
+
+- **Bernoulli($p$):** single trial, $P(X=1) = p$.
+- **Binomial($n,p$):** number of successes in $n$ independent trials.
+- **Geometric($p$):** number of trials until the first success.
+- **Poisson($\lambda$):** count of rare events; $P(X=x) = e^{-\lambda}\lambda^x / x!$.
+
+### Continuous Random Variables
+
+A random variable is **continuous** if its distribution is described by a **probability density function (PDF)** $f(x) \geq 0$, where
+
+$$P(a < X < b) = \int_a^b f(x)\,dx, \qquad \int_{-\infty}^{\infty} f(x)\,dx = 1.$$
+
+Note that $P(X = x) = 0$ for every single point. The support of $X$ is $\{x : f(x) \neq 0\}$.
+
+Key continuous distributions:
+
+- **Uniform($a,b$):** $f(x) = 1/(b-a)$ on $[a,b]$.
+- **Exponential($\lambda$):** $f(x) = \lambda e^{-\lambda x}$ for $x \geq 0$; satisfies the memoryless property.
+- **Gamma($\alpha, \lambda$):** waiting time for $\alpha$ events; reduces to Exponential when $\alpha = 1$.
+- **Normal($\mu, \sigma^2$):** $f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}$.
+- **Beta($\alpha,\beta$):** defined on $[0,1]$; used to model proportions and unknown probabilities.
+
+The CDF and PDF are linked by $F(x) = \int_{-\infty}^x f(t)\,dt$ and $f(x) = F'(x)$.
+
+### Expectation and Variance
+
+The **expected value** (mean) summarizes the center of a distribution:
+
+$$E[X] = \sum_x x\,p(x) \quad \text{(discrete)}, \qquad E[X] = \int_{-\infty}^\infty x\,f(x)\,dx \quad \text{(continuous)}.$$
+
+The **variance** measures spread around the mean:
+
+$$\operatorname{Var}(X) = E\!\left[(X - \mu)^2\right] = E[X^2] - \mu^2, \quad \mu = E[X].$$
+
+For a linear transformation $Y = aX + b$: $E[Y] = aE[X] + b$ and $\operatorname{Var}(Y) = a^2\operatorname{Var}(X)$.
+
+### Transformations of Continuous Random Variables
+
+If $Y = g(X)$ where $g$ is strictly monotone and differentiable, the **change-of-variables formula** gives
+
+$$f_Y(y) = f_X\!\left(g^{-1}(y)\right)\left|\frac{d}{dy}g^{-1}(y)\right|.$$
+
+A special case: if $Y = F(X)$ where $F$ is the CDF of a continuous $X$, then $Y \sim \text{Uniform}(0,1)$ — the **probability integral transform**, which underlies random-number simulation.
+
+---
+
+**Full notes:** [Download PDF](../files/Rice_Ch_1_2.pdf)
